@@ -15,26 +15,44 @@
 \maketitle
 
 \begin{abstract}
-Projeto apresentado na disciplina de Banco de dados I, para obtenção de parte da nota da 1ª Verificação de aprendizagem. O projeto consiste em um sistema com o intuito de automatizar o gerenciamento da reserva de veículos pelo setor de Transportes da Unidade Acadêmica de Garanhuns.
+O SLV - Sistema de Locação de Veículos tem o objetivo de automatizar o processo de solicitação de veículos na Unidade Acadêmica de Garanhuns - UFRPE. Foi inicialmente pensado pelo professor Luciano Souza como solução para o setor de transportes da unidade, uma vez que todo o processo de locação e acompanhamento de locação de veículos para visitas didáticas técnicas e de pesquisa são feitas de forma manual através de planilhas eletrônicas. 
 \end{abstract}
 \section{Introdução}
 O sistema de gerenciamento de locação de veículos consiste em um ambiente onde os usuários poderão solicitar ao setor de transporte a reserva de veículos para realizar atividades referentes a visitação ou pesquisa.
 
-O sistema terá quatro tipos de usuário, 'Administrador' (Funcionário responsável pelo Setor de Transportes), 'Padrão' (Servidores em geral da Instituição), 'Professor Pesquisador (Professores que desenvolvam atividades de pesquisa e que precise locar corro destinado para esse fim) e 'Professor' (Professor que não desenvolve atividade de pesquisa, mas precisará de veículos para desenvolver atividades de práticas e visitação). Esses últimos serão cadastrados por Administradores levando-se em conta os dados necessários para a correta identificação dos mesmos, incluindo-se documentos e dados institucionais. Ambos os tipos de usuário possuirão credenciais para login no sistema.
+A proposta do sistema é que o usuário tenha a disposição um ambiente WEB e dois aplicativos escritos na linguagem para dispositivos mobile, ANDROID.
 
-Após o login, o usuário padrão terá acesso a uma página com formulário para a solicitação de veículos, onde será especificado o veículo desejado dentre os disponíveis, data e hora da viagem, destino e finalidade da viagem.
+O ambiente WEB vai dispor de dois serviços, área administrativa e área do usuário. Ambos terão acesso por meio de cadastro prévio e criação de um login e senha. 
 
-Ao término da solicitação será gerado um número de protocolo e o pedido seguirá para análise pelo setor responsável. O usuário poderá verificar o status de seus pedidos em andamento buscando-os pelo protocolo ou através da visualização dos pedidos associados a seu nome ou matrícula, havendo também a possibilidade de cancelamento do pedido.
+As aplicações para dispositivos mobile vão ser utilizadas pelos usuários (Professores e Técnicos) e motoristas. Poderão ser realizadas solicitações de veículos, acompanhamento de solicitações, cancelamento e preenchimento de relatório de viagem respectivamente.
+
+O sistema terá quatro tipos de usuário, 'Administrador' (Funcionário responsável pelo Setor de Transportes), 'Técnico' (Servidores em geral da Instituição), 'Professor Pesquisador (Professores que desenvolvam atividades de pesquisa e que precise locar carro destinado para esse fim) e 'Professor' (Professor que não desenvolve atividade de pesquisa, mas precisará de veículos para desenvolver atividades de práticas e visitação). Esses últimos serão cadastrados por Administradores levando-se em conta os dados necessários para a correta identificação dos mesmos, incluindo-se documentos e dados institucionais. Como citado acima ambos os tipos de usuário possuirão credenciais para login no sistema.
+
+Após o login, o usuário terá acesso à sua área onde poderá preencher um formulário para a solicitação de veículos. Ao término da solicitação será gerado um número de protocolo e o pedido seguirá para análise pelo setor responsável. O usuário poderá verificar o status de seus pedidos em andamento buscando-os pelo protocolo ou através da visualização dos pedidos associados a seu nome ou matrícula, havendo também a possibilidade de cancelamento do pedido.
 
 Será possível aos Administradores consultar todos os dados do sistema. Caberá a eles a inclusão ou exclusão de veículos e usuários do sistema, assim como a alteração de status dos pedidos. Para definir um status como 'Concluído', será necessário a entrada dos dados quantitativos referentes à viagem, incluindo o número de quilômetros rodados e quantidade de combustível consumido.
 
 O objetivo deste projeto é o de automatizar a alocação de veículos na instituição, facilitando a atividade que hoje vem sendo feita através de planilhas eletrônicas e formulários preenchidos a cunho.
 
 \section{MER - Modelo Entidade Relacionamento}
-
+Pode-se ver abaixo o Modelo Entidade Relacionamento. Aqui são descritos em forma de diagrama as entidades envolvidas e os relacionamentos entre elas.
 \begin{center}
-\includegraphics[scale=0.25]{../ModeloER.jpeg}
+\includegraphics[scale=0.25]{esquema.png}
 \end{center}   
+
+\subsection{Dicionário de dados}
+Descreveremos agora cada entidade e seus atributos de acordo com seu papel dentro do sistema.
+\begin{table}[htp]\centering
+\begin{tabular}{|l||l|}
+\hline
+Atributo & Descrição \\ \hline \hline
+Nome &  \\ \hline
+CPF &  \\ \hline
+RG &  \\ \hline
+MatriculaUsuario &  \\ \hline
+\end{tabular}
+\caption{usuario}
+\end{table}
 
 \subsection{Modelo Esquema Relacional}
 
@@ -52,20 +70,20 @@ email, sexo, logradouro, numero, cidade, bairro, estado, cep)
 \item veiculo(\underline{tombamento}, fabricante, modelo, cor, placa, anoFabricacao, chassi, disponibilidade, capacidadeLitros, kmLitro)
 \end{itemize}
 
-\subsection{Entidades Fracas}
+\subsubsection{Entidades Fracas}
 \begin{itemize}
 
 \item historico(\underline{codigoHistorico}, protocolo, kmSaida, kmChegada, dataChegada, horaChegada, ocorrencia)
 
 \end{itemize}
 
-\subsection{Relacionamentos 1:1}
+\subsubsection{Relacionamentos 1:1}
 \begin{itemize}
 
 \item Como a entidade fraca ,Historico, também tem cardinalidade 1:1 e na regra anterior já foi tradado nesse passo não será necessário faze-lo.
 \end{itemize}
 
-\subsection{Relacionamentos 1:n(Que não envolvem entidades fracas)}
+\subsubsection{Relacionamentos 1:n(Que não envolvem entidades fracas)}
 \begin{itemize}
 
 \item usuarios(\underline{matriculaUsuario}, codigoSetor, nome, rg, cpf, senha,
@@ -75,17 +93,17 @@ email, sexo, logradouro, numero, cidade, bairro, estado, cep)
 
 \end{itemize}
 
-\subsection{Relacionamentos n:m}
+\subsubsection{Relacionamentos n:m}
 Não existe relacionamento n:m.
 
-\subsection{Atributos multivalorados}
+\subsubsection{Atributos multivalorados}
 \begin{itemize}
 
 \item telefone(\underline{codigoTelefone}, matriculaUsuario, matriculaMotorista, numeroResid, numeroCel)
 
 \end{itemize}
 
-\subsection{Especialização e Generalização}
+\subsubsection{Especialização e Generalização}
 
 \begin{itemize}
 
