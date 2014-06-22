@@ -63,8 +63,6 @@ email, sexo, logradouro, numero, cidade, bairro, estado, cep)
 
 \item setor(\underline{codigoSetor}, nome)
 
-\item solicitacaoViajem(\underline{protocolo}, solicitante, horaSaida, horaChegadaPrevista, dataViajem, naturezaTrabalho, quantidadePessoas, status, curso, itinerario, DataSolicitacao)
-
 \item Motorista(\underline{matriculaMotorista}, rg, cpf, cnh, nome, disponibilidade, logradouro, numero, cidade, bairro, estado, cep)
 
 \item veiculo(\underline{tombamento}, fabricante, modelo, cor, placa, anoFabricacao, chassi, disponibilidade, capacidadeLitros, kmLitro)
@@ -73,21 +71,20 @@ email, sexo, logradouro, numero, cidade, bairro, estado, cep)
 \subsubsection{Entidades Fracas}
 \begin{itemize}
 
-\item historico(\underline{codigoHistorico}, protocolo, kmSaida, kmChegada, dataChegada, horaChegada, ocorrencia)
+\item relatorioViagem(\underline{codigoRelatorio}, protocolo, matriculaMotorista, kmSaida, kmChegada, dataChegada, horaChegada, ocorrencia)
+
+\item ListaParticipantes(\underline{codigoParticipantes}, protocolo, cpf, nome)
 
 \end{itemize}
 
 \subsubsection{Relacionamentos 1:1}
 \begin{itemize}
 
-\item Como a entidade fraca ,Historico, também tem cardinalidade 1:1 e na regra anterior já foi tradado nesse passo não será necessário faze-lo.
+\item Como a entidade fraca ,RelatorioViagem e ListaParticipantes, também tem cardinalidade 1:1 e na regra anterior já foi tradado nesse passo não será necessário faze-lo.
 \end{itemize}
 
 \subsubsection{Relacionamentos 1:n(Que não envolvem entidades fracas)}
 \begin{itemize}
-
-\item usuarios(\underline{matriculaUsuario}, codigoSetor, nome, rg, cpf, senha,
-email, sexo, logradouro, numero, cidade, bairro, estado, cep)
 
 \item solicitacaoViajem(\underline{protocolo}, solicitante, horaSaida, horaChegadaPrevista, dataViajem, naturezaTrabalho, quantidadePessoas, status, curso, itinerario, DataSolicitacao, matriculaUsuario, tombamento, matriculaMotrista)
 
