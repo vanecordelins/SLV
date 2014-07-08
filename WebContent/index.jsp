@@ -1,1 +1,1 @@
-Simples JSP - Tomcat e Eclipse
+Sistema de Locação de Veículos da UAG

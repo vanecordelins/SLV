@@ -8,4 +8,6 @@ package br.com.slv.model;
  */
 public class Usuario {
 
+    private Long id;
+    
 }
