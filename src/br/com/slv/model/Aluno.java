@@ -1,30 +1,25 @@
 package br.com.slv.model;
 
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 /**
- * Classe modela a entidade Setor.
- * 
+ *
  * @author ramonsantos
  */
 
 @Entity
-public class Setor {
-
+public class Aluno {
+    
     @Id
     @GeneratedValue
-    private Long id;  
+    private Long id;
     
     private String nome;
-    
-    @OneToMany(mappedBy="setorAlocado")
-    private List<Usuario> listaUsuarios;
+    private String cpf;
 
-    public Setor(){
+    public Aluno(){
         
     }
     
@@ -40,12 +35,13 @@ public class Setor {
         this.nome = nome;
     }
 
-    public List<Usuario> getListaUsuarios() {
-        return listaUsuarios;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setListaUsuarios(List<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
+    
     
 }
