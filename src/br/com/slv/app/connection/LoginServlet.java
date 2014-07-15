@@ -1,11 +1,13 @@
 package br.com.slv.app.connection;
 
-import br.com.slv.controller.UsuarioDAO;
 import br.com.slv.exception.SenhaUsuarioIncorretaException;
 import br.com.slv.exception.UsuarioInexistenteException;
-import br.com.slv.model.Usuario;
+import br.com.slv.usuario.Usuario;
+import br.com.slv.usuario.UsuarioDAO;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
