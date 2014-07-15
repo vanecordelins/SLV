@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Classe responsável por prover a autenticação do usuário via dispositivos
  * mobile.
- *
+ * @author lucianoserafim
  * @author ramonsantos.
  */
 @WebServlet("/LoginServlet")
