@@ -129,7 +129,7 @@ public class VeiculoDAO implements IVeiculoDAO {
 			this.sessao = HibernateUtil.getSessionFactory().getCurrentSession();
 			this.transacao = this.sessao.beginTransaction();
 			Criteria filtro = this.sessao.createCriteria(Veiculo.class);
-			filtro.add(Restrictions.eq("categoria", tombamento));
+			filtro.add(Restrictions.eq("veiculo", tombamento));
 			veiculo = (Veiculo) filtro.uniqueResult();
 			this.transacao.commit();
 

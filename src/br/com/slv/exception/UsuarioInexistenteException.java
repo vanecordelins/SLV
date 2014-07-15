@@ -7,6 +7,11 @@ package br.com.slv.exception;
 public class UsuarioInexistenteException extends Exception {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = -5423891308792648738L;
+
+	/**
      * Creates a new instance of <code>UsuarioInexistenteException</code>
      * without detail message.
      */

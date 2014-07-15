@@ -7,6 +7,11 @@ package br.com.slv.exception;
 public class SenhaUsuarioIncorretaException extends Exception {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = -5619892124363462896L;
+
+	/**
      * Creates a new instance of <code>SenhaUsuarioIncorretaException</code>
      * without detail message.
      */

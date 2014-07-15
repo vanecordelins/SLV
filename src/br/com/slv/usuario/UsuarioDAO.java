@@ -11,27 +11,25 @@ import org.hibernate.criterion.Restrictions;
 import br.com.slv.exception.SenhaUsuarioIncorretaException;
 import br.com.slv.exception.UsuarioInexistenteException;
 import br.com.slv.util.HibernateUtil;
-import br.com.slv.veiculo.Veiculo;
 
 public class UsuarioDAO implements IUsuarioDAO{
 	
-
 	private Session sessao;
 	private Transaction transacao;
 
 	@Override
-	public void salvarVeiculo(Veiculo veiculo) {
+	public void salvarUsuario(Usuario usuario) {
 
 		try {
 
 			this.sessao = HibernateUtil.getSessionFactory().getCurrentSession();
 			this.transacao = this.sessao.beginTransaction();
-			this.sessao.save(veiculo);
+			this.sessao.save(usuario);
 			this.transacao.commit();
 
 		} catch (HibernateException e) {
 
-			System.out.println("Não foi possível inserir o veiculo. Erro: "
+			System.out.println("Não foi possível inserir o usuario. Erro: "
 					+ e.getMessage());
 
 		} finally {
@@ -54,18 +52,18 @@ public class UsuarioDAO implements IUsuarioDAO{
 	}
 
 	@Override
-	public void altualizarVeiculo(Veiculo veiculo) {
+	public void altualizarUsuario(Usuario usuario) {
 
 		try {
 
 			this.sessao = HibernateUtil.getSessionFactory().getCurrentSession();
 			this.transacao = this.sessao.beginTransaction();
-			this.sessao.update(veiculo);
+			this.sessao.update(usuario);
 			this.transacao.commit();
 
 		} catch (HibernateException e) {
 
-			System.out.println("não foi posível alterar o veiculo. Erro: "
+			System.out.println("não foi posível alterar o usuario. Erro: "
 					+ e.getMessage());
 
 		} finally {
@@ -89,18 +87,18 @@ public class UsuarioDAO implements IUsuarioDAO{
 	}
 
 	@Override
-	public void excluirVeiculo(Veiculo veiculo) {
+	public void excluirUsuario(Usuario usuario) {
 
 		try {
 
 			this.sessao = HibernateUtil.getSessionFactory().getCurrentSession();
 			this.transacao = this.sessao.beginTransaction();
-			this.sessao.delete(veiculo);
+			this.sessao.delete(usuario);
 			this.transacao.commit();
 
 		} catch (HibernateException e) {
 
-			System.out.println("Não foi possível excluir o veiculo. Erro: "
+			System.out.println("Não foi possível excluir o usuario. Erro: "
 					+ e.getMessage());
 
 		} finally {
@@ -124,17 +122,17 @@ public class UsuarioDAO implements IUsuarioDAO{
 	}
 
 	@Override
-	public Veiculo buscaVeiculo(String tombamento) {
+	public Usuario buscaUsuario(String cpf) {
 
-		Veiculo veiculo = null;
+		Usuario usuario = null;
 
 		try {
 
 			this.sessao = HibernateUtil.getSessionFactory().getCurrentSession();
 			this.transacao = this.sessao.beginTransaction();
-			Criteria filtro = this.sessao.createCriteria(Veiculo.class);
-			filtro.add(Restrictions.eq("categoria", tombamento));
-			veiculo = (Veiculo) filtro.uniqueResult();
+			Criteria filtro = this.sessao.createCriteria(Usuario.class);
+			filtro.add(Restrictions.eq("usuario", cpf));
+			usuario = (Usuario) filtro.uniqueResult();
 			this.transacao.commit();
 
 		} catch (Throwable e) {
@@ -164,22 +162,22 @@ public class UsuarioDAO implements IUsuarioDAO{
 			}
 		}
 
-		return veiculo;
+		return usuario;
 
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Veiculo> listarVeiculos() {
+	public List<Usuario> listarUsuarios() {
 
-		List<Veiculo> veiculos = null;
+		List<Usuario> usuarios = null;
 
 		try {
 
 			this.sessao = HibernateUtil.getSessionFactory().getCurrentSession();
 			this.transacao = this.sessao.beginTransaction();
-			Criteria filtro = this.sessao.createCriteria(Veiculo.class);
-			veiculos = filtro.list();
+			Criteria filtro = this.sessao.createCriteria(Usuario.class);
+			usuarios = filtro.list();
 			this.transacao.commit();
 
 		} catch (Throwable e) {
@@ -209,8 +207,13 @@ public class UsuarioDAO implements IUsuarioDAO{
 			}
 		}
 
-		return veiculos;
+		return usuarios;
 
+	}
+	
+	public static UsuarioDAO getInstanceUsuarioDAO() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
     @Override
@@ -220,10 +223,5 @@ public class UsuarioDAO implements IUsuarioDAO{
         return null;
         
     }
-
-	public static UsuarioDAO getInstanceUsuarioDAO() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

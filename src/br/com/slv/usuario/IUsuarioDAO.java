@@ -4,7 +4,6 @@ import java.util.List;
 
 import br.com.slv.exception.SenhaUsuarioIncorretaException;
 import br.com.slv.exception.UsuarioInexistenteException;
-import br.com.slv.veiculo.Veiculo;
 
 /**
  * @author luciano
@@ -12,11 +11,11 @@ import br.com.slv.veiculo.Veiculo;
  */
 public interface IUsuarioDAO {
 	
-	public void salvarVeiculo(Veiculo veiculo);
-	public void altualizarVeiculo(Veiculo veiculo);
-	public void excluirVeiculo(Veiculo veiculo);
-	public Veiculo buscaVeiculo(String tombamento);
-	public List<Veiculo> listarVeiculos();
+	public void salvarUsuario(Usuario usuario);
+	public void altualizarUsuario(Usuario usuario);
+	public void excluirUsuario(Usuario usuario);
+	public Usuario buscaUsuario(String cpf);
+	public List<Usuario> listarUsuarios();
 
 	/**
 	 * 
