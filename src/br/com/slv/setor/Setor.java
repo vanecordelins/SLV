@@ -4,8 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.persistence.OneToMany;
 
 import br.com.slv.usuario.Usuario;
@@ -18,6 +17,7 @@ import br.com.slv.usuario.Usuario;
  */
 
 @Entity
+@Table(name="setor")
 public class Setor implements Serializable {
 
 	/**
@@ -31,8 +31,8 @@ public class Setor implements Serializable {
 
 	private String nome;
 
-	@OneToMany(mappedBy = "setorAlocado")
-	private List<Usuario> listaUsuarios;
+	 @OneToMany(mappedBy = "id")
+	 private List<Usuario> listaUsuarios;
 
 	public Setor() {
 
@@ -68,8 +68,6 @@ public class Setor implements Serializable {
 		int result = 1;
 		result = prime * result
 				+ ((codigoSetor == null) ? 0 : codigoSetor.hashCode());
-		result = prime * result
-				+ ((listaUsuarios == null) ? 0 : listaUsuarios.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
@@ -87,11 +85,6 @@ public class Setor implements Serializable {
 			if (other.codigoSetor != null)
 				return false;
 		} else if (!codigoSetor.equals(other.codigoSetor))
-			return false;
-		if (listaUsuarios == null) {
-			if (other.listaUsuarios != null)
-				return false;
-		} else if (!listaUsuarios.equals(other.listaUsuarios))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)

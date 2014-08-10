@@ -14,6 +14,10 @@ public class SetorDAO implements ISetorDAO {
 
 	private Session sessao;
 	private Transaction transacao;
+	
+	public void setSession(Session session){
+		this.sessao = session;
+	}
 
 	@Override
 	public void salvarSetor(Setor setor) {

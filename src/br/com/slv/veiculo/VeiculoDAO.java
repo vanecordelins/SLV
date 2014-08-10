@@ -14,6 +14,10 @@ public class VeiculoDAO implements IVeiculoDAO {
 
 	private Session sessao;
 	private Transaction transacao;
+	
+	public void setSession(Session session){
+		this.sessao = session;
+	}
 
 	@Override
 	public void salvarVeiculo(Veiculo veiculo) {

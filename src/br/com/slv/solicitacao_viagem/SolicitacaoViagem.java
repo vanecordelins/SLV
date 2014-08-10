@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -27,6 +28,7 @@ import br.com.slv.veiculo.Veiculo;
  */
 
 @Entity
+@Table(name = "solicitacaoviagem")
 public class SolicitacaoViagem implements Serializable {
 
 	/**
@@ -46,16 +48,16 @@ public class SolicitacaoViagem implements Serializable {
 	private char status;
 
 	@Temporal(TemporalType.TIME)
-	private Calendar horaSaida;
+	private java.util.Date horaSaida;
 
 	@Temporal(TemporalType.TIME)
-	private Calendar horaChegadaPrevista;
+	private java.util.Date horaChegadaPrevista;
 
 	@Temporal(TemporalType.DATE)
-	private Calendar dataViagem;
+	private java.util.Date dataViagem;
 
 	@Temporal(TemporalType.DATE)
-	private Calendar dataSolicitacao;
+	private java.util.Date dataSolicitacao;
 
 	@ManyToOne
 	private Usuario usuarioSolicitante;
@@ -65,10 +67,10 @@ public class SolicitacaoViagem implements Serializable {
 
 	@OneToOne
 	private RelatorioViagem relatorioViagem;
-	
+
 	@ManyToOne
 	private Motorista motoristaAlocado;
-	
+
 	@Embedded
 	List<Participantes> listaParticipantes;
 
@@ -112,12 +114,12 @@ public class SolicitacaoViagem implements Serializable {
 		this.itinerario = itinerario;
 	}
 
-	public int getQuantPessoas() {
+	public int getQuantidadePessoas() {
 		return quantidadePessoas;
 	}
 
-	public void setQuantPessoas(int quantPessoas) {
-		this.quantidadePessoas = quantPessoas;
+	public void setQuantidadePessoas(int quantidadePessoas) {
+		this.quantidadePessoas = quantidadePessoas;
 	}
 
 	public char getStatus() {
@@ -128,35 +130,35 @@ public class SolicitacaoViagem implements Serializable {
 		this.status = status;
 	}
 
-	public Calendar getHoraSaida() {
+	public java.util.Date getHoraSaida() {
 		return horaSaida;
 	}
 
-	public void setHoraSaida(Calendar horaSaida) {
+	public void setHoraSaida(java.util.Date horaSaida) {
 		this.horaSaida = horaSaida;
 	}
 
-	public Calendar getHoraChegadaPrevista() {
+	public java.util.Date getHoraChegadaPrevista() {
 		return horaChegadaPrevista;
 	}
 
-	public void setHoraChegadaPrevista(Calendar horaChegadaPrevista) {
+	public void setHoraChegadaPrevista(java.util.Date horaChegadaPrevista) {
 		this.horaChegadaPrevista = horaChegadaPrevista;
 	}
 
-	public Calendar getDataViagem() {
+	public java.util.Date getDataViagem() {
 		return dataViagem;
 	}
 
-	public void setDataViagem(Calendar dataViagem) {
+	public void setDataViagem(java.util.Date dataViagem) {
 		this.dataViagem = dataViagem;
 	}
 
-	public Calendar getDataSolicitacao() {
+	public java.util.Date getDataSolicitacao() {
 		return dataSolicitacao;
 	}
 
-	public void setDataSolicitacao(Calendar dataSolicitacao) {
+	public void setDataSolicitacao(java.util.Date dataSolicitacao) {
 		this.dataSolicitacao = dataSolicitacao;
 	}
 
@@ -184,6 +186,26 @@ public class SolicitacaoViagem implements Serializable {
 		this.relatorioViagem = relatorioViagem;
 	}
 
+	public Motorista getMotoristaAlocado() {
+		return motoristaAlocado;
+	}
+
+	public void setMotoristaAlocado(Motorista motoristaAlocado) {
+		this.motoristaAlocado = motoristaAlocado;
+	}
+
+	public List<Participantes> getListaParticipantes() {
+		return listaParticipantes;
+	}
+
+	public void setListaParticipantes(List<Participantes> listaParticipantes) {
+		this.listaParticipantes = listaParticipantes;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -202,6 +224,13 @@ public class SolicitacaoViagem implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result
 				+ ((itinerario == null) ? 0 : itinerario.hashCode());
+		result = prime
+				* result
+				+ ((listaParticipantes == null) ? 0 : listaParticipantes
+						.hashCode());
+		result = prime
+				* result
+				+ ((motoristaAlocado == null) ? 0 : motoristaAlocado.hashCode());
 		result = prime
 				* result
 				+ ((naturezaTrabalho == null) ? 0 : naturezaTrabalho.hashCode());
@@ -263,6 +292,16 @@ public class SolicitacaoViagem implements Serializable {
 			if (other.itinerario != null)
 				return false;
 		} else if (!itinerario.equals(other.itinerario))
+			return false;
+		if (listaParticipantes == null) {
+			if (other.listaParticipantes != null)
+				return false;
+		} else if (!listaParticipantes.equals(other.listaParticipantes))
+			return false;
+		if (motoristaAlocado == null) {
+			if (other.motoristaAlocado != null)
+				return false;
+		} else if (!motoristaAlocado.equals(other.motoristaAlocado))
 			return false;
 		if (naturezaTrabalho == null) {
 			if (other.naturezaTrabalho != null)

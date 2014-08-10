@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+
+	<link
+		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap-theme.css"
+		rel="stylesheet" type="text/css" />
+
+	<title>Login</title>
+</h:head>
+<h:body>
+	<div id="corpo">
+		<div id="container-fluid">
+			<div class="row-fluid">
+				<div class="col-md-12 column">
+					<div class="col-md-4 column"></div>
+					<div class="col-md-4 column">
+						<h:form id="login" class="form-signin" method="post">
+							<h2 class="form-signin-heading">Seja bem vindo.</h2>
+
+								<h:outputLabel value="Login" for="login" />
+								<h:inputText type="text" id="cpf" label="Login"
+									class="form-control" required="true"
+									requiredMessage="Digite seu login" />
+								<br />
+								<p:message for="cpf" />
+
+								<h:outputLabel value="Senha" for="senha" />
+								<h:inputSecret type="password" id="senha" label="Senha"
+									class="form-control" required="true"
+									requiredMessage="Digite sua senha" />
+								<br />
+								<p:message for="senha" />
+								<br />
+								
+								<h:commandButton action="#{usuarioBean.login}" value="Entrar"
+									class="btn btn-lg btn-primary btn-block" />
+						</h:form>
+						<br /> <a href="#">Recuperar senha.</a>
+
+					</div>
+					<div class="col-md-4 column"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>

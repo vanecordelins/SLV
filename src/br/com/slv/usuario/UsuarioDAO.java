@@ -16,6 +16,10 @@ public class UsuarioDAO implements IUsuarioDAO{
 	
 	private Session sessao;
 	private Transaction transacao;
+	
+	public void setSession(Session session){
+		this.sessao = session;
+	}
 
 	@Override
 	public void salvarUsuario(Usuario usuario) {

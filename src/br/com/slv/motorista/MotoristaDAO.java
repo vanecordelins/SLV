@@ -14,6 +14,10 @@ public class MotoristaDAO implements IMotoristaDAO {
 
 	private Session sessao;
 	private Transaction transacao;
+	
+	public void setSession(Session session){
+		this.sessao = session;
+	}
 
 	@Override
 	public void salvarMotorista(Motorista motorista) {

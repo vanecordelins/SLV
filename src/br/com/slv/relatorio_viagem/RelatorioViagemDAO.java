@@ -14,6 +14,10 @@ public class RelatorioViagemDAO implements IRelatorioViagem {
 
 	private Session sessao;
 	private Transaction transacao;
+	
+	public void setSession(Session session){
+		this.sessao = session;
+	}
 
 	@Override
 	public void salvarRelatorioViagem(RelatorioViagem relatorioViagem) {

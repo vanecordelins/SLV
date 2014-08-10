@@ -2,12 +2,7 @@ package br.com.slv.usuario;
 
 import java.io.Serializable;
 import java.util.List;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import br.com.slv.setor.Setor;
 import br.com.slv.solicitacao_viagem.SolicitacaoViagem;
@@ -20,42 +15,46 @@ import br.com.slv.solicitacao_viagem.SolicitacaoViagem;
  */
 
 @Entity
+@Table(name="usuario")
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = -2273611952866880389L;
 
 	@Id
-    @GeneratedValue
-    private Long id;
-   
-    private String cpf;
-    private String nome;
-    private String rgUsuario;
-    private String orgaoExpeditor;
-    private String identificador;
-    private String senha;
-    private String email;
-    private char sexo;
-    
-    private String logradouro;
-    private String numero;
-    private String cidade;
-    private String bairro;
-    private String estado;
-    private String cep;
-   
-    private String telefoneResidencial;
-    private String telefoneCelular;
-    
-    @ManyToOne
-    private Setor setorAlocado;
-    
-    @OneToMany(mappedBy="usuarioSolicitante")
-    private List<SolicitacaoViagem> listaSolicitacoesViagens;
+	@GeneratedValue
+	private Long id;
 
-    public Usuario(){
-        
-    }
+	private String cpf;
+	private String nome;
+	private String rgUsuario;
+	private String orgaoExpeditor;
+	private String identificador;
+	private String senha;
+	private String email;
+	private char sexo;
+
+	private String logradouro;
+	private String numero;
+	private String cidade;
+	private String bairro;
+	private String estado;
+	private String cep;
+
+	private String perguntaSecreta;
+
+	private String telefoneResidencial;
+	private String telefoneCelular;
+
+	@ManyToOne
+	@JoinColumn(name="codigoSetor")
+	private Setor setorAlocado;
+
+	@OneToMany(mappedBy = "usuarioSolicitante")
+	private List<SolicitacaoViagem> listaSolicitacoesViagens;
+
+	public Usuario() {
+
+	}
 
 	public Long getId() {
 		return id;
@@ -173,6 +172,14 @@ public class Usuario implements Serializable {
 		this.cep = cep;
 	}
 
+	public String getPerguntaSecreta() {
+		return perguntaSecreta;
+	}
+
+	public void setPerguntaSecreta(String perguntaSecreta) {
+		this.perguntaSecreta = perguntaSecreta;
+	}
+
 	public String getTelefoneResidencial() {
 		return telefoneResidencial;
 	}
@@ -206,6 +213,10 @@ public class Usuario implements Serializable {
 		this.listaSolicitacoesViagens = listaSolicitacoesViagens;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -229,6 +240,8 @@ public class Usuario implements Serializable {
 		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
 		result = prime * result
 				+ ((orgaoExpeditor == null) ? 0 : orgaoExpeditor.hashCode());
+		result = prime * result
+				+ ((perguntaSecreta == null) ? 0 : perguntaSecreta.hashCode());
 		result = prime * result
 				+ ((rgUsuario == null) ? 0 : rgUsuario.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
@@ -319,6 +332,11 @@ public class Usuario implements Serializable {
 				return false;
 		} else if (!orgaoExpeditor.equals(other.orgaoExpeditor))
 			return false;
+		if (perguntaSecreta == null) {
+			if (other.perguntaSecreta != null)
+				return false;
+		} else if (!perguntaSecreta.equals(other.perguntaSecreta))
+			return false;
 		if (rgUsuario == null) {
 			if (other.rgUsuario != null)
 				return false;
@@ -348,6 +366,5 @@ public class Usuario implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
+
 }

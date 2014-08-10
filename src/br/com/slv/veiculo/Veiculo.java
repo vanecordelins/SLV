@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import br.com.slv.solicitacao_viagem.SolicitacaoViagem;
 
@@ -19,6 +20,7 @@ import br.com.slv.solicitacao_viagem.SolicitacaoViagem;
  */
 
 @Entity
+@Table(name="veiculo")
 public class Veiculo implements Serializable {
 
 	/**

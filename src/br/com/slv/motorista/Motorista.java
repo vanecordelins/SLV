@@ -2,12 +2,14 @@ package br.com.slv.motorista;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -21,6 +23,7 @@ import br.com.slv.solicitacao_viagem.SolicitacaoViagem;
  */
 
 @Entity
+@Table(name = "motorista")
 public class Motorista implements Serializable {
 
 	/**
@@ -56,7 +59,7 @@ public class Motorista implements Serializable {
 	private List<RelatorioViagem> relatorioViagens;
 
 	@Temporal(TemporalType.TIME)
-	private Calendar horasExtras;
+	private java.util.Date horasExtras;
 
 	@OneToMany(mappedBy = "motoristaAlocado")
 	List<SolicitacaoViagem> listaViagem;
@@ -205,19 +208,19 @@ public class Motorista implements Serializable {
 		this.telefoneCelular = telefoneCelular;
 	}
 
-	public List<RelatorioViagem> getHistoricoViagens() {
+	public List<RelatorioViagem> getRelatorioViagens() {
 		return relatorioViagens;
 	}
 
-	public void setHistoricoViagens(List<RelatorioViagem> historicoViagens) {
-		this.relatorioViagens = historicoViagens;
+	public void setRelatorioViagens(List<RelatorioViagem> relatorioViagens) {
+		this.relatorioViagens = relatorioViagens;
 	}
 
-	public Calendar getHorasExtras() {
+	public java.util.Date getHorasExtras() {
 		return horasExtras;
 	}
 
-	public void setHorasExtras(Calendar horasExtras) {
+	public void setHorasExtras(java.util.Date horasExtras) {
 		this.horasExtras = horasExtras;
 	}
 
@@ -227,6 +230,10 @@ public class Motorista implements Serializable {
 
 	public void setListaViagem(List<SolicitacaoViagem> listaViagem) {
 		this.listaViagem = listaViagem;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
@@ -241,9 +248,6 @@ public class Motorista implements Serializable {
 		result = prime * result + (disponibilidade ? 1231 : 1237);
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
-		result = prime
-				* result
-				+ ((relatorioViagens == null) ? 0 : relatorioViagens.hashCode());
 		result = prime * result
 				+ ((horasExtras == null) ? 0 : horasExtras.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -255,6 +259,9 @@ public class Motorista implements Serializable {
 		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
 		result = prime * result
 				+ ((orgaoExpeditor == null) ? 0 : orgaoExpeditor.hashCode());
+		result = prime
+				* result
+				+ ((relatorioViagens == null) ? 0 : relatorioViagens.hashCode());
 		result = prime * result + ((rg == null) ? 0 : rg.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		result = prime * result + sexo;
@@ -313,11 +320,6 @@ public class Motorista implements Serializable {
 				return false;
 		} else if (!estado.equals(other.estado))
 			return false;
-		if (relatorioViagens == null) {
-			if (other.relatorioViagens != null)
-				return false;
-		} else if (!relatorioViagens.equals(other.relatorioViagens))
-			return false;
 		if (horasExtras == null) {
 			if (other.horasExtras != null)
 				return false;
@@ -352,6 +354,11 @@ public class Motorista implements Serializable {
 			if (other.orgaoExpeditor != null)
 				return false;
 		} else if (!orgaoExpeditor.equals(other.orgaoExpeditor))
+			return false;
+		if (relatorioViagens == null) {
+			if (other.relatorioViagens != null)
+				return false;
+		} else if (!relatorioViagens.equals(other.relatorioViagens))
 			return false;
 		if (rg == null) {
 			if (other.rg != null)

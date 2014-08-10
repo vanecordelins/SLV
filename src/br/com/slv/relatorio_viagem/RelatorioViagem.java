@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -21,6 +22,7 @@ import br.com.slv.solicitacao_viagem.SolicitacaoViagem;
  */
 
 @Entity
+@Table(name = "relatorioviagem")
 public class RelatorioViagem implements Serializable {
 
 	/**
@@ -37,10 +39,10 @@ public class RelatorioViagem implements Serializable {
 	private float kmChegada;
 
 	@Temporal(TemporalType.DATE)
-	private Calendar dataChegada;
+	private java.util.Date dataChegada;
 
 	@Temporal(TemporalType.TIME)
-	private Calendar horaChegada;
+	private java.util.Date horaChegada;
 
 	@ManyToOne
 	private Motorista motoristaResponsavel;
@@ -76,19 +78,19 @@ public class RelatorioViagem implements Serializable {
 		this.kmChegada = kmChegada;
 	}
 
-	public Calendar getDataChegada() {
+	public java.util.Date getDataChegada() {
 		return dataChegada;
 	}
 
-	public void setDataChegada(Calendar dataChegada) {
+	public void setDataChegada(java.util.Date dataChegada) {
 		this.dataChegada = dataChegada;
 	}
 
-	public Calendar getHoraChegada() {
+	public java.util.Date getHoraChegada() {
 		return horaChegada;
 	}
 
-	public void setHoraChegada(Calendar horaChegada) {
+	public void setHoraChegada(java.util.Date horaChegada) {
 		this.horaChegada = horaChegada;
 	}
 

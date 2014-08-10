@@ -15,6 +15,10 @@ public class SolicitacaoViagemDAO implements ISolicitacaoViagem {
 
 	private Session sessao;
 	private Transaction transacao;
+	
+	public void setSession(Session session){
+		this.sessao = session;
+	}
 
 	@Override
 	public void salvarSolicitacaoViagem(SolicitacaoViagem solicitacaoViagem) {
