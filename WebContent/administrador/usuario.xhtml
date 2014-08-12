@@ -5,7 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.prime.com.tr/ui"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">>
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,6 +21,7 @@
 		rel="stylesheet" type="text/css" />
 
 	<title>Cadastrar usuário</title>
+
 </h:head>
 <h:body>
 	<div id="corpo">
@@ -29,37 +30,66 @@
 			<div class="row-fluid">
 				<div class="col-md-12 column">
 
-					<form id="cadastro" class="form-signin" method="post">
+					<h:form id="cadastro" class="form-signin" method="post">
 						<fieldset>
 							<legend>Dados pessoais</legend>
 							<div class="row-fluid">
 								<div class="col-xs-6 col-md-4">
-									<input type="text" id="nome" label="Nome"
+									<h:inputText id="nome" label="Nome"
 										value="#{usuarioBean.usuario.nome}" class="form-control"
-										required="true" placeholder="Nome" />
-										<h:message for="nome"/>
+										required="true" pt:placeholder="Nome" maxlength="100"
+										title="Apenas letras" />
 								</div>
 								<div class="col-xs-6 col-md-4">
-									<input type="text" id="rg" label="Rg"
+									<h:inputText  id="rg" label="Rg"
 										value="#{usuarioBean.usuario.rgUsuario}" class="form-control"
-										required="true" placeholder="RG" />
+										required="true" pt:placeholder="RG" maxlength="8"
+										title="Apenas números" />
 								</div>
 								<div class="col-xs-6 col-md-4">
-									<input type="text" id="orgaoExpeditor" label="Orgão expeditor"
-										value="#{usuarioBean.usuario.orgaoExpeditor}"
-										class="form-control" required="true"
-										placeholder="Orgão expeditor" />
+									<select id="orgaoexpeditor" class="form-control">
+										<option disabled="disabled" selected="selected">Orgão
+											expeditor</option>
+										<option value="sspac">SSP/AC</option>
+										<option value="sspal">SSP/AL</option>
+										<option value="sspap">SSP/AP</option>
+										<option value="sspam">SSP/AM</option>
+										<option value="sspba">SSP/BA</option>
+										<option value="sspce">SSP/CE</option>
+										<option value="sspdf">SSP/DF</option>
+										<option value="sspes">SSP/ES</option>
+										<option value="sspgo">SSP/GO</option>
+										<option value="sspma">SSP/MA</option>
+										<option value="sspmt">SSP/MT</option>
+										<option value="sspms">SSP/MS</option>
+										<option value="sspmg">SSP/MG</option>
+										<option value="ssppa">SSP/PA</option>
+										<option value="ssppb">SSP/PB</option>
+										<option value="ssppr">SSP/PR</option>
+										<option value="ssppe">SSP/PE</option>
+										<option value="ssppi">SSP/PI</option>
+										<option value="ssprj">SSP/RJ</option>
+										<option value="ssprn">SSP/RN</option>
+										<option value="ssprs">SSP/RS</option>
+										<option value="sspro">SSP/RO</option>
+										<option value="ssprr">SSP/RR</option>
+										<option value="sspsc">SSP/SC</option>
+										<option value="sspsp">SSP/SP</option>
+										<option value="sspse">SSP/SE</option>
+										<option value="sspto">SSP/TO</option>
+									</select>
 								</div>
 							</div>
 							<div class="row-fluid">
 								<div class="col-xs-6 col-md-4">
-									<input type="text" id="cpf" label="cpf"
+									<h:inputText id="cpf" label="cpf"
 										value="#{usuarioBean.usuario.cpf}" class="form-control"
-										required="true" placeholder="CPF" />
+										required="true" pt:placeholder="CPF" maxlength="11"
+										title="76545609800" />
 								</div>
 								<div class="col-xs-6 col-md-4">
 									<select id="sexo" class="form-control">
-									    <option disabled="disabled" selected="selected">Sexo</option>
+										<option disabled="disabled" selected="selected">Sexo</option>
 										<option value="m">Masculino</option>
 										<option value="f">Feminino</option>
 									</select>
@@ -69,46 +99,139 @@
 						<fieldset>
 							<legend>Endereço</legend>
 							<div class="row-fluid">
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+								<div class="col-xs-6 col-md-4">
+									<h:inputText type="text" id="logradouro" label="Logradouro"
+										value="#{usuarioBean.usuario.logradouro}" class="form-control"
+										required="true" pt:placeholder="Logradouro" />
+								</div>
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="numero" label="Numero"
+										value="#{usuarioBean.usuario.numero}" class="form-control"
+										required="true" pt:placeholder="Numero" />
+								</div>
+								<div class="col-xs-6 col-md-4">
+									<h:inputText type="text" id="bairro" label="Bairro"
+										value="#{usuarioBean.usuario.bairro}" class="form-control"
+										required="true" pt:placeholder="Bairro" />
+								</div>
 							</div>
 							<div class="row-fluid">
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="cidade" label="Cidade"
+										value="#{usuarioBean.usuario.cidade}" class="form-control"
+										required="true" pt:placeholder="Cidade" />
+								</div>
+								<div class="col-xs-6 col-md-4">
+									<h:selectOneMenu id="estado" class="form-control">
+										<option disabled="disabled" selected="selected">Estado</option>
+										<option value="ac">ACRE</option>
+										<option value="al">ALAGOAS</option>
+										<option value="ap">AMAPÁ</option>
+										<option value="am">AMAZONAS</option>
+										<option value="ba">BAHIA</option>
+										<option value="ce">CEARÁ</option>
+										<option value="df">DISTRITO FEDERAL</option>
+										<option value="es">ESPÍRITO SANTO</option>
+										<option value="go">GOIÁS</option>
+										<option value="ma">MARANHÃO</option>
+										<option value="mt">MATO GROSSO</option>
+										<option value="ms">MATO GROSSO DO SUL</option>
+										<option value="mg">MINAS GERAIS</option>
+										<option value="pa">PARÁ</option>
+										<option value="pb">PARAÍBA</option>
+										<option value="pr">PARANÁ</option>
+										<option value="pe">PERNAMBUCO</option>
+										<option value="pi">PIAUÍ</option>
+										<option value="rj">RIO DE JANEIRO</option>
+										<option value="rn">RIO GRANDE DO NORTE</option>
+										<option value="rs">RIO GRANDE DO SUL</option>
+										<option value="ro">RONDÔNIA</option>
+										<option value="rr">RORAIMA</option>
+										<option value="sc">SANTA CATARINA</option>
+										<option value="sp">SÃO PAULO</option>
+										<option value="se">SERGIPE</option>
+										<option value="to">TOCANTINS</option>
+									</h:selectOneMenu>
+								</div>
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="cep" label="CEP"
+										value="#{usuarioBean.usuario.cep}" class="form-control"
+										required="true" pt:placeholder="CEP" />
+								</div>
 							</div>
 						</fieldset>
 						<fieldset>
 							<legend>Contato</legend>
 							<div class="row-fluid">
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-							</div>
-						</fieldset>
-						<fieldset>
-							<legend>Contato</legend>
-							<div class="row-fluid">
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="email" label="email"
+										value="#{usuarioBean.usuario.email}" class="form-control"
+										required="true" pt:placeholder="email" />
+								</div>
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="telefoneResidencial"
+										label="Telefone Residencial"
+										value="#{usuarioBean.usuario.telefoneResidencial}"
+										class="form-control" required="true"
+										pt:placeholder="Telefone Residêncial" />
+								</div>
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="telefoneCelular"
+										label="Telefone Celular"
+										value="#{usuarioBean.usuario.telefoneCelular}"
+										class="form-control" required="true"
+										pt:placeholder="Telefone Celular" />
+								</div>
 							</div>
 						</fieldset>
 						<fieldset>
 							<legend>Acesso</legend>
 							<div class="row-fluid">
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+								<div class="col-xs-6 col-md-4">
+									<select id="identificador" class="form-control">
+										<option disabled="disabled" selected="selected">Função</option>
+										<option value="professor">Professor</option>
+										<option value="professor pesquisador">Professor
+											pesquisador</option>
+										<option value="tecnico">Técnico</option>
+									</select>
+								</div>
+								<div class="col-xs-6 col-md-4">
+									<select id="perguntaSecreta" class="form-control">
+										<option disabled="disabled" selected="selected">Pergunta
+											Secreta</option>
+										<option value="1">Qual o nome do seu melhor amigo(a)?</option>
+										<option value="2">Qual o nome do seu animal de
+											estimação?</option>
+										<option value="3">Quem é o seu maior sonho?</option>
+									</select>
+								</div>
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="respostaSecreta"
+										label="Resposta secreta"
+										value="#{usuarioBean.usuario.respostaSecreta}"
+										class="form-control" required="true" pt:placeholder="Resposta" />
+								</div>
 							</div>
 							<div class="row-fluid">
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-								<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+								<div class="col-xs-6 col-md-4">
+									<h:inputTextioBean.usuario.senha}" class="form-control"
+										required="true" pt:placeholder="Senha" />
+								</div>
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="respostaSecreta"
+										label="Resposta secreta" value="#{usuarioBean.confirmaSenha}"
+										class="form-control" required="true"
+										pt:placeholder="Digite a senha novamente" />
+								</div>
 							</div>
 						</fieldset>
-						<button action="#" class="btn btn-lg btn-primary btn-block" >Entrar</button>
-					</form>
+						<h:commandButton action="#{usuarioBean.salvar}" value="Salvar" class="btn btn-lg btn-primary btn-adaptado"/>
+						<h:commandButton type="reset" value="Limpar" class="btn btn-lg btn-primary btn-adaptado"/>
+					</h:form>
+					<div id="ajuda">
+						<span class="glyphicon glyphicon-info-sign"></span> <a href="#">Ajuda</a>
+					</div>
 				</div>
 			</div>
 		</div>

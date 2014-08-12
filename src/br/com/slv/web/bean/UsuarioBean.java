@@ -19,10 +19,10 @@ public class UsuarioBean {
 	public String novo() {
 
 		System.out.println("Passou");
-		
+
 		this.usuario = new Usuario();
 		return "usuario";
-		
+
 	}
 
 	public String salvar() {
@@ -38,20 +38,22 @@ public class UsuarioBean {
 			context.addMessage(null, facesMessage);
 
 			return null;
+			
+		} else {
+
+			UsuarioRN usuarioRN = new UsuarioRN();
+
+			usuarioRN.salvar(this.usuario);
+
+			return "usuarioSucesso";
 		}
-
-		UsuarioRN usuarioRN = new UsuarioRN();
-
-		usuarioRN.salvar(this.usuario);
-
-		return "usuarioSucesso";
 	}
-	
-	public String login(){
-		
+
+	public String login() {
+
 		System.out.println("Passou");
-		
-		return "login";
+
+		return "usuario";
 	}
 
 	public Usuario getUsuario() {
