@@ -45,7 +45,7 @@ public class UsuarioBean {
 
 			usuarioRN.salvar(this.usuario);
 
-			return "usuarioSucesso";
+			return "administrador";
 		}
 	}
 

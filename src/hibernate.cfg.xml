@@ -32,7 +32,6 @@
 		<mapping class="br.com.slv.solicitacao_viagem.SolicitacaoViagem" />
 		<mapping class="br.com.slv.relatorio_viagem.RelatorioViagem" />
 		<mapping class="br.com.slv.veiculo.Veiculo" />
-		<mapping class="br.com.slv.web.filter.ConexaoHibernateFilter" />
 
 	</session-factory>
 </hibernate-configuration>

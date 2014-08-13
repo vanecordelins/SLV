@@ -5,7 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.prime.com.tr/ui"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">>
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -24,217 +24,317 @@
 
 </h:head>
 <h:body>
+
 	<div id="corpo">
+
 		<ui:include src="menuadmin.xhtml" />
+
 		<div id="container-fluid">
+
 			<div class="row-fluid">
+
 				<div class="col-md-12 column">
 
 					<h:form id="cadastro" class="form-signin" method="post">
+
+						<!-- COMEÇO DADOS PESSOAIS -->
+
 						<fieldset>
+
 							<legend>Dados pessoais</legend>
+
 							<div class="row-fluid">
+
 								<div class="col-xs-6 col-md-4">
 									<h:inputText id="nome" label="Nome"
-										value="#{usuarioBean.usuario.nome}" class="form-control"
-										required="true" pt:placeholder="Nome" maxlength="100"
-										title="Apenas letras" />
+										value="#{usuarioBean.usuario.nome}" maxlength="100"
+										required="true" pt:placeholder="Nome" class="form-control">
+									</h:inputText>
+
 								</div>
+
 								<div class="col-xs-6 col-md-4">
-									<h:inputText  id="rg" label="Rg"
+									<h:inputText id="rg" label="Rg"
 										value="#{usuarioBean.usuario.rgUsuario}" class="form-control"
 										required="true" pt:placeholder="RG" maxlength="8"
-										title="Apenas números" />
+										title="Apenas números"></h:inputText>
 								</div>
-								<div class="col-xs-6 col-md-4">
-									<select id="orgaoexpeditor" class="form-control">
-										<option disabled="disabled" selected="selected">Orgão
-											expeditor</option>
-										<option value="sspac">SSP/AC</option>
-										<option value="sspal">SSP/AL</option>
-										<option value="sspap">SSP/AP</option>
-										<option value="sspam">SSP/AM</option>
-										<option value="sspba">SSP/BA</option>
-										<option value="sspce">SSP/CE</option>
-										<option value="sspdf">SSP/DF</option>
-										<option value="sspes">SSP/ES</option>
-										<option value="sspgo">SSP/GO</option>
-										<option value="sspma">SSP/MA</option>
-										<option value="sspmt">SSP/MT</option>
-										<option value="sspms">SSP/MS</option>
-										<option value="sspmg">SSP/MG</option>
-										<option value="ssppa">SSP/PA</option>
-										<option value="ssppb">SSP/PB</option>
-										<option value="ssppr">SSP/PR</option>
-										<option value="ssppe">SSP/PE</option>
-										<option value="ssppi">SSP/PI</option>
-										<option value="ssprj">SSP/RJ</option>
-										<option value="ssprn">SSP/RN</option>
-										<option value="ssprs">SSP/RS</option>
-										<option value="sspro">SSP/RO</option>
-										<option value="ssprr">SSP/RR</option>
-										<option value="sspsc">SSP/SC</option>
-										<option value="sspsp">SSP/SP</option>
-										<option value="sspse">SSP/SE</option>
-										<option value="sspto">SSP/TO</option>
-									</select>
-								</div>
-							</div>
-							<div class="row-fluid">
+
 								<div class="col-xs-6 col-md-4">
 									<h:inputText id="cpf" label="cpf"
 										value="#{usuarioBean.usuario.cpf}" class="form-control"
-										required="true" pt:placeholder="CPF" maxlength="11"
-										title="76545609800" />
+										required="true" pt:placeholder="CPF" maxlength="11">
+									</h:inputText>
 								</div>
-								<div class="col-xs-6 col-md-4">
-									<select id="sexo" class="form-control">
-										<option disabled="disabled" selected="selected">Sexo</option>
-										<option value="m">Masculino</option>
-										<option value="f">Feminino</option>
-									</select>
-								</div>
+
 							</div>
-						</fieldset>
-						<fieldset>
-							<legend>Endereço</legend>
+
 							<div class="row-fluid">
+
+								<div class="col-xs-6 col-md-4">
+									<h:selectOneMenu id="sexo" value="#{usuarioBean.usuario.sexo}" class="form-control">
+										<f:selectItem itemDisabled="true" itemLabel="Sexo" />
+										<f:selectItem itemValue="m" itemLabel="Masculino" />
+										<f:selectItem itemValue="f" itemLabel="Feminino" />
+									</h:selectOneMenu>
+								</div>
+
+								<div class="col-xs-6 col-md-4">
+									<h:selectOneMenu id="orgaoexpeditor" class="form-control"
+										value="#{usuarioBean.usuario.orgaoExpeditor}">
+										<f:selectItem itemDisabled="true"
+											itemLabel="Orgão
+											expeditor" />
+										<f:selectItem itemValue="sspac" itemLabel="SSP/AC" />
+										<f:selectItem itemValue="sspal" itemLabel="SSP/AL" />
+										<f:selectItem itemValue="sspap" itemLabel="SSP/AP" />
+										<f:selectItem itemValue="sspam" itemLabel="SSP/AM" />
+										<f:selectItem itemValue="sspam" itemLabel="SSP/AM" />
+										<f:selectItem itemValue="sspba" itemLabel="SSP/BA" />
+										<f:selectItem itemValue="sspce" itemLabel="SSP/CE" />
+										<f:selectItem itemValue="sspdf" itemLabel="SSP/DF" />
+										<f:selectItem itemValue="sspes" itemLabel="SSP/ES" />
+										<f:selectItem itemValue="sspgo" itemLabel="SSP/GO" />
+										<f:selectItem itemValue="sspma" itemLabel="SSP/MA" />
+										<f:selectItem itemValue="sspmt" itemLabel="SSP/MT" />
+										<f:selectItem itemValue="sspms" itemLabel="SSP/MS" />
+										<f:selectItem itemValue="sspmg" itemLabel="SSP/MG" />
+										<f:selectItem itemValue="ssppa" itemLabel="SSP/PA" />
+										<f:selectItem itemValue="ssppb" itemLabel="SSP/PB" />
+										<f:selectItem itemValue="ssppr" itemLabel="SSP/PR" />
+										<f:selectItem itemValue="ssppe" itemLabel="SSP/PE" />
+										<f:selectItem itemValue="ssppi" itemLabel="SSP/PI" />
+										<f:selectItem itemValue="ssprj" itemLabel="SSP/RJ" />
+										<f:selectItem itemValue="ssprn" itemLabel="SSP/RN" />
+										<f:selectItem itemValue="ssprs" itemLabel="SSP/RS" />
+										<f:selectItem itemValue="sspro" itemLabel="SSP/RO" />
+										<f:selectItem itemValue="ssprr" itemLabel="SSP/RR" />
+										<f:selectItem itemValue="sspsc" itemLabel="SSP/SC" />
+										<f:selectItem itemValue="sspsp" itemLabel="SSP/SP" />
+										<f:selectItem itemValue="sspse" itemLabel="SSP/SE" />
+										<f:selectItem itemValue="sspto" itemLabel="SSP/TO" />
+									</h:selectOneMenu>
+								</div>
+
+							</div>
+
+						</fieldset>
+
+						<!-- FIM DADOS PESSOAIS -->
+
+						<!-- COMEÇO ENDEREÇO -->
+
+						<fieldset>
+
+							<legend>Endereço</legend>
+
+							<div class="row-fluid">
+
 								<div class="col-xs-6 col-md-4">
 									<h:inputText type="text" id="logradouro" label="Logradouro"
 										value="#{usuarioBean.usuario.logradouro}" class="form-control"
-										required="true" pt:placeholder="Logradouro" />
+										required="true" pt:placeholder="Logradouro">
+									</h:inputText>
 								</div>
+
 								<div class="col-xs-6 col-md-4">
 									<h:inputText id="numero" label="Numero"
 										value="#{usuarioBean.usuario.numero}" class="form-control"
-										required="true" pt:placeholder="Numero" />
+										required="true" pt:placeholder="Numero">
+									</h:inputText>
 								</div>
+
 								<div class="col-xs-6 col-md-4">
 									<h:inputText type="text" id="bairro" label="Bairro"
 										value="#{usuarioBean.usuario.bairro}" class="form-control"
-										required="true" pt:placeholder="Bairro" />
+										required="true" pt:placeholder="Bairro">
+									</h:inputText>
 								</div>
+
 							</div>
+
 							<div class="row-fluid">
+
 								<div class="col-xs-6 col-md-4">
 									<h:inputText id="cidade" label="Cidade"
 										value="#{usuarioBean.usuario.cidade}" class="form-control"
-										required="true" pt:placeholder="Cidade" />
+										required="true" pt:placeholder="Cidade">
+									</h:inputText>
 								</div>
+
 								<div class="col-xs-6 col-md-4">
-									<h:selectOneMenu id="estado" class="form-control">
-										<option disabled="disabled" selected="selected">Estado</option>
-										<option value="ac">ACRE</option>
-										<option value="al">ALAGOAS</option>
-										<option value="ap">AMAPÁ</option>
-										<option value="am">AMAZONAS</option>
-										<option value="ba">BAHIA</option>
-										<option value="ce">CEARÁ</option>
-										<option value="df">DISTRITO FEDERAL</option>
-										<option value="es">ESPÍRITO SANTO</option>
-										<option value="go">GOIÁS</option>
-										<option value="ma">MARANHÃO</option>
-										<option value="mt">MATO GROSSO</option>
-										<option value="ms">MATO GROSSO DO SUL</option>
-										<option value="mg">MINAS GERAIS</option>
-										<option value="pa">PARÁ</option>
-										<option value="pb">PARAÍBA</option>
-										<option value="pr">PARANÁ</option>
-										<option value="pe">PERNAMBUCO</option>
-										<option value="pi">PIAUÍ</option>
-										<option value="rj">RIO DE JANEIRO</option>
-										<option value="rn">RIO GRANDE DO NORTE</option>
-										<option value="rs">RIO GRANDE DO SUL</option>
-										<option value="ro">RONDÔNIA</option>
-										<option value="rr">RORAIMA</option>
-										<option value="sc">SANTA CATARINA</option>
-										<option value="sp">SÃO PAULO</option>
-										<option value="se">SERGIPE</option>
-										<option value="to">TOCANTINS</option>
+									<h:selectOneMenu id="estado" class="form-control"
+										value="#{usuarioBean.usuario.estado}">
+										<f:selectItem itemDisabled="true" itemLabel="Estado" />
+										<f:selectItem itemValue="ac" itemLabel="ACRE" />
+										<f:selectItem itemValue="al" itemLabel="ALAGOAS" />
+										<f:selectItem itemValue="ap" itemLabel="AMAPÁ" />
+										<f:selectItem itemValue="am" itemLabel="AMAZONAS" />
+										<f:selectItem itemValue="ba" itemLabel="BAHIA" />
+										<f:selectItem itemValue="ce" itemLabel="CEARÁ" />
+										<f:selectItem itemValue="df" itemLabel="DISTRITO FEDERAL" />
+										<f:selectItem itemValue="es" itemLabel="ESPÍRITO SANTO" />
+										<f:selectItem itemValue="go" itemLabel="GOIÁS" />
+										<f:selectItem itemValue="ma" itemLabel="MARANHÃO" />
+										<f:selectItem itemValue="mt" itemLabel="MATO GROSSO" />
+										<f:selectItem itemValue="ms" itemLabel="MATO GROSSO DO SUL" />
+										<f:selectItem itemValue="mg" itemLabel="MINAS GERAIS" />
+										<f:selectItem itemValue="pa" itemLabel="PARÁ" />
+										<f:selectItem itemValue="pb" itemLabel="PARAÍBA" />
+										<f:selectItem itemValue="pr" itemLabel="PARANÁ" />
+										<f:selectItem itemValue="pe" itemLabel="PERNAMBUCO" />
+										<f:selectItem itemValue="pi" itemLabel="PIAUÍ" />
+										<f:selectItem itemValue="rj" itemLabel="RIO DE JANEIRO" />
+										<f:selectItem itemValue="rn" itemLabel="RIO GRANDE DO NORTE" />
+										<f:selectItem itemValue="rs" itemLabel="RIO GRANDE DO SUL" />
+										<f:selectItem itemValue="ro" itemLabel="RONDÔNIA" />
+										<f:selectItem itemValue="rr" itemLabel="RORAIMA" />
+										<f:selectItem itemValue="sc" itemLabel="SANTA CATARINA" />
+										<f:selectItem itemValue="sp" itemLabel="SÃO PAULO" />
+										<f:selectItem itemValue="se" itemLabel="SERGIPE" />
+										<f:selectItem itemValue="to" itemLabel="TOCANTINS" />
 									</h:selectOneMenu>
 								</div>
+
 								<div class="col-xs-6 col-md-4">
 									<h:inputText id="cep" label="CEP"
 										value="#{usuarioBean.usuario.cep}" class="form-control"
-										required="true" pt:placeholder="CEP" />
+										required="true" pt:placeholder="CEP">
+									</h:inputText>
 								</div>
+
 							</div>
+
 						</fieldset>
+
+						<!-- FIM ENDEREÇO -->
+
+						<!-- COMEÇO CONTATO -->
+
 						<fieldset>
+
 							<legend>Contato</legend>
+
 							<div class="row-fluid">
+
 								<div class="col-xs-6 col-md-4">
 									<h:inputText id="email" label="email"
 										value="#{usuarioBean.usuario.email}" class="form-control"
-										required="true" pt:placeholder="email" />
+										required="true" pt:placeholder="email">
+									</h:inputText>
 								</div>
+
 								<div class="col-xs-6 col-md-4">
 									<h:inputText id="telefoneResidencial"
 										label="Telefone Residencial"
 										value="#{usuarioBean.usuario.telefoneResidencial}"
 										class="form-control" required="true"
-										pt:placeholder="Telefone Residêncial" />
+										pt:placeholder="Telefone Residêncial">
+									</h:inputText>
 								</div>
+
 								<div class="col-xs-6 col-md-4">
-									<h:inputText id="telefoneCelular"
-										label="Telefone Celular"
+									<h:inputText id="telefoneCelular" label="Telefone Celular"
 										value="#{usuarioBean.usuario.telefoneCelular}"
 										class="form-control" required="true"
-										pt:placeholder="Telefone Celular" />
+										pt:placeholder="Telefone Celular">
+									</h:inputText>
 								</div>
+
 							</div>
+
 						</fieldset>
+
+						<!-- FIM CONTATO -->
+
+						<!-- COMEÇO ACESSO -->
+
 						<fieldset>
+
 							<legend>Acesso</legend>
+
 							<div class="row-fluid">
+
 								<div class="col-xs-6 col-md-4">
-									<select id="identificador" class="form-control">
-										<option disabled="disabled" selected="selected">Função</option>
-										<option value="professor">Professor</option>
-										<option value="professor pesquisador">Professor
-											pesquisador</option>
-										<option value="tecnico">Técnico</option>
-									</select>
+									<h:selectOneMenu id="identificador" class="form-control">
+										<f:selectItem itemDisabled="true" itemLabel="Função" />
+										<f:selectItem itemValue="professor" itemLabel="Professor" />
+										<f:selectItem itemValue="pesquisador" itemLabel="Pesquisador" />
+										<f:selectItem itemValue="tecnico" itemLabel="Técnico" />
+									</h:selectOneMenu>
 								</div>
+
 								<div class="col-xs-6 col-md-4">
-									<select id="perguntaSecreta" class="form-control">
-										<option disabled="disabled" selected="selected">Pergunta
-											Secreta</option>
-										<option value="1">Qual o nome do seu melhor amigo(a)?</option>
-										<option value="2">Qual o nome do seu animal de
-											estimação?</option>
-										<option value="3">Quem é o seu maior sonho?</option>
-									</select>
+									<h:selectOneMenu id="perguntaSecreta" value="#{usuarioBean.usuario.perguntaSecreta}" class="form-control">
+										<f:selectItem itemDisabled="true" itemLabel="Pergunta secreta" />
+										<f:selectItem itemValue="1"
+											itemLabel="Qual o nome do seu melhor amigo(a)?" />
+										<f:selectItem itemValue="2"
+											itemLabel="Qual o nome do seu animal de
+											estimação?" />
+										<f:selectItem itemValue="3"
+											itemLabel="Quem é o seu maior sonho?" />
+									</h:selectOneMenu>
 								</div>
+
 								<div class="col-xs-6 col-md-4">
-									<h:inputText id="respostaSecreta"
-										label="Resposta secreta"
+									<h:inputText id="respostaSecreta" label="Resposta secreta"
 										value="#{usuarioBean.usuario.respostaSecreta}"
-										class="form-control" required="true" pt:placeholder="Resposta" />
+										class="form-control" required="true" pt:placeholder="Resposta">
+									</h:inputText>
 								</div>
+
 							</div>
+
 							<div class="row-fluid">
+
 								<div class="col-xs-6 col-md-4">
-									<h:inputTextioBean.usuario.senha}" class="form-control"
-										required="true" pt:placeholder="Senha" />
+									<h:inputText action="{usuarioBean.usuario.senha}"
+										class="form-control" required="true" pt:placeholder="Senha">
+									</h:inputText>
 								</div>
+
 								<div class="col-xs-6 col-md-4">
-									<h:inputText id="respostaSecreta"
-										label="Resposta secreta" value="#{usuarioBean.confirmaSenha}"
-										class="form-control" required="true"
-										pt:placeholder="Digite a senha novamente" />
+									<h:inputText id="confirmaSenha" label="Confirma senha"
+										value="#{usuarioBean.confirmaSenha}" class="form-control"
+										required="true" pt:placeholder="Digite a senha novamente">
+									</h:inputText>
 								</div>
+
 							</div>
+
 						</fieldset>
-						<h:commandButton action="#{usuarioBean.salvar}" value="Salvar" class="btn btn-lg btn-primary btn-adaptado"/>
-						<h:commandButton type="reset" value="Limpar" class="btn btn-lg btn-primary btn-adaptado"/>
+
+						<!-- FIM ACESSO -->
+
+						<!-- COMEÇO BOTÃO -->
+
+						<h:commandButton action="#{usuarioBean.salvar}" value="Salvar"
+							class="btn btn-lg btn-primary btn-adaptado" />
+
+						<h:commandButton type="reset" value="Limpar"
+							class="btn btn-lg btn-primary btn-adaptado" />
+
+						<!-- FIM BOTÃO -->
+
+						<div id="ajuda">
+							<span class="glyphicon glyphicon-info-sign"></span> <a href="#">Ajuda</a>
+						</div>
+
 					</h:form>
-					<div id="ajuda">
-						<span class="glyphicon glyphicon-info-sign"></span> <a href="#">Ajuda</a>
-					</div>
+					<!-- h:form -->
+
 				</div>
+				<!-- class="col-md-12 column" -->
+
 			</div>
+			<!-- row-fuid -->
+
 		</div>
+		<!-- container-fluid -->
+
 	</div>
+	<!-- corpo -->
+
 </h:body>
 </html>
