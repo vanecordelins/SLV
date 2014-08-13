@@ -35,7 +35,7 @@
 
 				<div class="col-md-12 column">
 
-					<h:form id="cadastro" class="form-signin" method="post">
+					<h:form id="usuario" class="form-signin" method="post">
 
 						<!-- COMEÇO DADOS PESSOAIS -->
 
@@ -72,7 +72,8 @@
 							<div class="row-fluid">
 
 								<div class="col-xs-6 col-md-4">
-									<h:selectOneMenu id="sexo" value="#{usuarioBean.usuario.sexo}" class="form-control">
+									<h:selectOneMenu id="sexo" value="#{usuarioBean.usuario.sexo}"
+										class="form-control">
 										<f:selectItem itemDisabled="true" itemLabel="Sexo" />
 										<f:selectItem itemValue="m" itemLabel="Masculino" />
 										<f:selectItem itemValue="f" itemLabel="Feminino" />
@@ -265,7 +266,9 @@
 								</div>
 
 								<div class="col-xs-6 col-md-4">
-									<h:selectOneMenu id="perguntaSecreta" value="#{usuarioBean.usuario.perguntaSecreta}" class="form-control">
+									<h:selectOneMenu id="perguntaSecreta"
+										value="#{usuarioBean.usuario.perguntaSecreta}"
+										class="form-control">
 										<f:selectItem itemDisabled="true" itemLabel="Pergunta secreta" />
 										<f:selectItem itemValue="1"
 											itemLabel="Qual o nome do seu melhor amigo(a)?" />
@@ -289,16 +292,27 @@
 							<div class="row-fluid">
 
 								<div class="col-xs-6 col-md-4">
-									<h:inputText action="{usuarioBean.usuario.senha}"
-										class="form-control" required="true" pt:placeholder="Senha">
-									</h:inputText>
+									<h:selectOneMenu id="setorAlocado"
+										value="#{usuarioBean.usuario.setorAlocado}"
+										class="form-control">
+										<f:selectItem itemDisabled="true" itemLabel="Setor" />
+										<f:selectItem itemValue="a" itemLabel="Administração" />
+										<f:selectItem itemValue="l" itemLabel="Laboratórios" />
+										<f:selectItem itemValue="t" itemLabel="Transportes" />
+									</h:selectOneMenu>
 								</div>
 
 								<div class="col-xs-6 col-md-4">
-									<h:inputText id="confirmaSenha" label="Confirma senha"
+									<h:inputSecret action="{usuarioBean.usuario.senha}"
+										class="form-control" required="true" pt:placeholder="Senha">
+									</h:inputSecret>
+								</div>
+
+								<div class="col-xs-6 col-md-4">
+									<h:inputSecret id="confirmaSenha" label="Confirma senha"
 										value="#{usuarioBean.confirmaSenha}" class="form-control"
 										required="true" pt:placeholder="Digite a senha novamente">
-									</h:inputText>
+									</h:inputSecret>
 								</div>
 
 							</div>

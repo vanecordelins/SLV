@@ -18,8 +18,6 @@ public class UsuarioBean {
 
 	public String novo() {
 
-		System.out.println("Passou");
-
 		this.usuario = new Usuario();
 		return "usuario";
 

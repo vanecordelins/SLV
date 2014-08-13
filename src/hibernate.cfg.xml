@@ -8,11 +8,11 @@
 		<!-- Configuração da conexão com o banco Postgre e Dialeto -->
 		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="connection.driver_class">org.postgresql.Driver</property>
-		<property name="connection.url">jdbc:postgresql://localhost:5432/slv</property>
+		<property name="connection.url">jdbc:postgresql://localhost:5432/slv?autoReconnect=true</property>
 		<property name="connection.username">dbslv</property>
 		<property name="connection.password">dbslv</property>
 		<property name="current_session_context">thread</property>
-		<property name="current_session_context_class">thread</property>
+		<property name="hibernate.current_session_context_class">thread</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- Usando as configurações do C3PO para poll e conexões -->
 		<property name="c3po.min_size">5</property>

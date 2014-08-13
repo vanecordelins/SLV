@@ -18,7 +18,10 @@ body {
 /* Adaptações */
 
 #corpo {
-	margin: 5%;
+	margin-top: 5%;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 5%;
 }
 
 .btn-adaptado {
@@ -31,7 +34,7 @@ body {
 
 #ajuda{
 	position: absolute;
-	margin-top: 5%;
+	margin-top: 3%;
 }
 
 /* Adaptações */
