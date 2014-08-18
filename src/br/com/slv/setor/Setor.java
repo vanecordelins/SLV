@@ -17,12 +17,9 @@ import br.com.slv.usuario.Usuario;
  */
 
 @Entity
-@Table(name="setor")
+@Table(name = "setor")
 public class Setor implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 9101816051539078803L;
 
 	@Id
@@ -30,9 +27,9 @@ public class Setor implements Serializable {
 	private Long codigoSetor;
 
 	private String nome;
-
-	 @OneToMany(mappedBy = "id")
-	 private List<Usuario> listaUsuarios;
+	
+	@OneToMany(mappedBy = "setorAlocado")
+	private List<Usuario> listaUsuarios;
 
 	public Setor() {
 

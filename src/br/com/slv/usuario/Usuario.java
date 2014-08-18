@@ -23,7 +23,7 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long idUsuario;
 
 	private String cpf;
 	private String nome;
@@ -59,7 +59,7 @@ public class Usuario implements Serializable {
 	}
 
 	public Long getId() {
-		return id;
+		return idUsuario;
 	}
 
 	public String getCpf() {
@@ -237,7 +237,7 @@ public class Usuario implements Serializable {
 		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((idUsuario == null) ? 0 : idUsuario.hashCode());
 		result = prime * result
 				+ ((identificador == null) ? 0 : identificador.hashCode());
 		result = prime
@@ -308,10 +308,10 @@ public class Usuario implements Serializable {
 				return false;
 		} else if (!estado.equals(other.estado))
 			return false;
-		if (id == null) {
-			if (other.id != null)
+		if (idUsuario == null) {
+			if (other.idUsuario != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!idUsuario.equals(other.idUsuario))
 			return false;
 		if (identificador == null) {
 			if (other.identificador != null)

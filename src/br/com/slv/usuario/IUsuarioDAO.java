@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.slv.exception.SenhaUsuarioIncorretaException;
 import br.com.slv.exception.UsuarioInexistenteException;
+import br.com.slv.setor.Setor;
 
 /**
  * @author luciano

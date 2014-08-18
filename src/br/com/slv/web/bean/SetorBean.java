@@ -6,27 +6,27 @@ import javax.faces.bean.RequestScoped;
 import br.com.slv.setor.Setor;
 import br.com.slv.setor.SetorRN;
 
-
 @ManagedBean(name = "setorBean")
 @RequestScoped
 public class SetorBean {
 
 	private Setor setor = new Setor();
-	
-	public String novo() {
-
-		this.setor = new Setor();
-		return "setor";
-
-	}
 
 	public String salvar() {
 
 		SetorRN setorRN = new SetorRN();
 
-		setorRN.salvar(this.setor);
+		Boolean salvo = setorRN.salvar(setor);
 
-		return "administrador";
+		if (salvo.equals(false)) {
+			
+			return "setor";
+			
+		} else {
+			
+			return "sucesso";
+			
+		}
 	}
 
 	public Setor getSetor() {

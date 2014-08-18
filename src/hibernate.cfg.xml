@@ -4,11 +4,13 @@
 "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
+
 	<session-factory>
+	
 		<!-- Configuração da conexão com o banco Postgre e Dialeto -->
 		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="connection.driver_class">org.postgresql.Driver</property>
-		<property name="connection.url">jdbc:postgresql://localhost:5432/slv?autoReconnect=true</property>
+		<property name="connection.url">jdbc:postgresql://localhost:5432/slv</property>
 		<property name="connection.username">dbslv</property>
 		<property name="connection.password">dbslv</property>
 		<property name="current_session_context">thread</property>
@@ -34,4 +36,5 @@
 		<mapping class="br.com.slv.veiculo.Veiculo" />
 
 	</session-factory>
+	
 </hibernate-configuration>

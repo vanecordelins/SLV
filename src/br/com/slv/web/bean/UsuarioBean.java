@@ -1,10 +1,14 @@
 package br.com.slv.web.bean;
 
-import javax.faces.application.FacesMessage;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 
+import br.com.slv.setor.Setor;
+import br.com.slv.setor.SetorDAO;
 import br.com.slv.usuario.Usuario;
 import br.com.slv.usuario.UsuarioRN;
 
@@ -14,44 +18,30 @@ public class UsuarioBean {
 
 	private Usuario usuario = new Usuario();
 
-	String confirmaSenha;
-
-	public String novo() {
-
-		this.usuario = new Usuario();
-		return "usuario";
-
-	}
+	private String confirmarSenha;
 
 	public String salvar() {
 
-		FacesContext context = FacesContext.getCurrentInstance();
+		if (!this.usuario.getSenha().equals(this.confirmarSenha)) {
 
-		String senha = this.usuario.getSenha();
+			return "usuario";
 
-		if (!senha.equals(this.confirmaSenha)) {
-
-			FacesMessage facesMessage = new FacesMessage(
-					"A senha informada não confere");
-			context.addMessage(null, facesMessage);
-
-			return null;
-			
 		} else {
 
 			UsuarioRN usuarioRN = new UsuarioRN();
 
-			usuarioRN.salvar(this.usuario);
+			Boolean salvo = usuarioRN.salvar(this.usuario);
 
-			return "administrador";
+			if (salvo.equals(false)) {
+
+				return "usuario";
+
+			} else {
+
+				return "sucesso";
+
+			}
 		}
-	}
-
-	public String login() {
-
-		System.out.println("Passou");
-
-		return "usuario";
 	}
 
 	public Usuario getUsuario() {
@@ -62,11 +52,11 @@ public class UsuarioBean {
 		this.usuario = usuario;
 	}
 
-	public String getConfirmaSenha() {
-		return confirmaSenha;
+	public String getConfirmarSenha() {
+		return confirmarSenha;
 	}
 
-	public void setConfirmaSenha(String confirmaSenha) {
-		this.confirmaSenha = confirmaSenha;
+	public void setConfirmarSenha(String confirmarSenha) {
+		this.confirmarSenha = confirmarSenha;
 	}
 }

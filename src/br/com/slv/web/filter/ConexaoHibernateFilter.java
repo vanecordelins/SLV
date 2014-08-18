@@ -29,7 +29,7 @@ public class ConexaoHibernateFilter implements Filter {
 		try {
 			this.sessionFactory.getCurrentSession().beginTransaction();
 			chain.doFilter(servletRequest, servletResponse);
-			this.sessionFactory.getCurrentSession().getTransaction().commit();
+			this.sessionFactory.getCurrentSession().beginTransaction().commit();
 			this.sessionFactory.getCurrentSession().close();
 		} catch (Throwable ex) {
 			try {

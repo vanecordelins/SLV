@@ -12,18 +12,26 @@ public class SetorRN {
 
 	}
 
-	public void salvar(Setor setor) {
-		
-		Setor nomeSetor = setorDAO.buscaSetor(setor.getNome());
+	public boolean salvar(Setor setor) {
 
-		if (nomeSetor == null) {
+		Setor setorExiste = setorDAO.buscaSetor(setor.getNome());
+
+		if (setorExiste == null) {
 
 			this.setorDAO.salvarSetor(setor);
 
+			return true;
+
 		} else {
 
-			this.setorDAO.altualizarSetor(setor);
+			return false;
 
 		}
+	}
+
+	public Setor buscaSetor(String nomeSetor) {
+		
+		return setorDAO.buscaSetor(nomeSetor);
+		
 	}
 }

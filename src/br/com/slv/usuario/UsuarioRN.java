@@ -1,29 +1,35 @@
 package br.com.slv.usuario;
 
+import java.util.List;
+
+import br.com.slv.setor.Setor;
+import br.com.slv.setor.SetorDAO;
 import br.com.slv.util.DAOFactory;
 
 public class UsuarioRN {
-	
+
 	private UsuarioDAO usuarioDAO;
-	
-	public UsuarioRN(){
-		
+
+	public UsuarioRN() {
+
 		this.usuarioDAO = DAOFactory.criarUsuarioDAO();
-		
+
 	}
-	
-	public void salvar(Usuario usuario){
-		
-		Usuario retornoUsuario = usuarioDAO.buscaUsuario(usuario.getCpf());
-		
-		if(retornoUsuario == null){
-			
+
+	public boolean salvar(Usuario usuario) {
+
+		Usuario usuarioExiste = usuarioDAO.buscaUsuario(usuario.getCpf());
+
+		if (usuarioExiste == null) {
+
 			this.usuarioDAO.salvarUsuario(usuario);
-			
-		}else{
-			
-			this.usuarioDAO.altualizarUsuario(usuario);
-			
+
+			return true;
+
+		} else {
+
+			return false;
+
 		}
 	}
 }
