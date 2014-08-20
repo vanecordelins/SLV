@@ -2,6 +2,7 @@ package br.com.slv.setor;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -9,9 +10,9 @@ public class SetorDAO implements ISetorDAO {
 
 	private Session sessao;
 
-	public void setSession(Session session) {
+	public void setSession(Session sessao) {
 
-		this.sessao = session;
+		this.sessao = sessao;
 
 	}
 
@@ -50,8 +51,15 @@ public class SetorDAO implements ISetorDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Setor> listarSetores() {
+		
+		List<Setor> setores = null;
 
-		return this.sessao.createCriteria(Setor.class).list();
+		Criteria filtro = this.sessao.createCriteria(Setor.class);
+		setores = filtro.list();
+
+		return setores;
+
+		// return this.sessao.createCriteria(Setor.class).list();
 
 	}
 

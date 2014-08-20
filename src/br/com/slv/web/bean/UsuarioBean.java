@@ -8,7 +8,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.model.SelectItem;
 
 import br.com.slv.setor.Setor;
-import br.com.slv.setor.SetorDAO;
+import br.com.slv.setor.SetorRN;
 import br.com.slv.usuario.Usuario;
 import br.com.slv.usuario.UsuarioRN;
 
@@ -18,7 +18,9 @@ public class UsuarioBean {
 
 	private Usuario usuario = new Usuario();
 
-	private String confirmarSenha;
+	private String confirmarSenha, nomeSetor;
+
+	private List<SelectItem> setoresSelect;
 
 	public String salvar() {
 
@@ -29,6 +31,14 @@ public class UsuarioBean {
 		} else {
 
 			UsuarioRN usuarioRN = new UsuarioRN();
+
+			SetorRN setorRN = new SetorRN();
+			
+			Setor setor = new Setor();
+
+			setor = setorRN.buscaSetor(nomeSetor);
+			
+			this.usuario.setSetorAlocado(setor);
 
 			Boolean salvo = usuarioRN.salvar(this.usuario);
 
@@ -42,6 +52,34 @@ public class UsuarioBean {
 
 			}
 		}
+	}
+
+	public List<SelectItem> getSetoresSelect() {
+
+		if (this.setoresSelect == null) {
+
+			setoresSelect = new ArrayList<SelectItem>();
+
+			SetorRN setorRN = new SetorRN();
+
+			List<Setor> listaSetores = setorRN.listarSetores();
+
+			if (listaSetores != null && !listaSetores.isEmpty()) {
+
+				SelectItem item;
+
+				for (Setor setorLista : listaSetores) {
+
+					item = new SelectItem(setorLista.getNome());
+
+					this.setoresSelect.add(item);
+
+				}
+			}
+		}
+
+		return setoresSelect;
+
 	}
 
 	public Usuario getUsuario() {
@@ -58,5 +96,13 @@ public class UsuarioBean {
 
 	public void setConfirmarSenha(String confirmarSenha) {
 		this.confirmarSenha = confirmarSenha;
+	}
+
+	public String getNomeSetor() {
+		return nomeSetor;
+	}
+
+	public void setNomeSetor(String nomeSetor) {
+		this.nomeSetor = nomeSetor;
 	}
 }

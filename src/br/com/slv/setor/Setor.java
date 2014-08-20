@@ -27,8 +27,8 @@ public class Setor implements Serializable {
 	private Long codigoSetor;
 
 	private String nome;
-	
-	@OneToMany(mappedBy = "setorAlocado")
+
+	@OneToMany(mappedBy = "setorAlocado", targetEntity = Usuario.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Usuario> listaUsuarios;
 
 	public Setor() {

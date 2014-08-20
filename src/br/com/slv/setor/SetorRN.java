@@ -1,5 +1,7 @@
 package br.com.slv.setor;
 
+import java.util.List;
+
 import br.com.slv.util.DAOFactory;
 
 public class SetorRN {
@@ -31,7 +33,13 @@ public class SetorRN {
 
 	public Setor buscaSetor(String nomeSetor) {
 		
-		return setorDAO.buscaSetor(nomeSetor);
+		return this.setorDAO.buscaSetor(nomeSetor);
+		
+	}
+
+	public List<Setor> listarSetores() {
+		
+		return this.setorDAO.listarSetores();
 		
 	}
 }

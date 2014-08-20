@@ -1,9 +1,5 @@
 package br.com.slv.usuario;
 
-import java.util.List;
-
-import br.com.slv.setor.Setor;
-import br.com.slv.setor.SetorDAO;
 import br.com.slv.util.DAOFactory;
 
 public class UsuarioRN {

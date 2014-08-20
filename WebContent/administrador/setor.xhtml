@@ -37,7 +37,7 @@
 
 					<h:form id="setor" class="form-signin" method="post">
 
-						<!-- COMEÇO DADOS PESSOAIS -->
+						<!-- COMEÇO DADOS DO SETOR -->
 
 						<fieldset>
 
@@ -52,21 +52,34 @@
 									</h:inputText>
 								</div>
 
+								<div class="col-xs-6 col-md-4"></div>
+
+								<div class="col-xs-6 col-md-4"></div>
+
 							</div>
 
-							<!-- COMEÇO BOTÃO -->
+							<div class="row-fluid">
+
+								<div class="col-xs-6 col-md-4"></div>
+
+								<div class="col-xs-6 col-md-4"></div>
+
+								<div class="col-xs-6 col-md-4"></div>
+
+							</div>
 
 						</fieldset>
-						<div id="areaBotoes-dois">
-							<h:commandButton action="#{setorBean.salvar}" value="Salvar"
-								class="btn btn-lg btn-primary btn-adaptado" />
 
-							<h:commandButton type="reset" value="Limpar"
-								class="btn btn-lg btn-primary btn-adaptado" />
+						<!-- COMEÇO BOTÃO -->
 
-							<!-- FIM BOTÃO -->
+						<h:commandButton action="#{setorBean.salvar}" value="Salvar"
+							class="btn btn-lg btn-primary btn-adaptado" />
 
-						</div>
+						<h:commandButton type="reset" value="Limpar"
+							class="btn btn-lg btn-primary btn-adaptado" />
+
+						<!-- FIM BOTÃO -->
+
 					</h:form>
 					<!-- h:form -->
 
@@ -84,7 +97,9 @@
 	<div id="footer-adaptado">
 
 		<div id="ajuda">
+
 			<span class="glyphicon glyphicon-info-sign"></span> <a href="#">Ajuda</a>
+
 		</div>
 
 	</div>

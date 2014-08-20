@@ -37,21 +37,6 @@ body {
 	margin-left: 5%;
 }
 
-#areaBotoes-um {
-	position : absolute;
-	width: 100%;
-	padding-right: 3%;
-	padding-top: 1%;
-}
-
-#areaBotoes-dois {
-	position : absolute;
-	top: 530%;
-	width: 100%;
-	padding-right: 3%;
-	padding-top: 1%;
-}
-
 #footer-adaptado {
 	position: absolute;
 	bottom: 0;

@@ -9,19 +9,19 @@ import br.com.slv.setor.Setor;
 import br.com.slv.setor.SetorRN;
 
 @FacesConverter(forClass = Usuario.class)
-public class SetorConverter implements Converter {
+public class UsuarioConverter implements Converter {
 
 	@Override
 	public Object getAsObject(FacesContext arg0, UIComponent arg1,
 			String nomeSetor) {
-
-		if (nomeSetor != null && nomeSetor.trim().toString().length() > 0) {
+/*
+		if (nomeSetor != null && nomeSetor.trim().length() > 0) {
 
 			SetorRN setorRN = new SetorRN();
 
 			return setorRN.buscaSetor(nomeSetor);
 
-		}
+		}*/
 
 		return null;
 
@@ -31,13 +31,13 @@ public class SetorConverter implements Converter {
 	public String getAsString(FacesContext arg0, UIComponent arg1,
 			Object objetoSetor) {
 
-		if (objetoSetor != null) {
+		/*if (objetoSetor != null) {
 
-			Setor setor = new Setor();
+			Setor setor = (Setor) objetoSetor;
 
-			return setor.getCodigoSetor().toString();
+			return setor.getNome();
 
-		}
+		}*/
 
 		return null;
 
