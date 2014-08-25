@@ -14,7 +14,7 @@ public class UsuarioRN {
 
 	public boolean salvar(Usuario usuario) {
 
-		Usuario usuarioExiste = usuarioDAO.buscaUsuario(usuario.getCpf());
+		Usuario usuarioExiste = usuarioDAO.buscarUsuario(usuario.getCpf());
 
 		if (usuarioExiste == null) {
 

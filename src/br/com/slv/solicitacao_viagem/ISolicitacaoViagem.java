@@ -6,6 +6,6 @@ public interface ISolicitacaoViagem {
 	public void salvarSolicitacaoViagem(SolicitacaoViagem solicitacaoViagem);
 	public void altualizarSolicitacaoViagem(SolicitacaoViagem solicitacaoViagem);
 	public void excluirSolicitacaoViagem(SolicitacaoViagem solicitacaoViagem);
-	public SolicitacaoViagem buscaSolicitacaoViagem(String protocolo);
+	public SolicitacaoViagem buscarSolicitacaoViagem(String protocolo);
 	public List<SolicitacaoViagem> listarSolicitacaoViagem();
 }

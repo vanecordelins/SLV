@@ -15,7 +15,7 @@ public interface IUsuarioDAO {
 	public void salvarUsuario(Usuario usuario);
 	public void altualizarUsuario(Usuario usuario);
 	public void excluirUsuario(Usuario usuario);
-	public Usuario buscaUsuario(String cpf);
+	public Usuario buscarUsuario(String cpf);
 	public List<Usuario> listarUsuarios();
 
 	/**

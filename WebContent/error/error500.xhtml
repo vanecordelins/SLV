@@ -4,8 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.prime.com.tr/ui"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:p="http://primefaces.prime.com.tr/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,17 +19,19 @@
 		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap-theme.css"
 		rel="stylesheet" type="text/css" />
 
-	<title>Sucesso</title>
-
+	<title>Error 500</title>
 </h:head>
 <h:body>
-
-	<div id="corpo">
-
-		<ui:include src="menuadmin.xhtml" />
-		
-		<h1 align="center">Sucesso</h1>
-
+	<div id="container">
+		<div id="content">
+			<div id="corpo">
+				<h1 align="center">Houve um erro interno do servidor, por favor tente carregar novamente a página, se o problema persistir entre em contato com o
+					administrador.</h1>
+				<img id="erro" src="404.jpg" />
+				<h2 align="center">Erro 500.</h2>
+				<h3 align="center">SLV - Sistema de Locação de Veículo.</h3>
+			</div>
+		</div>
 	</div>
 </h:body>
 </html>

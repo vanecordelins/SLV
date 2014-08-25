@@ -18,9 +18,9 @@
 	</servlet-mapping>
 
 	<!-- Fim configuração do arquivo de conexão do App -->
-	
+
 	<!-- Inicio configuração da classe ConexaoHibernateFilter -->
-	
+
 	<filter>
 		<filter-name>conexaoFilter</filter-name>
 		<filter-class>br.com.slv.web.filter.ConexaoHibernateFilter</filter-class>
@@ -29,11 +29,11 @@
 		<filter-name>conexaoFilter</filter-name>
 		<url-pattern>*.jsf</url-pattern>
 	</filter-mapping>
-	
+
 	<!-- Fim configuração da classe ConexaoHibernateFilter -->
 
 	<!-- Inicio configuração do funcionamento JSF -->
-	
+
 	<servlet>
 		<display-name>FacesServlet</display-name>
 		<servlet-name>FacesServlet</servlet-name>
@@ -50,7 +50,7 @@
 	</context-param>
 
 	<!-- Fim configuração do funcionamento JSF -->
-	
+
 	<!-- Inicio lista de páginas pricipais -->
 
 	<welcome-file-list>

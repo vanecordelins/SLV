@@ -28,7 +28,11 @@ public class Setor implements Serializable {
 
 	private String nome;
 
-	@OneToMany(mappedBy = "setorAlocado", targetEntity = Usuario.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "setorAlocado", targetEntity = Usuario.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany
+	@JoinTable ( name = " setor_usuario " ,
+	joinColumns = @JoinColumn ( name = "codigoSetor" ) ,
+	inverseJoinColumns = @JoinColumn ( name = " idUsuario " ) )
 	private List<Usuario> listaUsuarios;
 
 	public Setor() {

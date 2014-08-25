@@ -2,6 +2,7 @@ package br.com.slv.motorista;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -39,20 +40,29 @@ public class MotoristaDAO implements IMotoristaDAO {
 	}
 
 	@Override
-	public Motorista buscaMotorista(String cpf) {
+	public Motorista buscarMotorista(String cpf) {
 
 		String hql = "select m from Motorista m where cpf = :cpf";
+		
 		Query consulta = this.sessao.createQuery(hql);
+		
 		consulta.setParameter("cpf", cpf);
 
 		return (Motorista) consulta.uniqueResult();
+		
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Motorista> listarMotoristas() {
+		
+		List<Motorista> motoristas = null;
+		
+		Criteria filtro = this.sessao.createCriteria(Motorista.class);
+		
+		motoristas = filtro.list();
 
-		return this.sessao.createCriteria(Motorista.class).list();
+		return motoristas;
 
 	}
 }

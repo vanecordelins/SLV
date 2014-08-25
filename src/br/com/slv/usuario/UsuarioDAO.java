@@ -2,11 +2,13 @@ package br.com.slv.usuario;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import br.com.slv.exception.SenhaUsuarioIncorretaException;
 import br.com.slv.exception.UsuarioInexistenteException;
+import br.com.slv.setor.Setor;
 
 public class UsuarioDAO implements IUsuarioDAO {
 
@@ -40,10 +42,12 @@ public class UsuarioDAO implements IUsuarioDAO {
 	}
 
 	@Override
-	public Usuario buscaUsuario(String cpf) {
+	public Usuario buscarUsuario(String cpf) {
 
 		String hql = "select u from Usuario u where u.cpf=:cpf";
+		
 		Query consulta = this.sessao.createQuery(hql);
+		
 		consulta.setParameter("cpf", cpf);
 
 		return (Usuario) consulta.uniqueResult();
@@ -53,8 +57,14 @@ public class UsuarioDAO implements IUsuarioDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> listarUsuarios() {
+		
+		List<Usuario> usuarios = null;
 
-		return this.sessao.createCriteria(Usuario.class).list();
+		Criteria filtro = this.sessao.createCriteria(Usuario.class);
+		
+		usuarios = filtro.list();
+
+		return usuarios;
 
 	}
 

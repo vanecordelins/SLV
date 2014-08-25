@@ -1,10 +1,7 @@
-package br.com.slv.web.bean;
+package br.com.slv.setor;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-
-import br.com.slv.setor.Setor;
-import br.com.slv.setor.SetorRN;
 
 @ManagedBean(name = "setorBean")
 @RequestScoped

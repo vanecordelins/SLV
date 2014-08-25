@@ -1,4 +1,4 @@
-package br.com.slv.web.bean;
+package br.com.slv.usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,6 @@ import javax.faces.model.SelectItem;
 
 import br.com.slv.setor.Setor;
 import br.com.slv.setor.SetorRN;
-import br.com.slv.usuario.Usuario;
-import br.com.slv.usuario.UsuarioRN;
 
 @ManagedBean(name = "usuarioBean")
 @RequestScoped
@@ -33,11 +31,11 @@ public class UsuarioBean {
 			UsuarioRN usuarioRN = new UsuarioRN();
 
 			SetorRN setorRN = new SetorRN();
-			
+
 			Setor setor = new Setor();
 
-			setor = setorRN.buscaSetor(nomeSetor);
-			
+			setor = setorRN.buscarSetor(nomeSetor);
+
 			this.usuario.setSetorAlocado(setor);
 
 			Boolean salvo = usuarioRN.salvar(this.usuario);
@@ -47,6 +45,8 @@ public class UsuarioBean {
 				return "usuario";
 
 			} else {
+
+				setor.getListaUsuarios().add(usuario);
 
 				return "sucesso";
 

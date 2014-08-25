@@ -26,9 +26,6 @@ import br.com.slv.solicitacao_viagem.SolicitacaoViagem;
 @Table(name = "motorista")
 public class Motorista implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6599428612821237563L;
 
 	@Id
@@ -37,9 +34,8 @@ public class Motorista implements Serializable {
 
 	private String cpf;
 	private String nome;
-	private String rg;
+	private String rgMotorista;
 	private String orgaoExpeditor;
-	private String senha;
 	private char sexo;
 	private String cnh;
 	private String email;
@@ -55,6 +51,10 @@ public class Motorista implements Serializable {
 	private String telefoneResidencial;
 	private String telefoneCelular;
 
+	private String senha;
+	private String perguntaSecreta;
+	private String respostaSecreta;
+
 	@OneToMany(mappedBy = "motoristaResponsavel")
 	private List<RelatorioViagem> relatorioViagens;
 
@@ -66,10 +66,6 @@ public class Motorista implements Serializable {
 
 	public Motorista() {
 
-	}
-
-	public Long getId() {
-		return id;
 	}
 
 	public String getCpf() {
@@ -88,12 +84,12 @@ public class Motorista implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getRg() {
-		return rg;
+	public String getRgMotorista() {
+		return rgMotorista;
 	}
 
-	public void setRg(String rg) {
-		this.rg = rg;
+	public void setRgMotorista(String rgMotorista) {
+		this.rgMotorista = rgMotorista;
 	}
 
 	public String getOrgaoExpeditor() {
@@ -102,14 +98,6 @@ public class Motorista implements Serializable {
 
 	public void setOrgaoExpeditor(String orgaoExpeditor) {
 		this.orgaoExpeditor = orgaoExpeditor;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 	public char getSexo() {
@@ -208,6 +196,30 @@ public class Motorista implements Serializable {
 		this.telefoneCelular = telefoneCelular;
 	}
 
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getPerguntaSecreta() {
+		return perguntaSecreta;
+	}
+
+	public void setPerguntaSecreta(String perguntaSecreta) {
+		this.perguntaSecreta = perguntaSecreta;
+	}
+
+	public String getRespostaSecreta() {
+		return respostaSecreta;
+	}
+
+	public void setRespostaSecreta(String respostaSecreta) {
+		this.respostaSecreta = respostaSecreta;
+	}
+
 	public List<RelatorioViagem> getRelatorioViagens() {
 		return relatorioViagens;
 	}
@@ -236,6 +248,10 @@ public class Motorista implements Serializable {
 		return serialVersionUID;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -259,10 +275,15 @@ public class Motorista implements Serializable {
 		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
 		result = prime * result
 				+ ((orgaoExpeditor == null) ? 0 : orgaoExpeditor.hashCode());
+		result = prime * result
+				+ ((perguntaSecreta == null) ? 0 : perguntaSecreta.hashCode());
 		result = prime
 				* result
 				+ ((relatorioViagens == null) ? 0 : relatorioViagens.hashCode());
-		result = prime * result + ((rg == null) ? 0 : rg.hashCode());
+		result = prime * result
+				+ ((respostaSecreta == null) ? 0 : respostaSecreta.hashCode());
+		result = prime * result
+				+ ((rgMotorista == null) ? 0 : rgMotorista.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		result = prime * result + sexo;
 		result = prime * result
@@ -355,15 +376,25 @@ public class Motorista implements Serializable {
 				return false;
 		} else if (!orgaoExpeditor.equals(other.orgaoExpeditor))
 			return false;
+		if (perguntaSecreta == null) {
+			if (other.perguntaSecreta != null)
+				return false;
+		} else if (!perguntaSecreta.equals(other.perguntaSecreta))
+			return false;
 		if (relatorioViagens == null) {
 			if (other.relatorioViagens != null)
 				return false;
 		} else if (!relatorioViagens.equals(other.relatorioViagens))
 			return false;
-		if (rg == null) {
-			if (other.rg != null)
+		if (respostaSecreta == null) {
+			if (other.respostaSecreta != null)
 				return false;
-		} else if (!rg.equals(other.rg))
+		} else if (!respostaSecreta.equals(other.respostaSecreta))
+			return false;
+		if (rgMotorista == null) {
+			if (other.rgMotorista != null)
+				return false;
+		} else if (!rgMotorista.equals(other.rgMotorista))
 			return false;
 		if (senha == null) {
 			if (other.senha != null)
@@ -384,5 +415,4 @@ public class Motorista implements Serializable {
 			return false;
 		return true;
 	}
-
 }

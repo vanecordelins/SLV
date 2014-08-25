@@ -46,10 +46,12 @@ public class SolicitacaoViagemDAO implements ISolicitacaoViagem {
 	}
 
 	@Override
-	public SolicitacaoViagem buscaSolicitacaoViagem(String protocolo) {
+	public SolicitacaoViagem buscarSolicitacaoViagem(String protocolo) {
 
 		String hql = "select s from SolicitacaoViagem s where s.protocolo=:protocolo";
+		
 		Query consulta = this.sessao.createQuery(hql);
+		
 		consulta.setParameter("protocolo", protocolo);
 
 		return (SolicitacaoViagem) consulta.uniqueResult();
@@ -59,7 +61,13 @@ public class SolicitacaoViagemDAO implements ISolicitacaoViagem {
 	@Override
 	public List<SolicitacaoViagem> listarSolicitacaoViagem() {
 		
-		return this.sessao.createCriteria(SolicitacaoViagem.class).list();
+		List<SolicitacaoViagem> solicitacoesViagens = null;
+		
+		Criteria filtro = this.sessao.createCriteria(SolicitacaoViagem.class);
+		
+		solicitacoesViagens = filtro.list();
+		
+		return solicitacoesViagens;
 
 	}
 

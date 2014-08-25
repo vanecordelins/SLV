@@ -38,7 +38,7 @@ public class SetorDAO implements ISetorDAO {
 	}
 
 	@Override
-	public Setor buscaSetor(String nome) {
+	public Setor buscarSetor(String nome) {
 
 		String hql = "select s from Setor s where s.nome = :nome";
 		Query consulta = this.sessao.createQuery(hql);

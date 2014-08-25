@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+
+	<link
+		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap-theme.css"
+		rel="stylesheet" type="text/css" />
+
+	<title>Cadastrar veículo</title>
+
+</h:head>
+<h:body>
+
+	<!--
+	private float capacidadeLitros;
+	private float kmPorLitro;
+	private String tipo; 
+	-->
+
+	<div id="corpo">
+
+		<ui:include src="menuadmin.xhtml" />
+
+		<div id="container-fluid">
+
+			<div class="row-fluid">
+
+				<div class="col-md-12 column">
+
+					<h:form id="usuario" class="form-signin" method="post">
+
+						<h:inputHidden value="#veiculoBean.veiculo.disponibilidade" />
+
+						<!-- COMEÇO DADOS PESSOAIS -->
+
+						<fieldset>
+
+							<legend>Dados do veículo</legend>
+
+							<div class="row-fluid">
+
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="tombamento" label="Tombamento"
+										value="#{veiculoBean.veiculo.tombamento}"
+										pt:placeholder="Tombamento" class="form-control">
+									</h:inputText>
+
+								</div>
+
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="chassi" label="Chassi"
+										value="#{veiculoBean.veiculo.chassi}" class="form-control"
+										pt:placeholder="Chassi" title="Apenas números">
+									</h:inputText>
+								</div>
+
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="placa" label="Placa"
+										value="#{veiculoBean.veiculo.placa}" class="form-control"
+										pt:placeholder="Placa">
+									</h:inputText>
+								</div>
+
+							</div>
+
+							<div class="row-fluid">
+
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="fabricante" label="Fabricante"
+										value="#{veiculoBean.veiculo.fabricante}"
+										pt:placeholder="Fabricante" class="form-control">
+									</h:inputText>
+
+								</div>
+
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="modelo" label="Modelo"
+										value="#{veiculoBean.veiculo.modelo}" class="form-control"
+										pt:placeholder="Modelo" title="Apenas números"></h:inputText>
+								</div>
+
+								<div class="col-xs-6 col-md-4">
+									<h:inputText id="cor" label="Cor"
+										value="#{veiculoBean.veiculo.cor}" class="form-control"
+										pt:placeholder="Cor">
+									</h:inputText>
+								</div>
+
+							</div>
+
+							<div class="row-fluid">
+
+								<div class="col-xs-6 col-md-4">
+									<h:selectOneMenu id="anoFabricacao" class="form-control"
+										value="#{veiculoBean.veiculo.anoFabricacao}">
+										<f:selectItem itemDisabled="true"
+											itemLabel="Ano de fabricação" />
+										<f:selectItem itemLabel="2000" itemValue="2000" />
+										<f:selectItem itemLabel="2001" itemValue="2001" />
+										<f:selectItem itemLabel="2002" itemValue="2002" />
+										<f:selectItem itemLabel="2003" itemValue="2003" />
+										<f:selectItem itemLabel="2004" itemValue="2004" />
+										<f:selectItem itemLabel="2005" itemValue="2005" />
+										<f:selectItem itemLabel="2006" itemValue="2006" />
+										<f:selectItem itemLabel="2007" itemValue="2007" />
+										<f:selectItem itemLabel="2008" itemValue="2008" />
+										<f:selectItem itemLabel="2009" itemValue="2009" />
+										<f:selectItem itemLabel="2010" itemValue="2010" />
+										<f:selectItem itemLabel="2011" itemValue="2011" />
+										<f:selectItem itemLabel="2012" itemValue="2012" />
+										<f:selectItem itemLabel="2013" itemValue="2013" />
+										<f:selectItem itemLabel="2014" itemValue="2014" />
+										<f:selectItem itemLabel="2015" itemValue="2015" />
+									</h:selectOneMenu>
+
+								</div>
+
+								<div class="col-xs-6 col-md-4">
+
+									<h:selectOneMenu id="tipo" class="form-control"
+										value="#{veiculoBean.veiculo.tipo}">
+										<f:selectItem itemDisabled="true" itemLabel="Tipo de veículo" />
+										<f:selectItem itemLabel="pesquisa" itemValue="Pesquisa" />
+										<f:selectItem itemLabel="visitacao" itemValue="Visitação" />
+									</h:selectOneMenu>
+
+								</div>
+
+							</div>
+
+						</fieldset>
+
+						<fieldset>
+
+							<div class="row-fluid">
+
+								<div class="col-xs-6 col-md-4">
+
+									<h:outputText value="Capacidade do tanque em litros" />
+									<h:inputText id="capacidadeLitros" label="Capacidade em litros"
+										value="#{veiculoBean.veiculo.capacidadeLitros}"
+										class="form-control">
+										<f:convertNumber pattern="#000.00" />
+									</h:inputText>
+
+								</div>
+
+								<div class="col-xs-6 col-md-4">
+
+									<h:outputText value="km por litro" />
+									<h:inputText id="kmPorLitro" label="km por litro"
+										value="#{veiculoBean.veiculo.kmPorLitro}" class="form-control">
+										<f:convertNumber pattern="#000.00" />
+									</h:inputText>
+
+								</div>
+
+							</div>
+
+						</fieldset>
+
+						<!-- FIM DADOS DO VEICULO -->
+
+						<!-- COMEÇO BOTÃO -->
+
+						<h:commandButton action="#{veiculoBean.salvar}" value="Salvar"
+							class="btn btn-lg btn-primary btn-adaptado" />
+
+						<h:commandButton type="reset" value="Limpar"
+							class="btn btn-lg btn-primary btn-adaptado" />
+
+						<!-- FIM BOTÃO -->
+
+					</h:form>
+					<!-- h:form -->
+
+				</div>
+				<!-- class="col-md-12 column" -->
+
+			</div>
+			<!-- row-fuid -->
+
+		</div>
+		<!-- container-fluid -->
+
+	</div>
+	<!-- corpo -->
+
+	<div id="footer-adaptado">
+
+		<div id="ajuda">
+
+			<span class="glyphicon glyphicon-info-sign"></span> <a href="#">Ajuda</a>
+
+		</div>
+
+	</div>
+
+</h:body>
+</html>
