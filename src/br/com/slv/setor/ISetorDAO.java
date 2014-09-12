@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface ISetorDAO {
 	public void salvarSetor(Setor setor);
-	public void altualizarSetor(Setor setor);
+	public void altualizarSetorDAO(Setor setor);
 	public void excluirSetor(Setor setor);
-	public Setor buscarSetor(String nome);
-	public List<Setor> listarSetores();
+	public Setor buscarSetorDAO(String nome);
+	public List<Setor> listarSetoresDAO();
 }

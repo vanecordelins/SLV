@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+
+	<link
+		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap.min.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap-theme.css"
+		rel="stylesheet" type="text/css" />
+
+	<title>Cadastrar setor</title>
+
+</h:head>
+<h:body styleClass="body">
+
+	<ui:include src="menu_admin.xhtml" />
+
+	<div id="container-fluid">
+
+		<div class="row-fluid">
+
+			<div class="col-md-12 column">
+
+				<div class="form">
+
+					<h:form id="setor" class="form-signin" method="post">
+
+						<h:inputHidden value="#{setorBean.setor.codigoSetor}" />
+
+						<p:messages globalOnly="true" />
+
+						<!-- COMEÇO DADOS DO SETOR -->
+
+						<h:outputLabel value="Dados do setor " />
+
+						<div class="row clearfix">
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="nome" label="Nome"
+									value="#{setorBean.setor.nome}" pt:placeholder="Nome"
+									class="form-control" required="true"
+									requiredMessage="Informe o setor"
+									validatorMessage="No minimo 3 caracteres">
+									<f:validateLength minimum="3" maximum="100" />
+								</h:inputText>
+								<h:message for="nome" styleClass="erro" />
+
+							</div>
+
+						</div>
+
+						<!-- COMEÇO BOTÃO -->
+
+						<h:commandButton immediate="true" action="administrador.xhtml"
+							value="Cancelar" class="btn btn-lg btn-danger btn-adaptado" />
+
+						<h:commandButton action="#{setorBean.atualizarSetorBean}"
+							value="Atualizar" class="btn btn-lg btn-primary btn-adaptado" />
+
+						<!-- FIM BOTÃO -->
+
+					</h:form>
+					<!-- h:form -->
+
+				</div>
+				<!-- class="form" -->
+
+			</div>
+			<!-- class="col-md-12 column" -->
+
+		</div>
+		<!-- row-fuid -->
+
+	</div>
+	<!-- container-fluid -->
+
+	<div class="footer">
+		<ui:include src="footer_admin.xhtml" />
+	</div>
+	<!-- footer -->
+
+</h:body>
+</html>

@@ -12,13 +12,11 @@ public class UsuarioRN {
 
 	}
 
-	public boolean salvar(Usuario usuario) {
+	public boolean salvarUsuarioRN(Usuario usuario) {
 
-		Usuario usuarioExiste = usuarioDAO.buscarUsuario(usuario.getCpf());
+		if (this.usuarioDAO.buscarUsuarioDAO(usuario.getCpf()) == null) {
 
-		if (usuarioExiste == null) {
-
-			this.usuarioDAO.salvarUsuario(usuario);
+			this.usuarioDAO.salvarUsuarioDAO(usuario);
 
 			return true;
 
@@ -27,5 +25,19 @@ public class UsuarioRN {
 			return false;
 
 		}
+		
 	}
+
+	public Usuario buscarUsuarioRN(String cpf) {
+
+		return this.usuarioDAO.buscarUsuarioDAO(cpf);
+
+	}
+
+	public void atualizarUsuarioRN(Usuario usuario) {
+
+		this.usuarioDAO.altualizarUsuarioDAO(usuario);
+
+	}
+
 }

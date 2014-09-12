@@ -9,53 +9,41 @@ html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
-	position: relative;
-	min-height: 100%;
+	height: 100%;
 }
 
 body {
 	margin: 0;
 	height: 100%;
+	background-color: #000;
 }
 
 /* Adaptações */
-.body {
-	margin: 0;
-	padding-top: 100px;
+.corpo {
+	margin-top: 100px;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 5%;
 	height: 100%;
-	background-color: #f5f5f5;
 }
 
 .btn-adaptado {
 	margin-right: 1%;
-	margin-top: 3%;
 }
 
-.footer {
-	position: absolute;
-	bottom : 0;
-	width: 100%;
-	min-height: 60px;
-	padding: 5px;
-	background-color: #101010;
-	color: #ffffff;
+.busca {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.form {
-	padding-left: 5%;
-	padding-right: 5%;
-	margin-bottom: 100px;
-}
-
-.erro {
-	color: #ff0000;
-	padding: 5px;
-	layout: table;
+.form-adaptado {
+	padding-bottom: 50px;
 }
 
 /* Adaptações */
-article, aside, details, figcaption, figure, header, footer, hgroup,
-	main, nav, section, summary {
+article, aside, details, figcaption, figure, header, footer, hgroup, main, nav,
+	section, summary {
 	display: block;
 }
 
@@ -79,12 +67,6 @@ audio
 
 
 
-
-
-
-
-
-
 :not
 
 
@@ -93,13 +75,7 @@ audio
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -118,13 +94,7 @@ controls
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -149,16 +119,7 @@ display
 
 
 
-
-
-
-
-
-
 :
-
-
-
 
 
 
@@ -174,16 +135,7 @@ display
 
 
 
-
-
-
 none
-
-
-
-
-
-
 
 
 
@@ -214,12 +166,6 @@ height
 
 
 
-
-
-
-
-
-
 :
 
 
@@ -228,13 +174,7 @@ height
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -316,12 +256,6 @@ svg
 
 
 
-
-
-
-
-
-
 :not
 
 
@@ -330,13 +264,7 @@ svg
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -353,13 +281,7 @@ svg
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -384,16 +306,7 @@ overflow
 
 
 
-
-
-
-
-
-
 :
-
-
-
 
 
 
@@ -409,16 +322,7 @@ overflow
 
 
 
-
-
-
 hidden
-
-
-
-
-
-
 
 
 
@@ -2940,7 +2844,7 @@ output {
 
 .form-control {
 	display: block;
-	margin-top: 10px; width : 100%;
+	width: 100%;
 	height: 34px;
 	padding: 6px 12px;
 	font-size: 14px;
@@ -2957,7 +2861,6 @@ output {
 	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
 		.15s;
 	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-	width: 100%;
 }
 
 .form-control:focus {
@@ -3887,12 +3790,6 @@ tbody.collapse.in {
 
 
 
-
-
-
-
-
-
 :not
 
 
@@ -3901,13 +3798,7 @@ tbody.collapse.in {
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -3924,13 +3815,7 @@ tbody.collapse.in {
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -3947,13 +3832,7 @@ tbody.collapse.in {
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -3970,13 +3849,7 @@ tbody.collapse.in {
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -3993,13 +3866,7 @@ tbody.collapse.in {
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4017,13 +3884,7 @@ tbody.collapse.in {
 
 
 
-
-
-
 	
-
-
-
 
 
 
@@ -4048,12 +3909,6 @@ border-radius
 
 
 
-
-
-
-
-
-
 :
 
 
@@ -4062,13 +3917,7 @@ border-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4099,19 +3948,7 @@ border-radius
 
 
 
-
-
-
-
-
-
 :first-child
-
-
-
-
-
-
 
 
 
@@ -4134,13 +3971,7 @@ border-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4157,13 +3988,7 @@ border-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4180,13 +4005,7 @@ border-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4203,13 +4022,7 @@ border-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4234,12 +4047,6 @@ border-top-right-radius
 
 
 
-
-
-
-
-
-
 :
 
 
@@ -4248,13 +4055,7 @@ border-top-right-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4278,12 +4079,6 @@ border-bottom-right-radius
 
 
 
-
-
-
-
-
-
 :
 
 
@@ -4292,13 +4087,7 @@ border-bottom-right-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4325,19 +4114,7 @@ border-bottom-right-radius
 
 
 
-
-
-
-
-
-
 :last-child
-
-
-
-
-
-
 
 
 
@@ -4360,13 +4137,7 @@ border-bottom-right-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4383,13 +4154,7 @@ border-bottom-right-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4415,16 +4180,7 @@ border-bottom-right-radius
 
 
 
-
-
-
-
-
-
 :not
-
-
-
 
 
 
@@ -4441,9 +4197,6 @@ border-bottom-right-radius
 
 
 
-
-
-
 (
 :first-child
 
@@ -4453,13 +4206,7 @@ border-bottom-right-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4484,12 +4231,6 @@ border-top-left-radius
 
 
 
-
-
-
-
-
-
 :
 
 
@@ -4498,13 +4239,7 @@ border-top-left-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4528,12 +4263,6 @@ border-bottom-left-radius
 
 
 
-
-
-
-
-
-
 :
 
 
@@ -4542,13 +4271,7 @@ border-bottom-left-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4650,12 +4373,6 @@ border-bottom-left-radius
 
 
 
-
-
-
-
-
-
 :not
 
 
@@ -4664,13 +4381,7 @@ border-bottom-left-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4687,13 +4398,7 @@ border-bottom-left-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4710,13 +4415,7 @@ border-bottom-left-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4733,13 +4432,7 @@ border-bottom-left-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4764,12 +4457,6 @@ border-radius
 
 
 
-
-
-
-
-
-
 :
 
 
@@ -4778,13 +4465,7 @@ border-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4811,19 +4492,7 @@ border-radius
 
 
 
-
-
-
-
-
-
 :first-child
-
-
-
-
-
-
 
 
 
@@ -4846,13 +4515,7 @@ border-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4869,13 +4532,7 @@ border-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -4900,16 +4557,7 @@ border-top-right-radius
 
 
 
-
-
-
-
-
-
 :
-
-
-
 
 
 
@@ -4925,17 +4573,8 @@ border-top-right-radius
 
 
 
-
-
-
 4
 px
-
-
-
-
-
-
 
 
 
@@ -4966,12 +4605,6 @@ border-bottom-right-radius
 
 
 
-
-
-
-
-
-
 :
 
 
@@ -4980,13 +4613,7 @@ border-bottom-right-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5010,16 +4637,7 @@ border-bottom-left-radius
 
 
 
-
-
-
-
-
-
 :
-
-
-
 
 
 
@@ -5035,20 +4653,11 @@ border-bottom-left-radius
 
 
 
-
-
-
 0;
 }
 .btn-group-vertical
 >
 .btn
-
-
-
-
-
-
 
 
 
@@ -5078,12 +4687,6 @@ border-bottom-left-radius
 
 
 
-
-
-
-
-
-
 :not
 
 
@@ -5092,13 +4695,7 @@ border-bottom-left-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5115,13 +4712,7 @@ border-bottom-left-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5146,12 +4737,6 @@ border-top-left-radius
 
 
 
-
-
-
-
-
-
 :
 
 
@@ -5160,13 +4745,7 @@ border-top-left-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5190,12 +4769,6 @@ border-top-right-radius
 
 
 
-
-
-
-
-
-
 :
 
 
@@ -5204,13 +4777,7 @@ border-top-right-radius
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5234,16 +4801,7 @@ border-bottom-left-radius
 
 
 
-
-
-
-
-
-
 :
-
-
-
 
 
 
@@ -5259,17 +4817,8 @@ border-bottom-left-radius
 
 
 
-
-
-
 4
 px
-
-
-
-
-
-
 
 
 
@@ -5416,12 +4965,6 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
-
-
-
 :not
 
 
@@ -5430,13 +4973,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5453,13 +4990,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5476,13 +5007,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5499,13 +5024,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5529,16 +5048,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
-
-
-
 :not
-
-
-
 
 
 
@@ -5555,9 +5065,6 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
 (
 :first-child
 
@@ -5567,13 +5074,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5590,13 +5091,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5613,13 +5108,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5636,13 +5125,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5665,12 +5148,6 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
-
-
-
 :not
 
 
@@ -5679,13 +5156,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5703,13 +5174,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
 	
-
-
-
 
 
 
@@ -5726,13 +5191,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5749,13 +5208,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
-
-
-
  
-
-
-
 
 
 
@@ -5780,12 +5233,6 @@ border-radius
 
 
 
-
-
-
-
-
-
 :
 
 
@@ -5794,13 +5241,7 @@ border-radius
 
 
 
-
-
-
  
-
-
-
 
 
 

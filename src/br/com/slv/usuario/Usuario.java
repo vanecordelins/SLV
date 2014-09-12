@@ -48,7 +48,7 @@ public class Usuario implements Serializable {
 	private String telefoneCelular;
 
 	@ManyToOne
-	@JoinColumn(name = "codigoSetor")
+	@JoinColumn(name = " codigoSetor ")
 	private Setor setorAlocado;
 
 	@OneToMany(mappedBy = "usuarioSolicitante")
@@ -58,8 +58,12 @@ public class Usuario implements Serializable {
 
 	}
 
-	public Long getId() {
+	public Long getIdUsuario() {
 		return idUsuario;
+	}
+
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public String getCpf() {
@@ -237,7 +241,8 @@ public class Usuario implements Serializable {
 		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
-		result = prime * result + ((idUsuario == null) ? 0 : idUsuario.hashCode());
+		result = prime * result
+				+ ((idUsuario == null) ? 0 : idUsuario.hashCode());
 		result = prime * result
 				+ ((identificador == null) ? 0 : identificador.hashCode());
 		result = prime

@@ -12,10 +12,10 @@ import br.com.slv.setor.Setor;
  */
 public interface IUsuarioDAO {
 	
-	public void salvarUsuario(Usuario usuario);
-	public void altualizarUsuario(Usuario usuario);
+	public void salvarUsuarioDAO(Usuario usuario);
+	public void altualizarUsuarioDAO(Usuario usuario);
 	public void excluirUsuario(Usuario usuario);
-	public Usuario buscarUsuario(String cpf);
+	public Usuario buscarUsuarioDAO(String cpf);
 	public List<Usuario> listarUsuarios();
 
 	/**

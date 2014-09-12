@@ -12,14 +12,11 @@ public class MotoristaRN {
 
 	}
 
-	public Boolean salvar(Motorista motorista) {
+	public Boolean salvarMotoristaRN(Motorista motorista) {
 
-		Motorista motoristaExiste = motoristaDAO.buscarMotorista(motorista
-				.getCpf());
+		if (this.motoristaDAO.buscarMotoristaDAO(motorista.getCpf()) == null) {
 
-		if (motoristaExiste == null) {
-
-			this.motoristaDAO.salvarMotorista(motorista);
+			this.motoristaDAO.salvarMotoristaDAO(motorista);
 
 			return true;
 
@@ -29,6 +26,18 @@ public class MotoristaRN {
 
 		}
 
+	}
+
+	public Motorista buscarMotoristaRN(String cpfPesquisa) {
+
+		return this.motoristaDAO.buscarMotoristaDAO(cpfPesquisa);
+
+	}
+
+	public void atualizarMotoristaRN(Motorista motorista) {
+		
+		this.motoristaDAO.altualizarMotoristaDAO(motorista);
+		
 	}
 
 }

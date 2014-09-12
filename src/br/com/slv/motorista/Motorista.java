@@ -1,10 +1,9 @@
 package br.com.slv.motorista;
 
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -39,6 +38,8 @@ public class Motorista implements Serializable {
 	private char sexo;
 	private String cnh;
 	private String email;
+	
+	@Column(nullable = false)
 	private boolean disponibilidade;
 
 	private String logradouro;
@@ -66,6 +67,14 @@ public class Motorista implements Serializable {
 
 	public Motorista() {
 
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getCpf() {
@@ -124,7 +133,7 @@ public class Motorista implements Serializable {
 		this.email = email;
 	}
 
-	public boolean isDisponibilidade() {
+	public boolean getDisponibilidade() {
 		return disponibilidade;
 	}
 
@@ -246,10 +255,6 @@ public class Motorista implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
-
-	public Long getId() {
-		return id;
 	}
 
 	@Override

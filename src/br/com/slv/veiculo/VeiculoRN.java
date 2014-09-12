@@ -11,7 +11,7 @@ public class VeiculoRN {
 		this.veiculoDAO = DAOFactory.criarVeiculoDAO();
 	}
 
-	public Boolean salvar(Veiculo veiculo) {
+	public Boolean salvarVeiculoRN(Veiculo veiculo) {
 
 		Veiculo veiculoExiste = veiculoDAO.buscarVeiculo(veiculo
 				.getTombamento());
@@ -28,6 +28,18 @@ public class VeiculoRN {
 			
 		}
 
+	}
+
+	public Veiculo buscarVeiculo(String tombamentoPequisa) {
+		
+		return this.veiculoDAO.buscarVeiculo(tombamentoPequisa);
+		
+	}
+
+	public void atualizarVeiculoRN(Veiculo veiculo) {
+		
+		this.veiculoDAO.altualizarVeiculo(veiculo);
+		
 	}
 
 }

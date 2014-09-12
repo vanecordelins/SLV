@@ -14,9 +14,9 @@ public class SetorRN {
 
 	}
 
-	public boolean salvar(Setor setor) {
+	public boolean salvarSetorRN(Setor setor) {
 
-		Setor setorExiste = setorDAO.buscarSetor(setor.getNome());
+		Setor setorExiste = setorDAO.buscarSetorDAO(setor.getNome());
 
 		if (setorExiste == null) {
 
@@ -31,21 +31,21 @@ public class SetorRN {
 		}
 	}
 
-	public Setor buscarSetor(String nomeSetor) {
+	public Setor buscarSetorRN(String nomeSetor) {
 		
-		return this.setorDAO.buscarSetor(nomeSetor);
-		
-	}
-
-	public List<Setor> listarSetores() {
-		
-		return this.setorDAO.listarSetores();
+		return this.setorDAO.buscarSetorDAO(nomeSetor);
 		
 	}
 
-	public void atualizarSetor(Setor setor) {
+	public List<Setor> listarSetoresRN() {
 		
-		this.setorDAO.altualizarSetor(setor);
+		return this.setorDAO.listarSetoresDAO();
+		
+	}
+
+	public void atualizarSetorRN(Setor setor) {
+		
+		this.setorDAO.altualizarSetorDAO(setor);
 		
 	}
 }

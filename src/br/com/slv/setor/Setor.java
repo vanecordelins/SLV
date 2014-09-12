@@ -4,9 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+import br.com.slv.converter.SampleEntity;
 import br.com.slv.usuario.Usuario;
 
 /**
@@ -18,7 +21,7 @@ import br.com.slv.usuario.Usuario;
 
 @Entity
 @Table(name = "setor")
-public class Setor implements Serializable {
+public class Setor implements Serializable, SampleEntity {
 
 	private static final long serialVersionUID = 9101816051539078803L;
 
@@ -28,19 +31,11 @@ public class Setor implements Serializable {
 
 	private String nome;
 
-	//@OneToMany(mappedBy = "setorAlocado", targetEntity = Usuario.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@OneToMany
-	@JoinTable ( name = " setor_usuario " ,
-	joinColumns = @JoinColumn ( name = "codigoSetor" ) ,
-	inverseJoinColumns = @JoinColumn ( name = " idUsuario " ) )
+	@OneToMany(mappedBy = "setorAlocado")
 	private List<Usuario> listaUsuarios;
 
 	public Setor() {
 
-	}
-
-	public Long getCodigoSetor() {
-		return codigoSetor;
 	}
 
 	public String getNome() {
@@ -59,16 +54,14 @@ public class Setor implements Serializable {
 		this.listaUsuarios = listaUsuarios;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
 				+ ((codigoSetor == null) ? 0 : codigoSetor.hashCode());
+		result = prime * result
+				+ ((listaUsuarios == null) ? 0 : listaUsuarios.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
@@ -87,6 +80,11 @@ public class Setor implements Serializable {
 				return false;
 		} else if (!codigoSetor.equals(other.codigoSetor))
 			return false;
+		if (listaUsuarios == null) {
+			if (other.listaUsuarios != null)
+				return false;
+		} else if (!listaUsuarios.equals(other.listaUsuarios))
+			return false;
 		if (nome == null) {
 			if (other.nome != null)
 				return false;
@@ -95,4 +93,11 @@ public class Setor implements Serializable {
 		return true;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Long getCodigoSetor() {
+		return codigoSetor;
+	}
 }

@@ -3,6 +3,7 @@ package br.com.slv.veiculo;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -39,7 +40,10 @@ public class Veiculo implements Serializable {
 	private String placa;
 	private String anoFabricacao;
 	private String chassi;
+	
+	@Column(nullable = false)
 	private boolean disponibilidade;
+	
 	private float capacidadeLitros;
 	private float kmPorLitro;
 	private String tipo;

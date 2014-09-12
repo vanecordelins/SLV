@@ -3,12 +3,15 @@ package br.com.slv.usuario;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 import br.com.slv.setor.Setor;
 import br.com.slv.setor.SetorRN;
+import br.com.slv.singleton.Util;
 
 @ManagedBean(name = "usuarioBean")
 @RequestScoped
@@ -16,41 +19,78 @@ public class UsuarioBean {
 
 	private Usuario usuario = new Usuario();
 
-	private String confirmarSenha, nomeSetor;
+	UsuarioRN usuarioRN = new UsuarioRN();
 
+	SetorRN setorRN = new SetorRN();
+	
+	Util cpf = Util.getInstancia();
+
+	FacesContext context = FacesContext.getCurrentInstance();
+
+	private String confirmarSenha;
+	private String cpfPesquisa;
 	private List<SelectItem> setoresSelect;
 
-	public String salvar() {
+	public String salvarUsuarioBean() {
 
 		if (!this.usuario.getSenha().equals(this.confirmarSenha)) {
 
-			return "usuario";
+			FacesMessage facesMessage = new FacesMessage(
+					"A senha informada não confere");
+
+			context.addMessage("usuario:confirmarSenha", facesMessage);
+
+			return null;
+
+		} else if (this.cpf.isCpf(usuario.getCpf()) == false) {
+
+			FacesMessage facesMessage = new FacesMessage("CPF inválido");
+
+			context.addMessage("usuario:cpf", facesMessage);
+
+			return null;
+
+		} else if (this.usuarioRN.salvarUsuarioRN(this.usuario) == false) {
+
+			FacesMessage facesMessage = new FacesMessage(
+					"Usuário já está cadastrado no sistema");
+
+			context.addMessage(null, facesMessage);
+
+			return null;
 
 		} else {
 
-			UsuarioRN usuarioRN = new UsuarioRN();
+			return "sucesso";
 
-			SetorRN setorRN = new SetorRN();
+		}
+	}
 
-			Setor setor = new Setor();
+	public String atualizarUsuarioBean() {
 
-			setor = setorRN.buscarSetor(nomeSetor);
+		if (!this.usuario.getSenha().equals(this.confirmarSenha)) {
 
-			this.usuario.setSetorAlocado(setor);
+			FacesMessage facesMessage = new FacesMessage(
+					"A senha informada não confere");
 
-			Boolean salvo = usuarioRN.salvar(this.usuario);
+			context.addMessage("usuario:confirmarSenha", facesMessage);
 
-			if (salvo.equals(false)) {
+			return null;
 
-				return "usuario";
+		} else if (this.cpf.isCpf(usuario.getCpf()) == false) {
 
-			} else {
+			FacesMessage facesMessage = new FacesMessage("CPF inválido");
 
-				setor.getListaUsuarios().add(usuario);
+			context.addMessage("usuario:cpf", facesMessage);
 
-				return "sucesso";
+			return null;
 
-			}
+		} else {
+
+			this.usuarioRN.atualizarUsuarioRN(usuario);
+
+			return "sucesso";
+
 		}
 	}
 
@@ -58,11 +98,9 @@ public class UsuarioBean {
 
 		if (this.setoresSelect == null) {
 
-			setoresSelect = new ArrayList<SelectItem>();
+			this.setoresSelect = new ArrayList<SelectItem>();
 
-			SetorRN setorRN = new SetorRN();
-
-			List<Setor> listaSetores = setorRN.listarSetores();
+			List<Setor> listaSetores = this.setorRN.listarSetoresRN();
 
 			if (listaSetores != null && !listaSetores.isEmpty()) {
 
@@ -70,7 +108,7 @@ public class UsuarioBean {
 
 				for (Setor setorLista : listaSetores) {
 
-					item = new SelectItem(setorLista.getNome());
+					item = new SelectItem(setorLista, setorLista.getNome());
 
 					this.setoresSelect.add(item);
 
@@ -79,6 +117,25 @@ public class UsuarioBean {
 		}
 
 		return setoresSelect;
+
+	}
+
+	public String pesquisarUsuarioBean() {
+
+		this.usuario = this.usuarioRN.buscarUsuarioRN(cpfPesquisa);
+
+		if (usuario == null) {
+
+			FacesMessage facesMessage = new FacesMessage(
+					"O usuário não está cadastrado");
+
+			context.addMessage(null, facesMessage);
+
+			return null;
+
+		}
+
+		return "atualizar_usuario";
 
 	}
 
@@ -98,11 +155,11 @@ public class UsuarioBean {
 		this.confirmarSenha = confirmarSenha;
 	}
 
-	public String getNomeSetor() {
-		return nomeSetor;
+	public String getCpfPesquisa() {
+		return cpfPesquisa;
 	}
 
-	public void setNomeSetor(String nomeSetor) {
-		this.nomeSetor = nomeSetor;
+	public void setCpfPesquisa(String cpfPesquisa) {
+		this.cpfPesquisa = cpfPesquisa;
 	}
 }

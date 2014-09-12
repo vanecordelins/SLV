@@ -19,14 +19,14 @@ public class MotoristaDAO implements IMotoristaDAO {
 	}
 
 	@Override
-	public void salvarMotorista(Motorista motorista) {
+	public void salvarMotoristaDAO(Motorista motorista) {
 
 		this.sessao.save(motorista);
 
 	}
 
 	@Override
-	public void altualizarMotorista(Motorista motorista) {
+	public void altualizarMotoristaDAO(Motorista motorista) {
 
 		this.sessao.update(motorista);
 
@@ -40,7 +40,7 @@ public class MotoristaDAO implements IMotoristaDAO {
 	}
 
 	@Override
-	public Motorista buscarMotorista(String cpf) {
+	public Motorista buscarMotoristaDAO(String cpf) {
 
 		String hql = "select m from Motorista m where cpf = :cpf";
 		

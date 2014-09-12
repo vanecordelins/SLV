@@ -8,7 +8,6 @@ import org.hibernate.Session;
 
 import br.com.slv.exception.SenhaUsuarioIncorretaException;
 import br.com.slv.exception.UsuarioInexistenteException;
-import br.com.slv.setor.Setor;
 
 public class UsuarioDAO implements IUsuarioDAO {
 
@@ -21,14 +20,14 @@ public class UsuarioDAO implements IUsuarioDAO {
 	}
 
 	@Override
-	public void salvarUsuario(Usuario usuario) {
+	public void salvarUsuarioDAO(Usuario usuario) {
 
 		this.sessao.save(usuario);
 
 	}
 
 	@Override
-	public void altualizarUsuario(Usuario usuario) {
+	public void altualizarUsuarioDAO(Usuario usuario) {
 
 		this.sessao.update(usuario);
 
@@ -42,7 +41,7 @@ public class UsuarioDAO implements IUsuarioDAO {
 	}
 
 	@Override
-	public Usuario buscarUsuario(String cpf) {
+	public Usuario buscarUsuarioDAO(String cpf) {
 
 		String hql = "select u from Usuario u where u.cpf=:cpf";
 		

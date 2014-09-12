@@ -24,7 +24,7 @@ public class SetorDAO implements ISetorDAO {
 	}
 
 	@Override
-	public void altualizarSetor(Setor setor) {
+	public void altualizarSetorDAO(Setor setor) {
 
 		this.sessao.update(setor);
 
@@ -38,28 +38,29 @@ public class SetorDAO implements ISetorDAO {
 	}
 
 	@Override
-	public Setor buscarSetor(String nome) {
+	public Setor buscarSetorDAO(String nome) {
 
 		String hql = "select s from Setor s where s.nome = :nome";
+		
 		Query consulta = this.sessao.createQuery(hql);
+		
 		consulta.setParameter("nome", nome);
 
 		return (Setor) consulta.uniqueResult();
 
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Setor> listarSetores() {
+	public List<Setor> listarSetoresDAO() {
 		
 		List<Setor> setores = null;
 
 		Criteria filtro = this.sessao.createCriteria(Setor.class);
+		
 		setores = filtro.list();
 
 		return setores;
-
-		// return this.sessao.createCriteria(Setor.class).list();
 
 	}
 

@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+
+	<link
+		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap-theme.css"
+		rel="stylesheet" type="text/css" />
+
+	<title>Cadastro motorista</title>
+</h:head>
+<h:body styleClass="body">
+
+	<ui:include src="menu_admin.xhtml" />
+
+	<div id="container-fluid">
+
+		<div class="row-fluid">
+
+			<div class="col-md-12 column">
+
+				<div class="form">
+
+					<h:form id="motorista" class="form-signin" method="post">
+
+						<h:inputHidden value="#{motoristaBean.motorista.id}" />
+
+						<p:messages globalOnly="true" />
+
+						<!-- COMEÇO DADOS PESSOAIS -->
+
+						<h:outputLabel value="Dados pessoais" />
+
+						<div class="row clearfix">
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="nome" label="Nome"
+									value="#{motoristaBean.motorista.nome}" pt:placeholder="Nome"
+									class="form-control" required="true"
+									requiredMessage="Informe seu nome"
+									validatorMessage="No minimo 10 caracteres">
+									<f:validateLength minimum="10" maximum="100" />
+								</h:inputText>
+								<h:message for="nome" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="rgMotorista" label="RG"
+									value="#{motoristaBean.motorista.rgMotorista}"
+									class="form-control" pt:placeholder="RG" required="true"
+									requiredMessage="Informe seu rg"
+									validatorMessage="Formato inválido" maxlength="8">
+									<f:validateRegex pattern="[0-9]{7}" />
+								</h:inputText>
+								<h:message for="rgMotorista" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:selectOneMenu id="orgaoExpeditor" class="form-control"
+									value="#{motoristaBean.motorista.orgaoExpeditor}"
+									required="true" requiredMessage="Informe o orgão expeditor">
+									<f:selectItem itemDisabled="true"
+										itemLabel="Orgão
+											expeditor" />
+									<f:selectItem itemValue="sspac" itemLabel="SSP/AC" />
+									<f:selectItem itemValue="sspal" itemLabel="SSP/AL" />
+									<f:selectItem itemValue="sspap" itemLabel="SSP/AP" />
+									<f:selectItem itemValue="sspam" itemLabel="SSP/AM" />
+									<f:selectItem itemValue="sspam" itemLabel="SSP/AM" />
+									<f:selectItem itemValue="sspba" itemLabel="SSP/BA" />
+									<f:selectItem itemValue="sspce" itemLabel="SSP/CE" />
+									<f:selectItem itemValue="sspdf" itemLabel="SSP/DF" />
+									<f:selectItem itemValue="sspes" itemLabel="SSP/ES" />
+									<f:selectItem itemValue="sspgo" itemLabel="SSP/GO" />
+									<f:selectItem itemValue="sspma" itemLabel="SSP/MA" />
+									<f:selectItem itemValue="sspmt" itemLabel="SSP/MT" />
+									<f:selectItem itemValue="sspms" itemLabel="SSP/MS" />
+									<f:selectItem itemValue="sspmg" itemLabel="SSP/MG" />
+									<f:selectItem itemValue="ssppa" itemLabel="SSP/PA" />
+									<f:selectItem itemValue="ssppb" itemLabel="SSP/PB" />
+									<f:selectItem itemValue="ssppr" itemLabel="SSP/PR" />
+									<f:selectItem itemValue="ssppe" itemLabel="SSP/PE" />
+									<f:selectItem itemValue="ssppi" itemLabel="SSP/PI" />
+									<f:selectItem itemValue="ssprj" itemLabel="SSP/RJ" />
+									<f:selectItem itemValue="ssprn" itemLabel="SSP/RN" />
+									<f:selectItem itemValue="ssprs" itemLabel="SSP/RS" />
+									<f:selectItem itemValue="sspro" itemLabel="SSP/RO" />
+									<f:selectItem itemValue="ssprr" itemLabel="SSP/RR" />
+									<f:selectItem itemValue="sspsc" itemLabel="SSP/SC" />
+									<f:selectItem itemValue="sspsp" itemLabel="SSP/SP" />
+									<f:selectItem itemValue="sspse" itemLabel="SSP/SE" />
+									<f:selectItem itemValue="sspto" itemLabel="SSP/TO" />
+								</h:selectOneMenu>
+								<h:message for="orgaoExpeditor" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="cpf" label="cpf"
+									value="#{motoristaBean.motorista.cpf}" class="form-control"
+									pt:placeholder="CPF" required="true"
+									requiredMessage="Informe seu cpf"
+									validatorMessage="Somente números" maxlength="11">
+									<f:validateRegex pattern="[0-9]{11}" />
+								</h:inputText>
+								<h:message for="cpf" styleClass="erro" />
+
+							</div>
+
+						</div>
+
+						<div class="row clearfix">
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="cnh" label="cnh"
+									value="#{motoristaBean.motorista.cnh}" pt:placeholder="CNH"
+									class="form-control" required="true"
+									requiredMessage="Informe o cnh"
+									validatorMessage="Formato inválido" maxlength="11">
+									<f:validateRegex pattern="[0-9]{11}" />
+								</h:inputText>
+								<h:message for="cnh" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:selectOneMenu id="sexo"
+									value="#{motoristaBean.motorista.sexo}" class="form-control"
+									required="true" requiredMessage="Informe seu sexo">
+									<f:selectItem noSelectionOption="true" itemLabel="Sexo" />
+									<f:selectItem itemValue="m" itemLabel="Masculino" />
+									<f:selectItem itemValue="f" itemLabel="Feminino" />
+								</h:selectOneMenu>
+								<h:message for="sexo" styleClass="erro" />
+
+							</div>
+
+						</div>
+
+						<!-- FIM DADOS PESSOAIS -->
+
+						<!-- COMEÇO ENDEREÇO -->
+
+						<h:outputLabel value="Endereço" />
+
+						<div class="row clearfix">
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="logradouro" label="Logradouro"
+									value="#{motoristaBean.motorista.logradouro}"
+									class="form-control" pt:placeholder="Logradouro"
+									required="true" requiredMessage="Informe o logradouro"
+									validatorMessage="No minimo 10 caracteres">
+									<f:validateLength minimum="10" maximum="100" />
+								</h:inputText>
+								<h:message for="logradouro" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="numero" label="Numero"
+									value="#{motoristaBean.motorista.numero}" class="form-control"
+									pt:placeholder="Numero" required="true"
+									requiredMessage="Informe o número"
+									validatorMessage="Informe somente números">
+									<f:validateRegex pattern="[0-9]{1,4}" />
+								</h:inputText>
+								<h:message for="numero" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="bairro" label="Bairro"
+									value="#{motoristaBean.motorista.bairro}" class="form-control"
+									pt:placeholder="Bairro" required="true"
+									requiredMessage="Informe o bairro"
+									validatorMessage="No minimo 10 caracteres">
+									<f:validateLength minimum="10" maximum="100" />
+								</h:inputText>
+								<h:message for="bairro" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="cidade" label="Cidade"
+									value="#{motoristaBean.motorista.cidade}" class="form-control"
+									pt:placeholder="Cidade" required="true"
+									requiredMessage="Informe a cidade"
+									validatorMessage="No minimo 10 caracteres">
+									<f:validateLength minimum="3" maximum="100" />
+								</h:inputText>
+								<h:message for="cidade" styleClass="erro" />
+
+							</div>
+
+						</div>
+
+						<div class="row clearfix">
+
+							<div class="col-md-3 column">
+
+								<h:selectOneMenu id="estado" class="form-control"
+									value="#{motoristaBean.motorista.estado}" required="true"
+									requiredMessage="Informe o estado">
+									<f:selectItem itemDisabled="true" itemLabel="Estado" />
+									<f:selectItem itemValue="ac" itemLabel="ACRE" />
+									<f:selectItem itemValue="al" itemLabel="ALAGOAS" />
+									<f:selectItem itemValue="ap" itemLabel="AMAPÁ" />
+									<f:selectItem itemValue="am" itemLabel="AMAZONAS" />
+									<f:selectItem itemValue="ba" itemLabel="BAHIA" />
+									<f:selectItem itemValue="ce" itemLabel="CEARÁ" />
+									<f:selectItem itemValue="df" itemLabel="DISTRITO FEDERAL" />
+									<f:selectItem itemValue="es" itemLabel="ESPÍRITO SANTO" />
+									<f:selectItem itemValue="go" itemLabel="GOIÁS" />
+									<f:selectItem itemValue="ma" itemLabel="MARANHÃO" />
+									<f:selectItem itemValue="mt" itemLabel="MATO GROSSO" />
+									<f:selectItem itemValue="ms" itemLabel="MATO GROSSO DO SUL" />
+									<f:selectItem itemValue="mg" itemLabel="MINAS GERAIS" />
+									<f:selectItem itemValue="pa" itemLabel="PARÁ" />
+									<f:selectItem itemValue="pb" itemLabel="PARAÍBA" />
+									<f:selectItem itemValue="pr" itemLabel="PARANÁ" />
+									<f:selectItem itemValue="pe" itemLabel="PERNAMBUCO" />
+									<f:selectItem itemValue="pi" itemLabel="PIAUÍ" />
+									<f:selectItem itemValue="rj" itemLabel="RIO DE JANEIRO" />
+									<f:selectItem itemValue="rn" itemLabel="RIO GRANDE DO NORTE" />
+									<f:selectItem itemValue="rs" itemLabel="RIO GRANDE DO SUL" />
+									<f:selectItem itemValue="ro" itemLabel="RONDÔNIA" />
+									<f:selectItem itemValue="rr" itemLabel="RORAIMA" />
+									<f:selectItem itemValue="sc" itemLabel="SANTA CATARINA" />
+									<f:selectItem itemValue="sp" itemLabel="SÃO PAULO" />
+									<f:selectItem itemValue="se" itemLabel="SERGIPE" />
+									<f:selectItem itemValue="to" itemLabel="TOCANTINS" />
+								</h:selectOneMenu>
+								<h:message for="estado" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="cep" label="CEP"
+									value="#{motoristaBean.motorista.cep}" class="form-control"
+									pt:placeholder="CEP" required="true"
+									requiredMessage="Informe o cep" validatorMessage="CEP inválido"
+									title="Exemplo: 55.292-240">
+									<f:validateRegex pattern="[0-9]{2}+.[0-9]{3}+-[0-9]{3}" />
+								</h:inputText>
+								<h:message for="cep" styleClass="erro" />
+
+							</div>
+
+						</div>
+
+						<!-- FIM ENDEREÇO -->
+
+						<!-- COMEÇO CONTATO -->
+
+						<h:outputLabel value="Contato" />
+
+						<div class="row clearfix">
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="email" label="email"
+									value="#{motoristaBean.motorista.email}" class="form-control"
+									pt:placeholder="email" required="true"
+									requiredMessage="Informe o email"
+									validatorMessage="Email inválido" title="exemplo@slv.com">
+									<f:validateRegex
+										pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+								</h:inputText>
+								<h:message for="email" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="telefoneResidencial"
+									label="Telefone Residencial"
+									value="#{motoristaBean.motorista.telefoneResidencial}"
+									class="form-control" pt:placeholder="Telefone Residêncial"
+									required="true" requiredMessage="Informe o telefone"
+									title="99-99999999" validatorMessage="Número inválido">
+									<f:validateRegex pattern="[0-9]{2}+-[2-8]{1}+[0-9]{7}" />
+								</h:inputText>
+								<h:message for="telefoneResidencial" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="telefoneCelular" label="Telefone Celular"
+									value="#{motoristaBean.motorista.telefoneCelular}"
+									class="form-control" pt:placeholder="Telefone Celular"
+									required="true" requiredMessage="Informe o telefone"
+									title="99-99999999" validatorMessage="Número inválido">
+									<f:validateRegex pattern="[0-9]{2}+-[8-9]{1}+[0-9]{7}" />
+								</h:inputText>
+								<h:message for="telefoneCelular" styleClass="erro" />
+
+							</div>
+
+						</div>
+
+						<!-- FIM CONTATO -->
+
+						<!-- COMEÇO ACESSO -->
+
+						<h:outputLabel value="Acesso" />
+
+						<div class="row clearfix">
+
+							<div class="col-md-3 column">
+
+								<h:inputSecret id="senha" label="Senha"
+									value="#{motoristaBean.motorista.senha}" class="form-control"
+									pt:placeholder="Senha" required="true"
+									requiredMessage="Informe a senha"
+									validatorMessage="Senha inválida"
+									title="Letras maíusculas ou minúsculas e números"
+									redisplay="true">
+									<f:validateRegex pattern="[a-zA-Z0-9]{8}" />
+								</h:inputSecret>
+								<h:message for="senha" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputSecret id="confirmarSenha" label="Confirmar senha"
+									value="#{motoristaBean.confirmarSenha}" class="form-control"
+									pt:placeholder="Digite a senha novamente" required="true"
+									requiredMessage="Informe a senha"
+									title="Letras maíusculas ou minúsculas e números"
+									validatorMessage="Letras maíusculas ou minúsculas e números"
+									redisplay="true">
+									<f:validateRegex pattern="[a-zA-Z0-9]{8}" />
+								</h:inputSecret>
+								<h:message for="confirmarSenha" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:selectOneMenu id="perguntaSecreta"
+									value="#{motoristaBean.motorista.perguntaSecreta}"
+									class="form-control" required="true"
+									requiredMessage="Informe a pergunta">
+									<f:selectItem itemDisabled="true" itemLabel="Pergunta secreta" />
+									<f:selectItem itemValue="1"
+										itemLabel="Qual o nome do seu melhor amigo(a)?" />
+									<f:selectItem itemValue="2"
+										itemLabel="Qual o nome do seu animal de
+											estimação?" />
+									<f:selectItem itemValue="3"
+										itemLabel="Quem é o seu maior sonho?" />
+								</h:selectOneMenu>
+								<h:message for="perguntaSecreta" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputSecret id="respostaSecreta" label="Resposta secreta"
+									value="#{motoristaBean.motorista.respostaSecreta}"
+									class="form-control" pt:placeholder="Resposta" required="true"
+									requiredMessage="Informe a resposta" redisplay="true">
+								</h:inputSecret>
+								<h:message for="respostaSecreta" styleClass="erro" />
+
+							</div>
+
+						</div>
+
+						<!-- FIM ACESSO -->
+
+						<!-- COMEÇO BOTÃO -->
+
+						<h:commandButton immediate="true" action="administrador.xhtml"
+							value="Cancelar" class="btn btn-lg btn-danger btn-adaptado" />
+
+						<h:commandButton action="#{motoristaBean.atualizarMotoristaBean}"
+							value="Atualizar" class="btn btn-lg btn-primary btn-adaptado" />
+
+						<!-- FIM BOTÃO -->
+
+					</h:form>
+					<!-- h:form -->
+
+				</div>
+				<!-- form -->
+
+			</div>
+			<!-- class="col-md-12 column" -->
+
+		</div>
+		<!-- row-fuid -->
+
+	</div>
+	<!-- container-fluid -->
+
+	<div class="footer">
+		<ui:include src="footer_admin.xhtml" />
+	</div>
+	<!-- footer -->
+
+</h:body>
+</html>

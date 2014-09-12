@@ -3,15 +3,8 @@ package br.com.slv.veiculo;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
-
-import br.com.slv.setor.Setor;
-import br.com.slv.usuario.Usuario;
-import br.com.slv.util.HibernateUtil;
 
 public class VeiculoDAO implements IVeiculoDAO {
 

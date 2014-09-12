@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+
+	<link
+		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap-theme.css"
+		rel="stylesheet" type="text/css" />
+
+	<title>Cadastrar veículo</title>
+
+</h:head>
+<h:body styleClass="body">
+
+	<ui:include src="menu_admin.xhtml" />
+
+	<div id="container-fluid">
+
+		<div class="row-fluid">
+
+			<div class="col-md-12 column">
+
+				<div class="form">
+
+					<h:form id="veiculo" class="form-signin" method="post">
+
+						<p:messages globalOnly="true" />
+
+						<!-- COMEÇO DADOS DO VEÍCULO-->
+
+						<h:outputLabel value="Dados do veículo" />
+
+						<div class="row clearfix">
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="tombamento" label="Tombamento"
+									value="#{veiculoBean.veiculo.tombamento}"
+									pt:placeholder="Tombamento" class="form-control"
+									required="true" requiredMessage="Informar o tombamento"
+									validatorMessage="No minimo 1 caracteres">
+									<f:validateLength minimum="1" maximum="100" />
+								</h:inputText>
+								<h:message for="tombamento" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="chassi" label="Chassi"
+									value="#{veiculoBean.veiculo.chassi}" class="form-control"
+									pt:placeholder="Chassi" required="true"
+									requiredMessage="Informar o número do chassi"
+									validatorMessage="Números e letras maiúsculas"
+									title="Exemplo: 9BWHE21JX24060960" maxlength="17">
+									<f:validateRegex pattern="[A-Z0-9]{17}" />
+								</h:inputText>
+								<h:message for="chassi" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="placa" label="Placa"
+									value="#{veiculoBean.veiculo.placa}" class="form-control"
+									pt:placeholder="Placa" required="true"
+									requiredMessage="Informar o número da placa"
+									validatorMessage="Formato inválido" title="Exemplo: ABC-1234">
+									<f:validateRegex pattern="[A-Z]{3}+-[0-9]{4}" />
+								</h:inputText>
+								<h:message for="placa" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="fabricante" label="Fabricante"
+									value="#{veiculoBean.veiculo.fabricante}"
+									pt:placeholder="Fabricante" class="form-control"
+									required="true" requiredMessage="Informe o fabricante">
+								</h:inputText>
+								<h:message for="fabricante" styleClass="erro" />
+
+							</div>
+
+						</div>
+
+						<div class="row clearfix">
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="modelo" label="Modelo"
+									value="#{veiculoBean.veiculo.modelo}" class="form-control"
+									pt:placeholder="Modelo" required="true"
+									requiredMessage="Informar o modelo">
+								</h:inputText>
+								<h:message for="modelo" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:inputText id="cor" label="Cor"
+									value="#{veiculoBean.veiculo.cor}" class="form-control"
+									pt:placeholder="Cor" required="true"
+									requiredMessage="Informar a cor"
+									validatorMessage="Nome inválido">
+									<f:validateLength minimum="4" maximum="20" />
+								</h:inputText>
+								<h:message for="cor" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:selectOneMenu id="anoFabricacao" class="form-control"
+									value="#{veiculoBean.veiculo.anoFabricacao}" required="true"
+									requiredMessage="Informar o ano">
+									<f:selectItem itemDisabled="true" itemLabel="Ano de fabricação" />
+									<f:selectItem itemLabel="2000" itemValue="2000" />
+									<f:selectItem itemLabel="2001" itemValue="2001" />
+									<f:selectItem itemLabel="2002" itemValue="2002" />
+									<f:selectItem itemLabel="2003" itemValue="2003" />
+									<f:selectItem itemLabel="2004" itemValue="2004" />
+									<f:selectItem itemLabel="2005" itemValue="2005" />
+									<f:selectItem itemLabel="2006" itemValue="2006" />
+									<f:selectItem itemLabel="2007" itemValue="2007" />
+									<f:selectItem itemLabel="2008" itemValue="2008" />
+									<f:selectItem itemLabel="2009" itemValue="2009" />
+									<f:selectItem itemLabel="2010" itemValue="2010" />
+									<f:selectItem itemLabel="2011" itemValue="2011" />
+									<f:selectItem itemLabel="2012" itemValue="2012" />
+									<f:selectItem itemLabel="2013" itemValue="2013" />
+									<f:selectItem itemLabel="2014" itemValue="2014" />
+									<f:selectItem itemLabel="2015" itemValue="2015" />
+								</h:selectOneMenu>
+								<h:message for="anoFabricacao" styleClass="erro" />
+
+							</div>
+
+							<div class="col-md-3 column">
+
+								<h:selectOneMenu id="tipo" class="form-control"
+									value="#{veiculoBean.veiculo.tipo}" required="true"
+									requiredMessage="Informar o tipo">
+									<f:selectItem itemDisabled="true" itemLabel="Tipo de veículo" />
+									<f:selectItem itemLabel="pesquisa" itemValue="Pesquisa" />
+									<f:selectItem itemLabel="visitacao" itemValue="Visitação" />
+								</h:selectOneMenu>
+								<h:message for="tipo" styleClass="erro" />
+
+							</div>
+
+						</div>
+
+						<div class="row clearfix">
+
+							<div class="col-md-3 column">
+
+								<h:outputText value="Capacidade em litros" />
+								<h:inputText id="capacidadeLitros" label="Capacidade em litros"
+									value="#{veiculoBean.veiculo.capacidadeLitros}"
+									class="form-control" required="true"
+									requiredMessage="Informar a capacidade"
+									pt:placeholder="Capacidade do tanque em litros"
+									title="Exemplo: 100.00">
+									<f:convertNumber pattern="#000.00" />
+								</h:inputText>
+								<h:message for="capacidadeLitros" styleClass="erro" />
+
+							</div>
+
+						</div>
+
+						<div class="row clearfix">
+
+							<div class="col-md-3 column">
+
+								<h:outputText value="km por litro" />
+								<h:inputText id="kmPorLitro" label="km por litro"
+									value="#{veiculoBean.veiculo.kmPorLitro}" class="form-control"
+									required="true" requiredMessage="Informar km por litro"
+									pt:placeholder="km por litro"
+									validatorMessage="Formato inválido" title="Exemplo: 10.00">
+									<f:convertNumber pattern="#00.00" />
+								</h:inputText>
+								<h:message for="kmPorLitro" styleClass="erro" />
+
+							</div>
+
+						</div>
+
+						<!-- FIM DADOS DO VEICULO -->
+
+						<!-- COMEÇO BOTÃO -->
+
+						<h:commandButton immediate="true" action="administrador.xhtml"
+							value="Cancelar" class="btn btn-lg btn-danger btn-adaptado" />
+
+						<h:commandButton type="reset" value="Limpar"
+							class="btn btn-lg btn-primary btn-adaptado" />
+
+						<h:commandButton action="#{veiculoBean.salvar}" value="Cadastrar"
+							class="btn btn-lg btn-primary btn-adaptado" />
+
+						<!-- FIM BOTÃO -->
+
+					</h:form>
+					<!-- h:form -->
+
+				</div>
+				<!-- class="form" -->
+
+			</div>
+			<!-- class="col-md-12 column" -->
+
+		</div>
+		<!-- row-fuid -->
+
+	</div>
+	<!-- container-fluid -->
+
+	<div class="footer">
+		<ui:include src="footer_admin.xhtml" />
+	</div>
+	<!-- footer -->
+
+</h:body>
+</html>

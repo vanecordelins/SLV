@@ -18,8 +18,12 @@
 	</servlet-mapping>
 
 	<!-- Fim configuração do arquivo de conexão do App -->
+	
+	<!-- Inicio configuração das páginas de erro -->
+    
+    <!-- Fim configuração do arquivo de conexão do App -->    
 
-	<!-- Inicio configuração da classe ConexaoHibernateFilter -->
+	<!-- Inicio configuração das páginas de erro -->
 
 	<filter>
 		<filter-name>conexaoFilter</filter-name>
@@ -46,7 +50,7 @@
 	</servlet-mapping>
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
-		<param-value>Development</param-value>
+		<param-value>Production</param-value>
 	</context-param>
 
 	<!-- Fim configuração do funcionamento JSF -->
