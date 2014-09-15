@@ -42,7 +42,7 @@ public class UsuarioBean {
 
 			return null;
 
-		} else if (this.cpf.isCpf(usuario.getCpf()) == false) {
+		} else if (this.cpf.isCpf(this.usuario.getCpf()) == false) {
 
 			FacesMessage facesMessage = new FacesMessage("CPF inválido");
 
@@ -96,21 +96,17 @@ public class UsuarioBean {
 
 	public List<SelectItem> getSetoresSelect() {
 
-		if (this.setoresSelect == null) {
+		if (setoresSelect == null) {
 
-			this.setoresSelect = new ArrayList<SelectItem>();
+			setoresSelect = new ArrayList<SelectItem>();
 
 			List<Setor> listaSetores = this.setorRN.listarSetoresRN();
 
 			if (listaSetores != null && !listaSetores.isEmpty()) {
 
-				SelectItem item;
-
 				for (Setor setorLista : listaSetores) {
 
-					item = new SelectItem(setorLista, setorLista.getNome());
-
-					this.setoresSelect.add(item);
+					setoresSelect.add(new SelectItem(setorLista, setorLista.getNome()));
 
 				}
 			}

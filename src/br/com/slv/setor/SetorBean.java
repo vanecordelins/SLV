@@ -15,7 +15,7 @@ public class SetorBean {
 
 	FacesContext context = FacesContext.getCurrentInstance();
 
-	private String nomeSetor;
+	private String setorPesquisa;
 
 	public String salvarSetorBean() {
 
@@ -45,7 +45,7 @@ public class SetorBean {
 
 	public String pesquisarSetorBean() {
 
-		this.setor = this.setorRN.buscarSetorRN(nomeSetor);
+		this.setor = this.setorRN.buscarSetorRN(setorPesquisa);
 
 		if (this.setor == null) {
 
@@ -69,11 +69,11 @@ public class SetorBean {
 		this.setor = setor;
 	}
 
-	public String getNomeSetor() {
-		return nomeSetor;
+	public String getSetorPesquisa() {
+		return setorPesquisa;
 	}
 
-	public void setNomeSetor(String nomeSetor) {
-		this.nomeSetor = nomeSetor;
+	public void setSetorPesquisa(String setorPesquisa) {
+		this.setorPesquisa = setorPesquisa;
 	}
 }

@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.com.slv.converter.SampleEntity;
 import br.com.slv.usuario.Usuario;
 
 /**
@@ -21,15 +20,17 @@ import br.com.slv.usuario.Usuario;
 
 @Entity
 @Table(name = "setor")
-public class Setor implements Serializable, SampleEntity {
+public class Setor implements Serializable {
 
-	private static final long serialVersionUID = 9101816051539078803L;
+	private static final long serialVersionUID = -1039042366513250899L;
 
 	@Id
 	@GeneratedValue
 	private Long codigoSetor;
 
 	private String nome;
+	private String responsavel;
+	private String descricao;
 
 	@OneToMany(mappedBy = "setorAlocado")
 	private List<Usuario> listaUsuarios;
@@ -38,12 +39,36 @@ public class Setor implements Serializable, SampleEntity {
 
 	}
 
+	public Long getCodigoSetor() {
+		return codigoSetor;
+	}
+
+	public void setCodigoSetor(Long codigoSetor) {
+		this.codigoSetor = codigoSetor;
+	}
+
 	public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getResponsavel() {
+		return responsavel;
+	}
+
+	public void setResponsavel(String responsavel) {
+		this.responsavel = responsavel;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public List<Usuario> getListaUsuarios() {
@@ -61,8 +86,10 @@ public class Setor implements Serializable, SampleEntity {
 		result = prime * result
 				+ ((codigoSetor == null) ? 0 : codigoSetor.hashCode());
 		result = prime * result
-				+ ((listaUsuarios == null) ? 0 : listaUsuarios.hashCode());
+				+ ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result
+				+ ((responsavel == null) ? 0 : responsavel.hashCode());
 		return result;
 	}
 
@@ -80,24 +107,21 @@ public class Setor implements Serializable, SampleEntity {
 				return false;
 		} else if (!codigoSetor.equals(other.codigoSetor))
 			return false;
-		if (listaUsuarios == null) {
-			if (other.listaUsuarios != null)
+		if (descricao == null) {
+			if (other.descricao != null)
 				return false;
-		} else if (!listaUsuarios.equals(other.listaUsuarios))
+		} else if (!descricao.equals(other.descricao))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
+		if (responsavel == null) {
+			if (other.responsavel != null)
+				return false;
+		} else if (!responsavel.equals(other.responsavel))
+			return false;
 		return true;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public Long getCodigoSetor() {
-		return codigoSetor;
 	}
 }

@@ -20,7 +20,7 @@
 		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap-theme.css"
 		rel="stylesheet" type="text/css" />
 
-	<title>Gerenciar usuários</title>
+	<title>Gerenciar setor</title>
 </h:head>
 <h:body styleClass="body">
 
@@ -38,9 +38,9 @@
 
 					<h:form id="pesquisarSetor" class="form-signin" method="post">
 
-						<h:inputText id="nomeSetor" class="form-control"
+						<h:inputText id="setorPesquisa" class="form-control"
 							pt:placeholder="Informe o nome do setor"
-							value="#{setorBean.nomeSetor}" required="true"
+							value="#{setorBean.setorPesquisa}" required="true"
 							requiredMessage="Informe o nome do setor">
 						</h:inputText>
 

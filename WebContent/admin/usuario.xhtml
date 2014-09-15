@@ -39,8 +39,6 @@
 				<div class="form">
 
 					<h:form id="usuario" class="form-signin" method="post">
-					
-					<h:inputHidden value="#{usuarioBean.usuario.idUsuario}" />
 
 						<p:messages globalOnly="true" />
 
@@ -56,7 +54,7 @@
 									value="#{usuarioBean.usuario.nome}" pt:placeholder="Nome"
 									class="form-control" required="true"
 									requiredMessage="Informe seu nome"
-									validatorMessage="No minimo 10 caracteres">
+									validatorMessage="No minimo 10 letras">
 									<f:validateLength minimum="10" maximum="100" />
 								</h:inputText>
 								<h:message for="nome" styleClass="erro" />
@@ -69,7 +67,7 @@
 									value="#{usuarioBean.usuario.rgUsuario}" class="form-control"
 									pt:placeholder="RG" required="true"
 									requiredMessage="Informe seu rg"
-									validatorMessage="Formato inválido" maxlength="8">
+									validatorMessage="Formato inválido" maxlength="7">
 									<f:validateRegex pattern="[0-9]{7}" />
 								</h:inputText>
 								<h:message for="rg" styleClass="erro" />
@@ -372,13 +370,12 @@
 
 								<h:selectOneMenu id="setor" converter="converterSetor"
 									value="#{usuarioBean.usuario.setorAlocado}"
-									class="form-control" required="true"
-									requiredMessage="Informe o setor">
-									<f:selectItem noSelectionOption="true" itemLabel="Setor" />
-									<f:selectItems value="#{usuarioBean.setoresSelect}" var="setor"
-										itemLabel="setor.nome" itemValue="#{setor}" />
+									class="form-control" required="true" requiredMessage="Informe o setor" >
+									<f:selectItem noSelectionOption="true" itemLabel="Setor"/>
+									<f:selectItems value="#{usuarioBean.setoresSelect}" var="item"
+										itemLabel="item.nome" itemValue="#{item}" />
 								</h:selectOneMenu>
-								<h:message for="setor" styleClass="erro" />
+								<h:message for="setor" styleClass="erro"/>
 
 							</div>
 
@@ -423,7 +420,7 @@
 						<!-- FIM ACESSO -->
 
 						<!-- COMEÇO BOTÃO -->
-						
+
 						<h:commandButton immediate="true" action="administrador.xhtml"
 							value="Cancelar" class="btn btn-lg btn-danger btn-adaptado" />
 

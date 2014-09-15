@@ -1,7 +1,6 @@
 package br.com.slv.relatorio_viagem;
 
 import java.io.Serializable;
-import java.util.Calendar;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,14 +24,11 @@ import br.com.slv.solicitacao_viagem.SolicitacaoViagem;
 @Table(name = "relatorioviagem")
 public class RelatorioViagem implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5099098207639585580L;
+	private static final long serialVersionUID = -8570676360870654640L;
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long idRelatorioViagem;
 
 	private String ocorrencia;
 	private float kmSaida;
@@ -52,6 +48,14 @@ public class RelatorioViagem implements Serializable {
 
 	public RelatorioViagem() {
 
+	}
+
+	public Long getIdRelatorioViagem() {
+		return idRelatorioViagem;
+	}
+
+	public void setIdRelatorioViagem(Long idRelatorioViagem) {
+		this.idRelatorioViagem = idRelatorioViagem;
 	}
 
 	public String getOcorrencia() {
@@ -110,10 +114,6 @@ public class RelatorioViagem implements Serializable {
 		this.solicitacaoViagem = solicitacaoViagem;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -122,19 +122,14 @@ public class RelatorioViagem implements Serializable {
 				+ ((dataChegada == null) ? 0 : dataChegada.hashCode());
 		result = prime * result
 				+ ((horaChegada == null) ? 0 : horaChegada.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime
+				* result
+				+ ((idRelatorioViagem == null) ? 0 : idRelatorioViagem
+						.hashCode());
 		result = prime * result + Float.floatToIntBits(kmChegada);
 		result = prime * result + Float.floatToIntBits(kmSaida);
-		result = prime
-				* result
-				+ ((motoristaResponsavel == null) ? 0 : motoristaResponsavel
-						.hashCode());
 		result = prime * result
 				+ ((ocorrencia == null) ? 0 : ocorrencia.hashCode());
-		result = prime
-				* result
-				+ ((solicitacaoViagem == null) ? 0 : solicitacaoViagem
-						.hashCode());
 		return result;
 	}
 
@@ -157,10 +152,10 @@ public class RelatorioViagem implements Serializable {
 				return false;
 		} else if (!horaChegada.equals(other.horaChegada))
 			return false;
-		if (id == null) {
-			if (other.id != null)
+		if (idRelatorioViagem == null) {
+			if (other.idRelatorioViagem != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!idRelatorioViagem.equals(other.idRelatorioViagem))
 			return false;
 		if (Float.floatToIntBits(kmChegada) != Float
 				.floatToIntBits(other.kmChegada))
@@ -168,22 +163,11 @@ public class RelatorioViagem implements Serializable {
 		if (Float.floatToIntBits(kmSaida) != Float
 				.floatToIntBits(other.kmSaida))
 			return false;
-		if (motoristaResponsavel == null) {
-			if (other.motoristaResponsavel != null)
-				return false;
-		} else if (!motoristaResponsavel.equals(other.motoristaResponsavel))
-			return false;
 		if (ocorrencia == null) {
 			if (other.ocorrencia != null)
 				return false;
 		} else if (!ocorrencia.equals(other.ocorrencia))
 			return false;
-		if (solicitacaoViagem == null) {
-			if (other.solicitacaoViagem != null)
-				return false;
-		} else if (!solicitacaoViagem.equals(other.solicitacaoViagem))
-			return false;
 		return true;
 	}
-
 }

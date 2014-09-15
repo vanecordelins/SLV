@@ -19,7 +19,7 @@ import br.com.slv.solicitacao_viagem.SolicitacaoViagem;
 @Table(name = "usuario")
 public class Usuario implements Serializable {
 
-	private static final long serialVersionUID = -2273611952866880389L;
+	private static final long serialVersionUID = 289001120741539393L;
 
 	@Id
 	@GeneratedValue
@@ -227,10 +227,6 @@ public class Usuario implements Serializable {
 		this.listaSolicitacoesViagens = listaSolicitacoesViagens;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -245,10 +241,6 @@ public class Usuario implements Serializable {
 				+ ((idUsuario == null) ? 0 : idUsuario.hashCode());
 		result = prime * result
 				+ ((identificador == null) ? 0 : identificador.hashCode());
-		result = prime
-				* result
-				+ ((listaSolicitacoesViagens == null) ? 0
-						: listaSolicitacoesViagens.hashCode());
 		result = prime * result
 				+ ((logradouro == null) ? 0 : logradouro.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
@@ -262,8 +254,6 @@ public class Usuario implements Serializable {
 		result = prime * result
 				+ ((rgUsuario == null) ? 0 : rgUsuario.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
-		result = prime * result
-				+ ((setorAlocado == null) ? 0 : setorAlocado.hashCode());
 		result = prime * result + sexo;
 		result = prime * result
 				+ ((telefoneCelular == null) ? 0 : telefoneCelular.hashCode());
@@ -323,12 +313,6 @@ public class Usuario implements Serializable {
 				return false;
 		} else if (!identificador.equals(other.identificador))
 			return false;
-		if (listaSolicitacoesViagens == null) {
-			if (other.listaSolicitacoesViagens != null)
-				return false;
-		} else if (!listaSolicitacoesViagens
-				.equals(other.listaSolicitacoesViagens))
-			return false;
 		if (logradouro == null) {
 			if (other.logradouro != null)
 				return false;
@@ -368,11 +352,6 @@ public class Usuario implements Serializable {
 			if (other.senha != null)
 				return false;
 		} else if (!senha.equals(other.senha))
-			return false;
-		if (setorAlocado == null) {
-			if (other.setorAlocado != null)
-				return false;
-		} else if (!setorAlocado.equals(other.setorAlocado))
 			return false;
 		if (sexo != other.sexo)
 			return false;

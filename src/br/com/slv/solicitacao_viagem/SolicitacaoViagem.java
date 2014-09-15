@@ -1,7 +1,6 @@
 package br.com.slv.solicitacao_viagem;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Embedded;
@@ -31,14 +30,11 @@ import br.com.slv.veiculo.Veiculo;
 @Table(name = "solicitacaoviagem")
 public class SolicitacaoViagem implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -4214344606581227976L;
+	private static final long serialVersionUID = -6865484452980630812L;
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long idSolicitacaoViagem;
 
 	private String protocolo;
 	private String naturezaTrabalho;
@@ -78,8 +74,12 @@ public class SolicitacaoViagem implements Serializable {
 
 	}
 
-	public Long getId() {
-		return id;
+	public Long getIdSolicitacaoViagem() {
+		return idSolicitacaoViagem;
+	}
+
+	public void setIdSolicitacaoViagem(Long idSolicitacaoViagem) {
+		this.idSolicitacaoViagem = idSolicitacaoViagem;
 	}
 
 	public String getProtocolo() {
@@ -202,10 +202,6 @@ public class SolicitacaoViagem implements Serializable {
 		this.listaParticipantes = listaParticipantes;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -221,31 +217,19 @@ public class SolicitacaoViagem implements Serializable {
 						.hashCode());
 		result = prime * result
 				+ ((horaSaida == null) ? 0 : horaSaida.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime
+				* result
+				+ ((idSolicitacaoViagem == null) ? 0 : idSolicitacaoViagem
+						.hashCode());
 		result = prime * result
 				+ ((itinerario == null) ? 0 : itinerario.hashCode());
-		result = prime
-				* result
-				+ ((listaParticipantes == null) ? 0 : listaParticipantes
-						.hashCode());
-		result = prime
-				* result
-				+ ((motoristaAlocado == null) ? 0 : motoristaAlocado.hashCode());
 		result = prime
 				* result
 				+ ((naturezaTrabalho == null) ? 0 : naturezaTrabalho.hashCode());
 		result = prime * result
 				+ ((protocolo == null) ? 0 : protocolo.hashCode());
 		result = prime * result + quantidadePessoas;
-		result = prime * result
-				+ ((relatorioViagem == null) ? 0 : relatorioViagem.hashCode());
 		result = prime * result + status;
-		result = prime
-				* result
-				+ ((usuarioSolicitante == null) ? 0 : usuarioSolicitante
-						.hashCode());
-		result = prime * result
-				+ ((veiculoViagem == null) ? 0 : veiculoViagem.hashCode());
 		return result;
 	}
 
@@ -283,25 +267,15 @@ public class SolicitacaoViagem implements Serializable {
 				return false;
 		} else if (!horaSaida.equals(other.horaSaida))
 			return false;
-		if (id == null) {
-			if (other.id != null)
+		if (idSolicitacaoViagem == null) {
+			if (other.idSolicitacaoViagem != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!idSolicitacaoViagem.equals(other.idSolicitacaoViagem))
 			return false;
 		if (itinerario == null) {
 			if (other.itinerario != null)
 				return false;
 		} else if (!itinerario.equals(other.itinerario))
-			return false;
-		if (listaParticipantes == null) {
-			if (other.listaParticipantes != null)
-				return false;
-		} else if (!listaParticipantes.equals(other.listaParticipantes))
-			return false;
-		if (motoristaAlocado == null) {
-			if (other.motoristaAlocado != null)
-				return false;
-		} else if (!motoristaAlocado.equals(other.motoristaAlocado))
 			return false;
 		if (naturezaTrabalho == null) {
 			if (other.naturezaTrabalho != null)
@@ -315,24 +289,8 @@ public class SolicitacaoViagem implements Serializable {
 			return false;
 		if (quantidadePessoas != other.quantidadePessoas)
 			return false;
-		if (relatorioViagem == null) {
-			if (other.relatorioViagem != null)
-				return false;
-		} else if (!relatorioViagem.equals(other.relatorioViagem))
-			return false;
 		if (status != other.status)
-			return false;
-		if (usuarioSolicitante == null) {
-			if (other.usuarioSolicitante != null)
-				return false;
-		} else if (!usuarioSolicitante.equals(other.usuarioSolicitante))
-			return false;
-		if (veiculoViagem == null) {
-			if (other.veiculoViagem != null)
-				return false;
-		} else if (!veiculoViagem.equals(other.veiculoViagem))
 			return false;
 		return true;
 	}
-
 }

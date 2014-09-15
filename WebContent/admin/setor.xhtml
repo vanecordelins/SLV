@@ -61,7 +61,41 @@
 
 							</div>
 
+							<div class="col-md-3 column">
+
+								<h:inputText id="responsavel" label="Nome"
+									value="#{setorBean.setor.responsavel}" maxlength="100"
+									pt:placeholder="Nome do responsável" class="form-control"
+									required="true" requiredMessage="Informe o responsável"
+									validatorMessage="No minimo 3 caracteres">
+									<f:validateLength minimum="3" maximum="100" />
+								</h:inputText>
+								<h:message for="responsavel" styleClass="erro" />
+
+							</div>
+
 						</div>
+
+						<h:outputLabel value="Descrição" />
+
+						<div class="row clearfix">
+
+							<div class="col-md-3 column">
+
+								<h:inputTextarea id="descricao"
+									value="#{setorBean.setor.descricao}" class="form-control"
+									required="true" requiredMessage="Informe a descrição"
+									validatorMessage="No mínimo 20 caracteres"
+									style="min-height: 170px; min-width: 315px; max-height: 170px; max-width: 520px;">
+									<f:validateLength minimum="20" maximum="150" />
+								</h:inputTextarea>
+								<h:message for="descricao" styleClass="erro" />
+
+							</div>
+
+						</div>
+
+						<!-- FIM DADOS DO SETOR -->
 
 						<!-- COMEÇO BOTÃO -->
 

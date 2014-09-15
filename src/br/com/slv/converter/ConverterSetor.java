@@ -8,7 +8,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-@FacesConverter("converterSetor")
+import br.com.slv.setor.Setor;
+
+@FacesConverter(value="converterSetor")
 public class ConverterSetor implements Converter, Serializable {
 
 	private static final long serialVersionUID = -1679772342891398642L;
@@ -17,7 +19,7 @@ public class ConverterSetor implements Converter, Serializable {
 			String value) {
 		
 		if (value != null) {
-			
+
 			return this.getAttributesFrom(component).get(value);
 			
 		}
@@ -27,27 +29,27 @@ public class ConverterSetor implements Converter, Serializable {
 	}
 
 	public String getAsString(FacesContext ctx, UIComponent component,
-			Object value) {
+			Object objeto) {
 
-		if (value != null && !"".equals(value)) {
+		if (objeto != null && !objeto.equals("")) {
 
-			SampleEntity entity = (SampleEntity) value;
+			Setor setor = (Setor) objeto;
 			
-			this.addAttribute(component, entity);
+			this.addAttribute(component, setor);
 
-			Long codigo = entity.getCodigoSetor();
+			Long codigoSetor = setor.getCodigoSetor();
 			
-			if (codigo != null) {
+			if (codigoSetor != null) {
 				
-				return String.valueOf(codigo);
+				return String.valueOf(codigoSetor);
 				
 			}
 		}
 
-		return (String) value;
+		return (String) objeto;
 	}
 
-	protected void addAttribute(UIComponent component, SampleEntity o) {
+	protected void addAttribute(UIComponent component, Setor o) {
 		
 		String key = o.getCodigoSetor().toString();
 		

@@ -25,11 +25,11 @@ import br.com.slv.solicitacao_viagem.SolicitacaoViagem;
 @Table(name = "motorista")
 public class Motorista implements Serializable {
 
-	private static final long serialVersionUID = 6599428612821237563L;
+	private static final long serialVersionUID = 9031242567455917440L;
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long idMotorista;
 
 	private String cpf;
 	private String nome;
@@ -69,12 +69,12 @@ public class Motorista implements Serializable {
 
 	}
 
-	public Long getId() {
-		return id;
+	public Long getIdMotorista() {
+		return idMotorista;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdMotorista(Long idMotorista) {
+		this.idMotorista = idMotorista;
 	}
 
 	public String getCpf() {
@@ -133,7 +133,7 @@ public class Motorista implements Serializable {
 		this.email = email;
 	}
 
-	public boolean getDisponibilidade() {
+	public boolean isDisponibilidade() {
 		return disponibilidade;
 	}
 
@@ -253,10 +253,6 @@ public class Motorista implements Serializable {
 		this.listaViagem = listaViagem;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -271,9 +267,8 @@ public class Motorista implements Serializable {
 		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
 		result = prime * result
 				+ ((horasExtras == null) ? 0 : horasExtras.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result
-				+ ((listaViagem == null) ? 0 : listaViagem.hashCode());
+				+ ((idMotorista == null) ? 0 : idMotorista.hashCode());
 		result = prime * result
 				+ ((logradouro == null) ? 0 : logradouro.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
@@ -282,9 +277,6 @@ public class Motorista implements Serializable {
 				+ ((orgaoExpeditor == null) ? 0 : orgaoExpeditor.hashCode());
 		result = prime * result
 				+ ((perguntaSecreta == null) ? 0 : perguntaSecreta.hashCode());
-		result = prime
-				* result
-				+ ((relatorioViagens == null) ? 0 : relatorioViagens.hashCode());
 		result = prime * result
 				+ ((respostaSecreta == null) ? 0 : respostaSecreta.hashCode());
 		result = prime * result
@@ -351,15 +343,10 @@ public class Motorista implements Serializable {
 				return false;
 		} else if (!horasExtras.equals(other.horasExtras))
 			return false;
-		if (id == null) {
-			if (other.id != null)
+		if (idMotorista == null) {
+			if (other.idMotorista != null)
 				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (listaViagem == null) {
-			if (other.listaViagem != null)
-				return false;
-		} else if (!listaViagem.equals(other.listaViagem))
+		} else if (!idMotorista.equals(other.idMotorista))
 			return false;
 		if (logradouro == null) {
 			if (other.logradouro != null)
@@ -385,11 +372,6 @@ public class Motorista implements Serializable {
 			if (other.perguntaSecreta != null)
 				return false;
 		} else if (!perguntaSecreta.equals(other.perguntaSecreta))
-			return false;
-		if (relatorioViagens == null) {
-			if (other.relatorioViagens != null)
-				return false;
-		} else if (!relatorioViagens.equals(other.relatorioViagens))
 			return false;
 		if (respostaSecreta == null) {
 			if (other.respostaSecreta != null)

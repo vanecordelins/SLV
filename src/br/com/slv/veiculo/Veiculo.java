@@ -24,10 +24,7 @@ import br.com.slv.solicitacao_viagem.SolicitacaoViagem;
 @Table(name="veiculo")
 public class Veiculo implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6690121500955477364L;
+	private static final long serialVersionUID = -3102948843262179332L;
 
 	@Id
 	@GeneratedValue
@@ -57,6 +54,10 @@ public class Veiculo implements Serializable {
 
 	public Long getCodigoVeiculo() {
 		return codigoVeiculo;
+	}
+
+	public void setCodigoVeiculo(Long codigoVeiculo) {
+		this.codigoVeiculo = codigoVeiculo;
 	}
 
 	public String getTombamento() {
@@ -147,13 +148,12 @@ public class Veiculo implements Serializable {
 		this.tipo = tipo;
 	}
 
-	public List<SolicitacaoViagem> getHistoricoSolicitacoes() {
+	public List<SolicitacaoViagem> getListaSolicitacoes() {
 		return listaSolicitacoes;
 	}
 
-	public void setHistoricoSolicitacoes(
-			List<SolicitacaoViagem> historicoSolicitacoes) {
-		this.listaSolicitacoes = historicoSolicitacoes;
+	public void setListaSolicitacoes(List<SolicitacaoViagem> listaSolicitacoes) {
+		this.listaSolicitacoes = listaSolicitacoes;
 	}
 
 	@Override
@@ -170,10 +170,6 @@ public class Veiculo implements Serializable {
 		result = prime * result + (disponibilidade ? 1231 : 1237);
 		result = prime * result
 				+ ((fabricante == null) ? 0 : fabricante.hashCode());
-		result = prime
-				* result
-				+ ((listaSolicitacoes == null) ? 0 : listaSolicitacoes
-						.hashCode());
 		result = prime * result + Float.floatToIntBits(kmPorLitro);
 		result = prime * result + ((modelo == null) ? 0 : modelo.hashCode());
 		result = prime * result + ((placa == null) ? 0 : placa.hashCode());
@@ -221,11 +217,6 @@ public class Veiculo implements Serializable {
 			if (other.fabricante != null)
 				return false;
 		} else if (!fabricante.equals(other.fabricante))
-			return false;
-		if (listaSolicitacoes == null) {
-			if (other.listaSolicitacoes != null)
-				return false;
-		} else if (!listaSolicitacoes.equals(other.listaSolicitacoes))
 			return false;
 		if (Float.floatToIntBits(kmPorLitro) != Float
 				.floatToIntBits(other.kmPorLitro))
