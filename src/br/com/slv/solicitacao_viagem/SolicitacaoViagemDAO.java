@@ -3,16 +3,8 @@ package br.com.slv.solicitacao_viagem;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
-
-import br.com.slv.relatorio_viagem.RelatorioViagem;
-import br.com.slv.setor.Setor;
-import br.com.slv.usuario.Usuario;
-import br.com.slv.util.HibernateUtil;
 
 public class SolicitacaoViagemDAO implements ISolicitacaoViagem {
 
@@ -25,28 +17,28 @@ public class SolicitacaoViagemDAO implements ISolicitacaoViagem {
 	}
 
 	@Override
-	public void salvarSolicitacaoViagem(SolicitacaoViagem solicitacaoViagem) {
+	public void salvarSolicitacaoViagemDAO(SolicitacaoViagem solicitacaoViagem) {
 
 		this.sessao.save(solicitacaoViagem);
 
 	}
 
 	@Override
-	public void altualizarSolicitacaoViagem(SolicitacaoViagem solicitacaoViagem) {
+	public void altualizarSolicitacaoViagemDAO(SolicitacaoViagem solicitacaoViagem) {
 		
 		this.sessao.update(solicitacaoViagem);
 		
 	}
 
 	@Override
-	public void excluirSolicitacaoViagem(SolicitacaoViagem solicitacao) {
+	public void excluirSolicitacaoViagemDAO(SolicitacaoViagem solicitacao) {
 		
 		this.sessao.delete(solicitacao);
 		
 	}
 
 	@Override
-	public SolicitacaoViagem buscarSolicitacaoViagem(String protocolo) {
+	public SolicitacaoViagem buscarSolicitacaoViagemDAO(String protocolo) {
 
 		String hql = "select s from SolicitacaoViagem s where s.protocolo=:protocolo";
 		
@@ -59,7 +51,7 @@ public class SolicitacaoViagemDAO implements ISolicitacaoViagem {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<SolicitacaoViagem> listarSolicitacaoViagem() {
+	public List<SolicitacaoViagem> listarSolicitacaoViagemDAO() {
 		
 		List<SolicitacaoViagem> solicitacoesViagens = null;
 		

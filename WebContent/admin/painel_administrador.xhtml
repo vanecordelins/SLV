@@ -4,8 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.prime.com.tr/ui"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:p="http://primefaces.prime.com.tr/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,17 +19,30 @@
 		href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap-theme.css"
 		rel="stylesheet" type="text/css" />
 
-	<title>Sucesso</title>
-
+	<title>Painel do administrador</title>
 </h:head>
-<h:body>
+<h:body styleClass="body">
 
-	<div class="corpo">
+	<ui:include src="menu_admin.xhtml" />
 
-		<ui:include src="menu_admin.xhtml" />
+	<div id="container-fluid">
 
-		<h1 align="center">Sucesso</h1>
+		<div class="row-fluid">
+
+			<div class="sucesso">
+
+				<p:messages globalOnly="true" />
+
+			</div>
+
+		</div>
 
 	</div>
+
+	<div class="footer">
+		<ui:include src="footer_admin.xhtml" />
+	</div>
+	<!-- footer -->
+
 </h:body>
 </html>

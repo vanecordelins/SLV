@@ -3,6 +3,7 @@ package br.com.slv.solicitacao_viagem;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,7 +42,9 @@ public class SolicitacaoViagem implements Serializable {
 	private String curso;
 	private String itinerario;
 	private int quantidadePessoas;
-	private char status;
+
+	@Column(nullable = false)
+	private boolean status;
 
 	@Temporal(TemporalType.TIME)
 	private java.util.Date horaSaida;
@@ -122,11 +125,11 @@ public class SolicitacaoViagem implements Serializable {
 		this.quantidadePessoas = quantidadePessoas;
 	}
 
-	public char getStatus() {
+	public boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(char status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 
@@ -229,7 +232,7 @@ public class SolicitacaoViagem implements Serializable {
 		result = prime * result
 				+ ((protocolo == null) ? 0 : protocolo.hashCode());
 		result = prime * result + quantidadePessoas;
-		result = prime * result + status;
+		result = prime * result + (status ? 1231 : 1237);
 		return result;
 	}
 

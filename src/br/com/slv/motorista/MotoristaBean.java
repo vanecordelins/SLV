@@ -5,7 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
-import br.com.slv.singleton.Util;
+import br.com.slv.utilidades.Util;
 
 @ManagedBean(name = "motoristaBean")
 @RequestScoped
@@ -51,8 +51,13 @@ public class MotoristaBean {
 			return null;
 
 		} else {
+			
+			FacesMessage facesMessage = new FacesMessage(
+					"Motorista cadastrado com sucesso");
 
-			return "sucesso";
+			context.addMessage(null, facesMessage);
+
+			return "painel_administrador";
 
 		}
 
@@ -80,8 +85,13 @@ public class MotoristaBean {
 		} else {
 
 			this.motoristaRN.atualizarMotoristaRN(motorista);
+			
+			FacesMessage facesMessage = new FacesMessage(
+					"Motorista atualizado com sucesso");
 
-			return "sucesso";
+			context.addMessage(null, facesMessage);
+
+			return "painel_administrador";
 
 		}
 

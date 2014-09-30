@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<link
+	href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="#{request.contextPath}/resourcers/bootstrap/dist/css/bootstrap-theme.css"
+	rel="stylesheet" type="text/css" />
+
+<title>Menu usuário</title>
+
+</head>
+<body>
+
+	<div id="container-fluid">
+
+		<div class="row-fluid">
+
+			<!-- Fixed navbar -->
+			<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<label class="navbar-brand" title="Sistema de Locação de Veículos">SLV</label>
+					</div>
+					<div class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+						</ul>
+
+						<h:form class="navbar-form navbar-right" style="margin: 0;"
+							role="form">
+
+							<div class="form-group">
+								<h:inputText id="cpf" label="cpf"
+									value="#{usuarioBean.usuario.cpf}" class="form-control"
+									pt:placeholder="CPF" required="true"
+									requiredMessage="Informe seu cpf"
+									validatorMessage="Formato inválido. O cpf deve conter 11 dígitos, todos números."
+									maxlength="11">
+									<f:validateRegex pattern="[0-9]{11}" />
+								</h:inputText>
+							</div>
+							<div class="form-group">
+								<h:inputSecret id="senha" label="Senha"
+									value="#{usuarioBean.usuario.senha}" class="form-control"
+									pt:placeholder="Senha com 8 dígitos" required="true"
+									requiredMessage="Informe a senha"
+									validatorMessage="A senha pode conter 8 dígitos com letras maiúsculas, minúsculas e números."
+									maxlength="8" redisplay="true">
+									<f:validateRegex pattern="[a-zA-Z0-9]{8}" />
+								</h:inputSecret>
+							</div>
+							<div class="form-group">
+							<h:commandLink class="btn btn-primary"
+								action="#{usuarioBean.loginBean}">
+								<span class="glyphicon glyphicon-off"></span>
+							</h:commandLink>
+							</div>
+						</h:form>
+					</div>
+					<!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<script
+		src="#{request.contextPath}/resourcers/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

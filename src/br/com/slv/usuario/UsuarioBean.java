@@ -11,7 +11,7 @@ import javax.faces.model.SelectItem;
 
 import br.com.slv.setor.Setor;
 import br.com.slv.setor.SetorRN;
-import br.com.slv.singleton.Util;
+import br.com.slv.utilidades.Util;
 
 @ManagedBean(name = "usuarioBean")
 @RequestScoped
@@ -30,6 +30,16 @@ public class UsuarioBean {
 	private String confirmarSenha;
 	private String cpfPesquisa;
 	private List<SelectItem> setoresSelect;
+	
+	public String loginBean(){
+		
+		FacesMessage facesMessage = new FacesMessage("Chamou metodo login.");
+		
+		context.addMessage(null, facesMessage);
+		
+		return null;
+		
+	}
 
 	public String salvarUsuarioBean() {
 
@@ -60,8 +70,13 @@ public class UsuarioBean {
 			return null;
 
 		} else {
+			
+			FacesMessage facesMessage = new FacesMessage(
+					"Usuário cadastrado com sucesso");
 
-			return "sucesso";
+			context.addMessage(null, facesMessage);
+
+			return "painel_administrador";
 
 		}
 	}
@@ -88,8 +103,13 @@ public class UsuarioBean {
 		} else {
 
 			this.usuarioRN.atualizarUsuarioRN(usuario);
+			
+			FacesMessage facesMessage = new FacesMessage(
+					"Usuário atualizado com sucesso");
 
-			return "sucesso";
+			context.addMessage(null, facesMessage);
+
+			return "painel_administrador";
 
 		}
 	}

@@ -18,12 +18,19 @@ body {
 	height: 100%;
 }
 
-/* Adaptações */
+/* Início Adaptações */
 .body {
 	margin: 0;
 	padding-top: 100px;
 	height: 100%;
 	background-color: #f5f5f5;
+}
+
+.body-principal {
+	margin: 0;
+	padding-top: 100px;
+	height: 100%;
+	background-color: #ffffff;
 }
 
 .btn-adaptado {
@@ -49,11 +56,29 @@ body {
 
 .erro {
 	color: #ff0000;
-	padding: 5px;
 	layout: table;
 }
 
-/* Adaptações */
+.sucesso {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.marketing .col-lg-4 {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.marketing h2 {
+	font-weight: normal;
+}
+
+.marketing .col-lg-4 p {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+/* Início Adaptações */
 article, aside, details, figcaption, figure, header, footer, hgroup,
 	main, nav, section, summary {
 	display: block;
@@ -65,6 +90,14 @@ audio, canvas, progress, video {
 }
 
 audio
+
+
+
+
+
+
+
+
 
 
 
@@ -99,7 +132,15 @@ audio
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -126,7 +167,15 @@ controls
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -163,7 +212,19 @@ display
 
 
 
+
+
+
+
+
+
+
+
 :
+
+
+
+
 
 
 
@@ -187,7 +248,19 @@ display
 
 
 
+
+
+
+
 none
+
+
+
+
+
+
+
+
 
 
 
@@ -234,6 +307,14 @@ height
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -246,7 +327,15 @@ height
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -340,6 +429,14 @@ svg
 
 
 
+
+
+
+
+
+
+
+
 :not
 
 
@@ -352,7 +449,15 @@ svg
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -377,7 +482,15 @@ svg
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -414,7 +527,19 @@ overflow
 
 
 
+
+
+
+
+
+
+
+
 :
+
+
+
+
 
 
 
@@ -438,7 +563,19 @@ overflow
 
 
 
+
+
+
+
 hidden
+
+
+
+
+
+
+
+
 
 
 
@@ -3924,6 +4061,14 @@ tbody.collapse.in {
 
 
 
+
+
+
+
+
+
+
+
 :not
 
 
@@ -3936,7 +4081,15 @@ tbody.collapse.in {
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -3961,7 +4114,15 @@ tbody.collapse.in {
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -3986,7 +4147,15 @@ tbody.collapse.in {
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4011,7 +4180,15 @@ tbody.collapse.in {
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4036,7 +4213,15 @@ tbody.collapse.in {
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4062,7 +4247,15 @@ tbody.collapse.in {
 
 
 
+
+
+
+
 	
+
+
+
+
 
 
 
@@ -4099,6 +4292,14 @@ border-radius
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -4111,7 +4312,15 @@ border-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4154,7 +4363,23 @@ border-radius
 
 
 
+
+
+
+
+
+
+
+
 :first-child
+
+
+
+
+
+
+
+
 
 
 
@@ -4189,7 +4414,15 @@ border-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4214,7 +4447,15 @@ border-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4239,7 +4480,15 @@ border-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4264,7 +4513,15 @@ border-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4301,6 +4558,14 @@ border-top-right-radius
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -4313,7 +4578,15 @@ border-top-right-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4349,6 +4622,14 @@ border-bottom-right-radius
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -4361,7 +4642,15 @@ border-bottom-right-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4400,7 +4689,23 @@ border-bottom-right-radius
 
 
 
+
+
+
+
+
+
+
+
 :last-child
+
+
+
+
+
+
+
+
 
 
 
@@ -4435,7 +4740,15 @@ border-bottom-right-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4460,7 +4773,15 @@ border-bottom-right-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4498,7 +4819,19 @@ border-bottom-right-radius
 
 
 
+
+
+
+
+
+
+
+
 :not
+
+
+
+
 
 
 
@@ -4523,6 +4856,10 @@ border-bottom-right-radius
 
 
 
+
+
+
+
 (
 :first-child
 
@@ -4536,7 +4873,15 @@ border-bottom-right-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4573,6 +4918,14 @@ border-top-left-radius
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -4585,7 +4938,15 @@ border-top-left-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4621,6 +4982,14 @@ border-bottom-left-radius
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -4633,7 +5002,15 @@ border-bottom-left-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4747,6 +5124,14 @@ border-bottom-left-radius
 
 
 
+
+
+
+
+
+
+
+
 :not
 
 
@@ -4759,7 +5144,15 @@ border-bottom-left-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4784,7 +5177,15 @@ border-bottom-left-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4809,7 +5210,15 @@ border-bottom-left-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4834,7 +5243,15 @@ border-bottom-left-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4871,6 +5288,14 @@ border-radius
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -4883,7 +5308,15 @@ border-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4922,7 +5355,23 @@ border-radius
 
 
 
+
+
+
+
+
+
+
+
 :first-child
+
+
+
+
+
+
+
+
 
 
 
@@ -4957,7 +5406,15 @@ border-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -4982,7 +5439,15 @@ border-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5019,7 +5484,19 @@ border-top-right-radius
 
 
 
+
+
+
+
+
+
+
+
 :
+
+
+
+
 
 
 
@@ -5043,8 +5520,20 @@ border-top-right-radius
 
 
 
+
+
+
+
 4
 px
+
+
+
+
+
+
+
+
 
 
 
@@ -5091,6 +5580,14 @@ border-bottom-right-radius
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -5103,7 +5600,15 @@ border-bottom-right-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5139,7 +5644,19 @@ border-bottom-left-radius
 
 
 
+
+
+
+
+
+
+
+
 :
+
+
+
+
 
 
 
@@ -5163,11 +5680,23 @@ border-bottom-left-radius
 
 
 
+
+
+
+
 0;
 }
 .btn-group-vertical
 >
 .btn
+
+
+
+
+
+
+
+
 
 
 
@@ -5213,6 +5742,14 @@ border-bottom-left-radius
 
 
 
+
+
+
+
+
+
+
+
 :not
 
 
@@ -5225,7 +5762,15 @@ border-bottom-left-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5250,7 +5795,15 @@ border-bottom-left-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5287,6 +5840,14 @@ border-top-left-radius
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -5299,7 +5860,15 @@ border-top-left-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5335,6 +5904,14 @@ border-top-right-radius
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -5347,7 +5924,15 @@ border-top-right-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5383,7 +5968,19 @@ border-bottom-left-radius
 
 
 
+
+
+
+
+
+
+
+
 :
+
+
+
+
 
 
 
@@ -5407,8 +6004,20 @@ border-bottom-left-radius
 
 
 
+
+
+
+
 4
 px
+
+
+
+
+
+
+
+
 
 
 
@@ -5571,6 +6180,14 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
+
+
+
+
 :not
 
 
@@ -5583,7 +6200,15 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5608,7 +6233,15 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5633,7 +6266,15 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5658,7 +6299,15 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5694,7 +6343,19 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
+
+
+
+
 :not
+
+
+
+
 
 
 
@@ -5719,6 +6380,10 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
 (
 :first-child
 
@@ -5732,7 +6397,15 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5757,7 +6430,15 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5782,7 +6463,15 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5807,7 +6496,15 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5842,6 +6539,14 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
+
+
+
+
 :not
 
 
@@ -5854,7 +6559,15 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5880,7 +6593,15 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
 	
+
+
+
+
 
 
 
@@ -5905,7 +6626,15 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5930,7 +6659,15 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -5967,6 +6704,14 @@ border-radius
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -5979,7 +6724,15 @@ border-radius
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -6790,7 +7543,7 @@ border-radius
 }
 
 .navbar-inverse .navbar-nav>li>a {
-	color: #777;
+	color: #999;
 }
 
 .navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus
@@ -7227,7 +7980,9 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 
 .alert {
+	layout: table;
 	padding: 15px;
+	padding-left: 40px;
 	margin-bottom: 20px;
 	border: 1px solid transparent;
 	border-radius: 4px;
@@ -8093,8 +8848,8 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover,
 	background-color: #f5f5f5;
 	border: 1px solid #e3e3e3;
 	border-radius: 4px;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+	/* -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05); */
 }
 
 .well blockquote {

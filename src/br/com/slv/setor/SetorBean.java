@@ -30,7 +30,12 @@ public class SetorBean {
 
 		} else {
 
-			return "sucesso";
+			FacesMessage facesMessage = new FacesMessage(
+					"O setor " + setor.getNome() + " foi cadastrado com sucesso");
+
+			context.addMessage(null, facesMessage);
+
+			return "painel_administrador";
 
 		}
 	}
@@ -38,8 +43,13 @@ public class SetorBean {
 	public String atualizarSetorBean() {
 
 		this.setorRN.atualizarSetorRN(setor);
+		
+		FacesMessage facesMessage = new FacesMessage(
+				"O setor " + setor.getNome() + " foi atualizado com sucesso");
 
-		return "sucesso";
+		context.addMessage(null, facesMessage);
+
+		return "painel_administrador";
 
 	}
 

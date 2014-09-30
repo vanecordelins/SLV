@@ -44,6 +44,7 @@ public class Veiculo implements Serializable {
 	private float capacidadeLitros;
 	private float kmPorLitro;
 	private String tipo;
+	private int lugares;
 
 	@OneToMany(mappedBy = "veiculoViagem")
 	private List<SolicitacaoViagem> listaSolicitacoes;
@@ -148,6 +149,14 @@ public class Veiculo implements Serializable {
 		this.tipo = tipo;
 	}
 
+	public int getLugares() {
+		return lugares;
+	}
+
+	public void setLugares(int lugares) {
+		this.lugares = lugares;
+	}
+
 	public List<SolicitacaoViagem> getListaSolicitacoes() {
 		return listaSolicitacoes;
 	}
@@ -171,6 +180,7 @@ public class Veiculo implements Serializable {
 		result = prime * result
 				+ ((fabricante == null) ? 0 : fabricante.hashCode());
 		result = prime * result + Float.floatToIntBits(kmPorLitro);
+		result = prime * result + lugares;
 		result = prime * result + ((modelo == null) ? 0 : modelo.hashCode());
 		result = prime * result + ((placa == null) ? 0 : placa.hashCode());
 		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
@@ -220,6 +230,8 @@ public class Veiculo implements Serializable {
 			return false;
 		if (Float.floatToIntBits(kmPorLitro) != Float
 				.floatToIntBits(other.kmPorLitro))
+			return false;
+		if (lugares != other.lugares)
 			return false;
 		if (modelo == null) {
 			if (other.modelo != null)

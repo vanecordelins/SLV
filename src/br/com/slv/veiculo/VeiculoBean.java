@@ -50,7 +50,12 @@ public class VeiculoBean {
 
 		} else {
 
-			return "sucesso";
+			FacesMessage facesMessage = new FacesMessage("O veículo de placa "
+					+ veiculo.getPlaca() + " foi cadastrado com sucesso");
+
+			context.addMessage(null, facesMessage);
+
+			return "painel_administrado";
 
 		}
 	}
@@ -77,10 +82,16 @@ public class VeiculoBean {
 			return null;
 
 		} else {
-			
-			this.veiculoRN.atualizarVeiculoRN(this.veiculo);
 
-			return "sucesso";
+			this.veiculoRN.atualizarVeiculoRN(this.veiculo);
+			
+			FacesMessage facesMessage = new FacesMessage(
+					"O veículo de placa "
+					+ veiculo.getPlaca() + " foi atualizado com sucesso");
+
+			context.addMessage(null, facesMessage);
+
+			return "painel_administrador";
 
 		}
 	}

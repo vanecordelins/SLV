@@ -172,6 +172,20 @@
 
 							<div class="col-md-3 column">
 
+								<h:outputText value="Quantidade de lugares" />
+								<h:inputText id="lugares" label="lugares"
+									value="#{veiculoBean.veiculo.lugares}" class="form-control"
+									pt:placeholder="Quantidade de lugares" required="true"
+									requiredMessage="Informar quantidade de lugares"
+									validatorMessage="Quantidade inválida" maxlength="3">
+									<f:convertNumber pattern="#000" />
+								</h:inputText>
+								<h:message for="lugares" styleClass="erro" />
+
+							</div>
+							
+							<div class="col-md-3 column">
+
 								<h:outputText value="Capacidade em litros" />
 								<h:inputText id="capacidadeLitros" label="Capacidade em litros"
 									value="#{veiculoBean.veiculo.capacidadeLitros}"
@@ -184,11 +198,7 @@
 								<h:message for="capacidadeLitros" styleClass="erro" />
 
 							</div>
-
-						</div>
-
-						<div class="row clearfix">
-
+							
 							<div class="col-md-3 column">
 
 								<h:outputText value="km por litro" />
@@ -202,14 +212,14 @@
 								<h:message for="kmPorLitro" styleClass="erro" />
 
 							</div>
-
+							
 						</div>
-
+						
 						<!-- FIM DADOS DO VEICULO -->
 
 						<!-- COMEÇO BOTÃO -->
 
-						<h:commandButton immediate="true" action="administrador.xhtml"
+						<h:commandButton immediate="true" action="painel_administrador.xhtml"
 							value="Cancelar" class="btn btn-lg btn-danger btn-adaptado" />
 
 						<h:commandButton action="#{veiculoBean.atualizarVeiculoBean}" value="Atualizar"

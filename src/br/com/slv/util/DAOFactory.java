@@ -2,6 +2,7 @@ package br.com.slv.util;
 
 import br.com.slv.motorista.MotoristaDAO;
 import br.com.slv.setor.SetorDAO;
+import br.com.slv.solicitacao_viagem.SolicitacaoViagemDAO;
 import br.com.slv.usuario.UsuarioDAO;
 import br.com.slv.veiculo.VeiculoDAO;
 
@@ -49,5 +50,15 @@ public class DAOFactory {
 
 		return veiculoDAO;
 
+	}
+
+	public static SolicitacaoViagemDAO criarSolicitacaoViagemDAO() {
+
+		SolicitacaoViagemDAO solicitacaoViagemDAO = new SolicitacaoViagemDAO();
+
+		solicitacaoViagemDAO.setSession(HibernateUtil.getSessionFactory()
+				.getCurrentSession());
+
+		return solicitacaoViagemDAO;
 	}
 }

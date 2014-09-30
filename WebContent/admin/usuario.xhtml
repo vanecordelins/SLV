@@ -370,12 +370,13 @@
 
 								<h:selectOneMenu id="setor" converter="converterSetor"
 									value="#{usuarioBean.usuario.setorAlocado}"
-									class="form-control" required="true" requiredMessage="Informe o setor" >
-									<f:selectItem noSelectionOption="true" itemLabel="Setor"/>
+									class="form-control" required="true"
+									requiredMessage="Informe o setor">
+									<f:selectItem noSelectionOption="true" itemLabel="Setor" />
 									<f:selectItems value="#{usuarioBean.setoresSelect}" var="item"
 										itemLabel="item.nome" itemValue="#{item}" />
 								</h:selectOneMenu>
-								<h:message for="setor" styleClass="erro"/>
+								<h:message for="setor" styleClass="erro" />
 
 							</div>
 
@@ -421,8 +422,9 @@
 
 						<!-- COMEÇO BOTÃO -->
 
-						<h:commandButton immediate="true" action="administrador.xhtml"
-							value="Cancelar" class="btn btn-lg btn-danger btn-adaptado" />
+						<h:commandButton immediate="true"
+							action="painel_administrador.xhtml" value="Cancelar"
+							class="btn btn-lg btn-danger btn-adaptado" />
 
 						<h:commandButton type="reset" value="Limpar"
 							class="btn btn-lg btn-primary btn-adaptado" />

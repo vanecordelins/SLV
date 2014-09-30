@@ -6,9 +6,6 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import br.com.slv.exception.SenhaUsuarioIncorretaException;
-import br.com.slv.exception.UsuarioInexistenteException;
-
 public class UsuarioDAO implements IUsuarioDAO {
 
 	private Session sessao;
@@ -65,17 +62,5 @@ public class UsuarioDAO implements IUsuarioDAO {
 
 		return usuarios;
 
-	}
-
-	@Override
-	public Usuario logarUsuario(String cpf, String senha)
-			throws SenhaUsuarioIncorretaException, UsuarioInexistenteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public static UsuarioDAO getInstanceUsuarioDAO() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }
